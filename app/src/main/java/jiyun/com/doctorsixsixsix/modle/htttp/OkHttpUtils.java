@@ -179,8 +179,8 @@ public class OkHttpUtils implements FactoryIn {
                 if(cookie.length()>0){
                     cookie=cookie.substring(0,cookie.length()-1);
                 }
-                String coo=shared.getString("cookie",null);
-                if(coo==null){
+                int coo=shared.getInt("code",0);
+                if(coo==0){
                     editor.putString("cookie",cookie);
                     editor.commit();
                 }
