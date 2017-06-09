@@ -172,6 +172,11 @@ public class OkHttpUtils implements FactoryIn {
                 if(cookie.length()>0){
                     cookie=cookie.substring(0,cookie.length()-1);
                 }
+                String coo=shared.getString("cookie",null);
+                if(coo==null){
+                    editor.putString("cookie",cookie);
+                    editor.commit();
+                }
                 if(jsondata!=null) {
                     App.activity.runOnUiThread(new Runnable() {
                         @Override
