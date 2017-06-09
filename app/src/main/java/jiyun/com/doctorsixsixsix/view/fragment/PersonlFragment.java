@@ -1,7 +1,19 @@
 package jiyun.com.doctorsixsixsix.view.fragment;
 
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Calendar;
 
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseFragment;
@@ -9,6 +21,8 @@ import jiyun.com.doctorsixsixsix.presenter.PerSonlPresenter;
 import jiyun.com.doctorsixsixsix.presenter.PersonlPresenterlmp;
 import jiyun.com.doctorsixsixsix.util.AppUtils;
 import jiyun.com.doctorsixsixsix.view.PersonlView;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * 项目名称: 血压卫士
@@ -21,7 +35,8 @@ import jiyun.com.doctorsixsixsix.view.PersonlView;
  */
 
 public class PersonlFragment extends BaseFragment implements PersonlView {
-   private PerSonlPresenter presenter;
+   public PerSonlPresenter presenter;
+    private String path;
     private ImageView mImageView;
     @Override
     public void upLoadImage(String msg) {
@@ -58,4 +73,5 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
     protected void initData() {
 
     }
+
 }
