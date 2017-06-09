@@ -90,7 +90,7 @@ public class MainActivity extends BaseActivity {
                 startPhotoZoom(data.getData());
                 break;
             case 2:
-//                personlFragment.presenter.upLoadImage(getIntent().getStringExtra("fileOne"));
+//                personlFragment.presenter.upLoadImage(tempFile+"");
                 break;
             case 3:
                startPhotoZoom(PersonlPresenterlmp.uri);
