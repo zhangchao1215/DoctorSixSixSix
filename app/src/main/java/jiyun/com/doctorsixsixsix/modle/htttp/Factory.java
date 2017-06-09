@@ -5,7 +5,7 @@ package jiyun.com.doctorsixsixsix.modle.htttp;
  */
 
 public class Factory {
-    private static final int OKHTTP=1;
+    public static final int OKHTTP=1;
     public static FactoryIn create(int type){
         switch (type){
             case OKHTTP:
