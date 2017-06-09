@@ -9,8 +9,8 @@
         android:background="#aaaa">
         <Button
             android:id="@+id/my_login"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:text="点击登录"
@@ -31,6 +31,8 @@
             android:layout_below="@id/my_image"
             android:textColor="#ffffff"
             android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
             android:text="ZZ王奔"/>
     </RelativeLayout>
     <TextView
