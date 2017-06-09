@@ -5,6 +5,7 @@ import java.util.Map;
 
 import jiyun.com.doctorsixsixsix.modle.callback.MyCallBack;
 import jiyun.com.doctorsixsixsix.modle.htttp.Factory;
+import jiyun.com.doctorsixsixsix.modle.urlutils.URLUtils;
 
 /**
  * 项目名称: 血压卫士
@@ -18,9 +19,9 @@ import jiyun.com.doctorsixsixsix.modle.htttp.Factory;
 
 public class IPersonlModel implements PersonlModel {
     @Override
-    public void upLoadImage( String path, String cookie, MyCallBack callBack) {
+    public void upLoadImage( String file, String cookie, MyCallBack callBack) {
         Map<String,String> map=new HashMap<>();
-        map.put("path",path);
-        Factory.create(Factory.OKHTTP).POST("",map,cookie,callBack);
+        map.put("path",file);
+        Factory.create(Factory.OKHTTP).POST(URLUtils.IMAGE,map,cookie,callBack);
     }
 }

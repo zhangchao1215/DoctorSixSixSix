@@ -9,7 +9,7 @@ public class Factory {
     public static FactoryIn create(int type){
         switch (type){
             case OKHTTP:
-                return null;
+                return OkHttpUtils.getInstance();
         }
         return null;
     }
