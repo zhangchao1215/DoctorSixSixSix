@@ -39,6 +39,7 @@ public class MainActivity extends BaseActivity {
         MainAdapter adapter=new MainAdapter(getSupportFragmentManager(),mList);
         mViewPager.setAdapter(adapter);
         mTabLayout.setupWithViewPager(mViewPager);
+        //                    设置自定义视图
         mTabLayout.getTabAt(0).setCustomView(getText("医生在线",R.mipmap.doctor_head_normal));
         mTabLayout.getTabAt(1).setCustomView(getText("血压管理",R.mipmap.blood_manger_normal));
         mTabLayout.getTabAt(2).setCustomView(getText("个人中心",R.mipmap.persional_normal));
