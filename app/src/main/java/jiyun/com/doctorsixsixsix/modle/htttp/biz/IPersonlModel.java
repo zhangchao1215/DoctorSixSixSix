@@ -19,9 +19,11 @@ import jiyun.com.doctorsixsixsix.modle.urlutils.URLUtils;
 
 public class IPersonlModel implements PersonlModel {
     @Override
-    public void upLoadImage( String file, String cookie, MyCallBack callBack) {
+    public void upLoadImage( String file,String button,String cookie, MyCallBack callBack) {
         Map<String,String> map=new HashMap<>();
-        map.put("path",file);
+        map.put("file",file);
+        map.put("button",button);
         Factory.create(Factory.OKHTTP).POST(URLUtils.IMAGE,map,cookie,callBack);
     }
+
 }

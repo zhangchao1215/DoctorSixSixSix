@@ -139,6 +139,9 @@ public class OkHttpUtils implements FactoryIn {
         if(map!=null&&map.size()>0) {
             for (String key : map.keySet()) {
                 String value = map.get(key);
+                if(key.equals("button")){
+                    builder.addPart(MultipartBody.create(MediaType.parse("image/*"),value));
+                }
                 if(value==null){
 
                 }else {

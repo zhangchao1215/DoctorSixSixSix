@@ -16,9 +16,13 @@ import java.util.Calendar;
 
 import jiyun.com.doctorsixsixsix.App;
 import jiyun.com.doctorsixsixsix.R;
+import jiyun.com.doctorsixsixsix.base.BaseBean;
+import jiyun.com.doctorsixsixsix.modle.bean.upLoadImage;
 import jiyun.com.doctorsixsixsix.modle.callback.MyCallBack;
 import jiyun.com.doctorsixsixsix.modle.htttp.biz.IPersonlModel;
 import jiyun.com.doctorsixsixsix.modle.htttp.biz.PersonlModel;
+import jiyun.com.doctorsixsixsix.util.AppUtils;
+import jiyun.com.doctorsixsixsix.util.GsonUtils;
 import jiyun.com.doctorsixsixsix.view.PersonlView;
 
 import static android.os.Build.VERSION_CODES.M;
@@ -48,12 +52,17 @@ public class PersonlPresenterlmp implements PerSonlPresenter {
 
     @Override
     public void upLoadImage(String path) {
-            model.upLoadImage(path, "", new MyCallBack() {
+            model.upLoadImage(path,"submit","", new MyCallBack() {
                 @Override
                 public void onSuccess(String GsonData) {
                     Log.e("aa",GsonData);
+                    upLoadImage bean = (upLoadImage) GsonUtils.getBean(GsonData, upLoadImage.class);
+                    int code = bean.getCode();
+                    if(code==10000){
+                        AppUtils.toast("头像上传成功");
+                        view.upLoadImage(bean.getData());
+                    }
                 }
-
                 @Override
                 public void onError(String errorMsg) {
                     Log.e("aa",errorMsg);

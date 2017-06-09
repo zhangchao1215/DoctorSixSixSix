@@ -37,6 +37,7 @@ public class MainActivity extends BaseActivity {
     private List<BaseFragment> mList=new ArrayList<>();
     private File tempFile;
     private PersonlFragment personlFragment;
+    private String file;
 
     @Override
     protected int getLayoutId() {
@@ -89,7 +90,7 @@ public class MainActivity extends BaseActivity {
                 startPhotoZoom(data.getData());
                 break;
             case 2:
-//                personlFragment.presenter.upLoadImage(tempFile+"");
+                personlFragment.presenter.upLoadImage(file);
                 break;
             case 3:
                startPhotoZoom(PersonlPresenterlmp.uri);
@@ -122,7 +123,8 @@ public class MainActivity extends BaseActivity {
 
         intent.putExtra("noFaceDetection", true); // no face detection
 
-        tempFile=new File("/sdcard/ll1x/"+ Calendar.getInstance().getTimeInMillis()+".jpg"); // 以时间秒为文件名
+        file="/sdcard/ll1x/"+ Calendar.getInstance().getTimeInMillis()+".jpg";
+        tempFile=new File(file); // 以时间秒为文件名
         File temp = new File("/sdcard/ll1x/");//自已项目 文件夹
         if (!temp.exists()) {
             temp.mkdir();

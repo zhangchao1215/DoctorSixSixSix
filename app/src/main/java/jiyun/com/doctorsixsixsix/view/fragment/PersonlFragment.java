@@ -17,6 +17,7 @@ import java.util.Calendar;
 
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseFragment;
+import jiyun.com.doctorsixsixsix.modle.htttp.Factory;
 import jiyun.com.doctorsixsixsix.presenter.PerSonlPresenter;
 import jiyun.com.doctorsixsixsix.presenter.PersonlPresenterlmp;
 import jiyun.com.doctorsixsixsix.util.AppUtils;
@@ -40,7 +41,7 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
     private ImageView mImageView;
     @Override
     public void upLoadImage(String msg) {
-        AppUtils.toast(msg);
+        Factory.create(Factory.OKHTTP).loadImage(msg,mImageView,true);
     }
 
     @Override

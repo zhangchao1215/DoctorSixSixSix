@@ -15,5 +15,5 @@ import jiyun.com.doctorsixsixsix.modle.callback.MyCallBack;
  */
 
 public interface PersonlModel {
-    void upLoadImage( String file, String cookie, MyCallBack callBack);
+    void upLoadImage( String file,String button,String cookie, MyCallBack callBack);
 }
