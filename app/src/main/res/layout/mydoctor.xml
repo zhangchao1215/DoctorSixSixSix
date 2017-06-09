@@ -160,7 +160,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
-                android:text="换一换"
+                android:text="换一换."
                 android:textColor="#58C367"
                 android:textSize="15dp"/>
         </RelativeLayout>
