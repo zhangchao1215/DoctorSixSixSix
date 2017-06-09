@@ -161,7 +161,7 @@
             android:drawableTop="@drawable/ask_doctor_press"
             android:gravity="center_horizontal"
             android:text="免费问医生"
-            android:textColor="" />
+            android:textColor="#000000" />
         <RadioButton
             android:id="@+id/jkgw"
             android:layout_width="0dp"
@@ -173,7 +173,7 @@
             android:drawableTop="@drawable/doctor_phone_press"
             android:gravity="center_horizontal"
             android:text="健康顾问"
-            android:textColor="" />
+            android:textColor="#000000" />
     </LinearLayout>
 
     <LinearLayout
