@@ -1,9 +1,12 @@
 package jiyun.com.doctorsixsixsix.presenter;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 
 import java.io.File;
@@ -16,6 +19,8 @@ import jiyun.com.doctorsixsixsix.modle.callback.MyCallBack;
 import jiyun.com.doctorsixsixsix.modle.htttp.biz.IPersonlModel;
 import jiyun.com.doctorsixsixsix.modle.htttp.biz.PersonlModel;
 import jiyun.com.doctorsixsixsix.view.PersonlView;
+
+import static android.os.Build.VERSION_CODES.M;
 
 /**
  * 项目名称: 血压卫士
@@ -30,27 +35,29 @@ import jiyun.com.doctorsixsixsix.view.PersonlView;
 public class PersonlPresenterlmp implements PerSonlPresenter {
     private PersonlView view;
     private PersonlModel model;
+    private SharedPreferences sharedPreferences;
     //通过静态变量获取相机图片的Uri
     public static Uri uri;
 
     public PersonlPresenterlmp(PersonlView view) {
         this.view = view;
         model=new IPersonlModel();
+        sharedPreferences=App.activity.getSharedPreferences("data", Context.MODE_PRIVATE);
     }
 
     @Override
     public void upLoadImage(String path) {
-        model.upLoadImage(path, null, new MyCallBack() {
-            @Override
-            public void onSuccess(String GsonData) {
+            model.upLoadImage(path, "", new MyCallBack() {
+                @Override
+                public void onSuccess(String GsonData) {
+                    Log.e("aa",GsonData);
+                }
 
-            }
-
-            @Override
-            public void onError(String errorMsg) {
-
-            }
-        });
+                @Override
+                public void onError(String errorMsg) {
+                    Log.e("aa",errorMsg);
+                }
+            });
     }
 
     @Override
