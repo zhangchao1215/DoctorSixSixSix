@@ -2,8 +2,6 @@ package jiyun.com.doctorsixsixsix.modle.bean;
 
 import java.util.List;
 
-import jiyun.com.doctorsixsixsix.base.BaseBean;
-
 /**
  * 项目名称: 血压卫士
  * 类描述: 实体类
@@ -14,14 +12,7 @@ import jiyun.com.doctorsixsixsix.base.BaseBean;
  * 修改时间:  6-9 星期五上午
  */
 
-public class MainDoctorBean extends BaseBean {
-    /**
-     * code : 10000
-     * total : 70046
-     * data : [{"document_id":"31540","score":"NaN","document_weight":"223.497","name":"李明","doctorPinyin":"gukeliming","title":"主任医师","teach":"教授","goodat":"脊柱侧后凸畸形、颈椎病、腰椎间盘突出症、腰椎管狭窄症、腰椎滑脱症、脊柱骨折、脊柱肿瘤、脊柱结核等外科治疗。","app_image":"http://static.i2.xywy.com/zhuanjia/20141230/a6f380b3247db39a2f807bfae0b4a67584425_d.jpg","hospital":"上海长海医院","province":"上海市","city":"杨浦","level":"三级甲等","depart":"骨科","uuidDepart":"4902","depart_parent":"4901","hospitalPinyin":"chhospita","departPinyin":"guke","areapinyin":"shanghai","speciality":"[{\"id\":\"74\",\"name\":\"骨科\"}]","vote":"5","referlist_url":"http://z.xywy.com/doc/lmdr/zixun.php","article_num":"0","plus_num":"33","articlelist_url":"http://z.xywy.com/doc/lmdr/wenzhang.htm","agreeplus":"78","is_ask":"1","is_plus":"1","menzhen":"星期一 上午、星期四 下午","refer_num":"0","expert_id":"6665","club_id":"12114702"},{"document_id":"1179","score":"NaN","document_weight":"223.313","name":"郭永庆","doctorPinyin":"guoyongqing","title":"主任医师","teach":"","goodat":"从事胸外科工作26年，具有较强的胸外科功底，擅长肺癌、食管癌、纵隔肿瘤的外科治疗，胸腔镜肺叶切除手术，胸腔镜全胸腺切除治疗重症肌无力，支气管扩张支气管剔除术，肺减容术，肺移植;治疗顽固性恶性胸水。专攻肺癌的早期诊断及基础研究。","app_image":"http://static.i2.xywy.com/zhuanjia/20141212/98053d6a17af1f21c0273da1e2bbef3d87086_d.jpg","hospital":"中日友好医院","province":"北京市","city":"朝阳","level":"三级甲等","depart":"胸外科","uuidDepart":"90","depart_parent":"1","hospitalPinyin":"zryhyy","departPinyin":"xiongwaike","areapinyin":"beijing","speciality":"[{\"id\":\"32\",\"name\":\"胸外科\"}]","vote":"1","referlist_url":"http://z.xywy.com/doc/guoyongqing/zixun.php","article_num":"0","plus_num":"2","articlelist_url":"http://z.xywy.com/doc/guoyongqing/wenzhang.htm","agreeplus":"3","is_ask":"1","is_plus":"1","menzhen":"星期一 上午","refer_num":"0","expert_id":"1297","club_id":"12111523"},{"document_id":"23738","score":"NaN","document_weight":"223.228","name":"王学廉","doctorPinyin":"tangduwangxuelian","title":"主任医师","teach":"教授","goodat":"帕金森病、抽动秽语综合征、抽动症、肌张力障碍、难治性精神病、吸毒成瘾、酒精依赖、顽固性疼痛、脑瘫、三叉神经痛、面肌痉挛、扭转痉挛、痉挛性斜颈、舞蹈症、特发性震颤等功能性脑疾病。","app_image":"http://static.i2.xywy.com/zhuanjia/20140610/cfcb95f05cd02371285039d94e7743a377139_d.jpg","hospital":"唐都医院","province":"陕西省","city":"西安","level":"三级甲等","depart":"神经外科","uuidDepart":"3091","depart_parent":"3090","hospitalPinyin":"fmmu","departPinyin":"shenjingwaike","areapinyin":"shanxi","speciality":"[{\"id\":\"29\",\"name\":\"神经外科\"}]","vote":"10","referlist_url":"http://z.xywy.com/doc/wangxuelian/zixun.php","article_num":"3106","plus_num":"9","articlelist_url":"http://z.xywy.com/doc/wangxuelian/wenzhang.htm","agreeplus":"31","is_ask":"1","is_plus":"1","menzhen":"星期一 下午、星期三 上午","refer_num":"1796","expert_id":"21072","club_id":"18063627"},{"document_id":"45139","score":"NaN","document_weight":"222.522","name":"杨铁生","doctorPinyin":"yangtiesheng","title":"主任医师","teach":"教授","goodat":"风湿病、免疫病、热带病与寄生虫病的诊断、治疗以及临床免疫学、风湿病学及寄生虫学检验，肿瘤标记物、过敏性疾病的检测。","app_image":"http://static.i2.xywy.com/zhuanjia/20150728/acad1e37b306ecba5fcff2050df6904f59933_d.jpg","hospital":"北京大学人民医院","province":"北京市","city":"西城","level":"三级甲等","depart":"风湿免疫科","uuidDepart":"7140","depart_parent":"7007","hospitalPinyin":"pkuph","departPinyin":"fengshimianyike","areapinyin":"beijing","speciality":"[{\"id\":\"50\",\"name\":\"免疫科\"}]","vote":"170","referlist_url":"http://z.xywy.com/doc/yangtiesheng/zixun.php","article_num":"13","plus_num":"57","articlelist_url":"http://z.xywy.com/doc/yangtiesheng/wenzhang.htm","agreeplus":"214","is_ask":"1","is_plus":"1","menzhen":"星期一 上午、星期二 上午","refer_num":"4582","expert_id":"17694","club_id":"15207420"}]
-     * msg : 成功
-     */
-
+public class MainDoctorBean{
     private int code;
     private int total;
     private String msg;
@@ -384,5 +375,4 @@ public class MainDoctorBean extends BaseBean {
             this.club_id = club_id;
         }
     }
-
 }

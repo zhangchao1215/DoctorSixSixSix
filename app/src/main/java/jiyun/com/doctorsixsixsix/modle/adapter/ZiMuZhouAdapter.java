@@ -48,7 +48,6 @@ public class ZiMuZhouAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         MyHodler hodler = null;
-
         if (convertView == null) {
             hodler = new MyHodler();
             convertView = LayoutInflater.from(context).inflate(R.layout.chao_activity_zimuzhou_item, null);

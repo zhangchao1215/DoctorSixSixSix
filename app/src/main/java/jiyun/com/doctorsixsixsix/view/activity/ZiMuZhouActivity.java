@@ -1,5 +1,6 @@
 package jiyun.com.doctorsixsixsix.view.activity;
 
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -31,6 +32,7 @@ public class ZiMuZhouActivity extends BaseActivity {
     @BindView(R.id.ZiMu_Zhou)
     NavieView ZiMuZhou;
     private ZiMuZhouAdapter adapter;
+    private Boolean isCheck = false;
     private List<String> mList;
     private String[] city = {"不限", "北京市", "山东省", "山西省", "河北省",
             "内蒙古自治区", "新疆维吾尔自治区", "云南省", "甘肃省", "陕西省", "重庆市", "四川省",
@@ -51,6 +53,16 @@ public class ZiMuZhouActivity extends BaseActivity {
         }
         adapter = new ZiMuZhouAdapter(this, mList);
         ZiMuListView.setAdapter(adapter);
+        //默认为false
+
+        ZiMuZhou.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    ZiMuZhou.setBackgroundResource(R.color.colorZiMuChou);
+
+            }
+        });
+
 
     }
 
