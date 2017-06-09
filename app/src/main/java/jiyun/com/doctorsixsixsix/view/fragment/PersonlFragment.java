@@ -41,7 +41,7 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
     @Override
     protected void initView(View view) {
         presenter=new PersonlPresenterlmp(this);
-        mImageView= (ImageView) view.findViewById(R.id.My_image);
+        mImageView= (ImageView) view.findViewById(R.id.my_image);
     }
 
     @Override
