@@ -84,6 +84,7 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
         myLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //跳转登录界面
                 Intent intent=new Intent(getActivity(),LoginActivity.class);
                 startActivityForResult(intent,4);
             }
@@ -112,6 +113,7 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+       //跳转回传判断是否登录成功，对控件进行显示隐藏
         switch (requestCode){
             case 4:
                 switch (resultCode){

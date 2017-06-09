@@ -75,6 +75,7 @@ public class PersonlPresenterlmp implements PerSonlPresenter {
         final AlertDialog dialog=new AlertDialog.Builder(App.activity).create();
         dialog.show();
         dialog.getWindow().setContentView(R.layout.my_dialog);
+        //打开相机
         dialog.getWindow().findViewById(R.id.my_textOne).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,6 +92,7 @@ public class PersonlPresenterlmp implements PerSonlPresenter {
                 dialog.dismiss();
             }
         });
+        //打开相册
         dialog.getWindow().findViewById(R.id.my_textTwo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

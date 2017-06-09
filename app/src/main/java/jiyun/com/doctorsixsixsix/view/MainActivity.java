@@ -87,12 +87,15 @@ public class MainActivity extends BaseActivity {
         }
         switch (requestCode){
             case 1:
+                //相册剪裁
                 startPhotoZoom(data.getData());
                 break;
             case 2:
+                //上传头像的请求
                 personlFragment.presenter.upLoadImage(file);
                 break;
             case 3:
+                //相机剪裁
                startPhotoZoom(PersonlPresenterlmp.uri);
                 break;
         }
