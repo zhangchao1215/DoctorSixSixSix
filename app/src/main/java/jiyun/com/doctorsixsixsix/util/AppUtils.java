@@ -1,6 +1,7 @@
 package jiyun.com.doctorsixsixsix.util;
 
 import android.app.ProgressDialog;
+import android.widget.Toast;
 
 import jiyun.com.doctorsixsixsix.App;
 
@@ -21,5 +22,9 @@ public class AppUtils {
     }
     public static void dismiss(){
         dialog.dismiss();
+    }
+
+    public static void toast(String str){
+        Toast.makeText(App.activity,str,Toast.LENGTH_SHORT).show();
     }
 }
