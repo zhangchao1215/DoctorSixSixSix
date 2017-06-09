@@ -6,8 +6,12 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseActivity;
+import jiyun.com.doctorsixsixsix.base.BaseFragment;
 
 /**
  * Created by dell on 2017/6/9.
@@ -16,6 +20,8 @@ import jiyun.com.doctorsixsixsix.base.BaseActivity;
 public class MainActivity extends BaseActivity {
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
+    private List<BaseFragment> mList=new ArrayList<>();
+    private List<TextView> mTextList=new ArrayList<>();
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;

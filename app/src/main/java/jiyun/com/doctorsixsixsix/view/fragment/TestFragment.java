@@ -1,5 +1,6 @@
 package jiyun.com.doctorsixsixsix.view.fragment;
 
+import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseFragment;
 
 /**
@@ -9,7 +10,7 @@ import jiyun.com.doctorsixsixsix.base.BaseFragment;
 public class TestFragment extends BaseFragment {
     @Override
     protected int getLayoutId() {
-        return 0;
+        return R.layout.text_item;
     }
 
     @Override

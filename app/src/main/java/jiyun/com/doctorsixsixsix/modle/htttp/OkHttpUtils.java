@@ -1,6 +1,7 @@
 package jiyun.com.doctorsixsixsix.modle.htttp;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -41,8 +42,12 @@ import static java.lang.System.load;
 public class OkHttpUtils implements FactoryIn {
     private static OkHttpUtils okhttpUtils=null;
     private OkHttpClient okHttpClient=null;
+    private SharedPreferences shared;
+    private SharedPreferences.Editor editor;
 
     public OkHttpUtils(){
+        shared=App.activity.getSharedPreferences("data",Context.MODE_PRIVATE);
+        editor=shared.edit();
         cookie();
     }
     public static OkHttpUtils getInstance(){
