@@ -1,7 +1,6 @@
 package jiyun.com.doctorsixsixsix.view;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -20,12 +19,10 @@ import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseActivity;
 import jiyun.com.doctorsixsixsix.base.BaseFragment;
 import jiyun.com.doctorsixsixsix.modle.adapter.MainAdapter;
-import jiyun.com.doctorsixsixsix.presenter.PerSonlPresenter;
 import jiyun.com.doctorsixsixsix.presenter.PersonlPresenterlmp;
+import jiyun.com.doctorsixsixsix.view.fragment.DoctorFragment;
 import jiyun.com.doctorsixsixsix.view.fragment.PersonlFragment;
 import jiyun.com.doctorsixsixsix.view.fragment.TestFragment;
-
-import static android.R.attr.path;
 
 /**
  * Created by dell on 2017/6/9.
@@ -48,7 +45,7 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         mViewPager= (ViewPager) findViewById(R.id.Main_ViewPager);
         mTabLayout= (TabLayout) findViewById(R.id.Main_Tab);
-        mList.add(new TestFragment());
+        mList.add(new DoctorFragment());
         mList.add(new TestFragment());
         personlFragment=new PersonlFragment();
         mList.add(personlFragment);

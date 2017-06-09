@@ -12,7 +12,7 @@ import jiyun.com.doctorsixsixsix.base.BaseFragment;
 public class TestFragment extends BaseFragment {
     @Override
     protected int getLayoutId() {
-        return R.layout.mydoctor;
+        return R.layout.text_item;
     }
 
     @Override
