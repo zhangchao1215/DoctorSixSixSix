@@ -12,6 +12,8 @@ import java.util.List;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseActivity;
 import jiyun.com.doctorsixsixsix.base.BaseFragment;
+import jiyun.com.doctorsixsixsix.modle.adapter.MainAdapter;
+import jiyun.com.doctorsixsixsix.view.fragment.TestFragment;
 
 /**
  * Created by dell on 2017/6/9.
@@ -21,7 +23,7 @@ public class MainActivity extends BaseActivity {
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
     private List<BaseFragment> mList=new ArrayList<>();
-    private List<TextView> mTextList=new ArrayList<>();
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
@@ -31,7 +33,15 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         mViewPager= (ViewPager) findViewById(R.id.Main_ViewPager);
         mTabLayout= (TabLayout) findViewById(R.id.Main_Tab);
-
+        mList.add(new TestFragment());
+        mList.add(new TestFragment());
+        mList.add(new TestFragment());
+        MainAdapter adapter=new MainAdapter(getSupportFragmentManager(),mList);
+        mViewPager.setAdapter(adapter);
+        mTabLayout.setupWithViewPager(mViewPager);
+        mTabLayout.getTabAt(0).setCustomView(getText("医生在线",R.mipmap.doctor_head_normal));
+        mTabLayout.getTabAt(1).setCustomView(getText("血压管理",R.mipmap.blood_manger_normal));
+        mTabLayout.getTabAt(2).setCustomView(getText("个人中心",R.mipmap.persional_normal));
     }
 
     @Override
