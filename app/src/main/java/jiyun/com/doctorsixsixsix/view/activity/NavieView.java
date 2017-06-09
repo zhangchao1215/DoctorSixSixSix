@@ -73,6 +73,7 @@ public class NavieView extends View {
             //重置颜色
             textPaint.reset();
         }
+
     }
 
 }

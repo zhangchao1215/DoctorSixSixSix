@@ -4,7 +4,6 @@ import android.view.View;
 
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseFragment;
-import jiyun.com.doctorsixsixsix.util.AppUtils;
 
 /**
  * Created by dell on 2017/6/9.
@@ -13,7 +12,7 @@ import jiyun.com.doctorsixsixsix.util.AppUtils;
 public class TestFragment extends BaseFragment {
     @Override
     protected int getLayoutId() {
-        return R.layout.text_item;
+        return R.layout.mydoctor;
     }
 
     @Override
