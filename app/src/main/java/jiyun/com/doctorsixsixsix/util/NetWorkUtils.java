@@ -98,11 +98,11 @@ public class NetWorkUtils {
         NetworkInfo.State gprs = manager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState();
         NetworkInfo.State wifi = manager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState();
         if(gprs == NetworkInfo.State.CONNECTED || gprs == NetworkInfo.State.CONNECTING){
-            Toast.makeText(App.activity, "你当前使用gprs网络", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(App.activity, "你当前使用gprs网络", Toast.LENGTH_SHORT).show();
         }
         //判断为wifi状态下才加载广告，如果是GPRS手机网络则不加载！
         if(wifi == NetworkInfo.State.CONNECTED || wifi == NetworkInfo.State.CONNECTING){
-            Toast.makeText(App.activity, "您当前使用wifi网络", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(App.activity, "您当前使用wifi网络", Toast.LENGTH_SHORT).show();
         }
 
     }

@@ -24,13 +24,14 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initView();
-        initListener();
+
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        initView();
+        initListener();
         if(NetWorkUtils.getInstance().checkNetworkState()){
             initData();
         }

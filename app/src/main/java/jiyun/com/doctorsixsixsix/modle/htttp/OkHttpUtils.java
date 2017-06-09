@@ -18,6 +18,7 @@ import java.util.Set;
 
 import jiyun.com.doctorsixsixsix.App;
 import jiyun.com.doctorsixsixsix.modle.callback.MyCallBack;
+import jiyun.com.doctorsixsixsix.util.AppUtils;
 import jiyun.com.doctorsixsixsix.util.GlideCircleTransform;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -78,6 +79,7 @@ public class OkHttpUtils implements FactoryIn {
     }
     @Override
     public void GET(String url, Map<String, String> map, String cookie, final MyCallBack callBack) {
+        AppUtils.dialog();
         StringBuffer sb=new StringBuffer("?");
         if(map.size()>0&&map!=null){
             Set<String> values = map.keySet();
@@ -106,6 +108,7 @@ public class OkHttpUtils implements FactoryIn {
                     @Override
                     public void run() {
                         callBack.onError(e.getMessage());
+                        AppUtils.dismiss();
                     }
                 });
             }
@@ -118,10 +121,12 @@ public class OkHttpUtils implements FactoryIn {
                         @Override
                         public void run() {
                             callBack.onSuccess(jsondata);
+                            AppUtils.dismiss();
                         }
                     });
                 }else{
                     Toast.makeText(App.activity,"请求数据为空",Toast.LENGTH_SHORT).show();
+                    AppUtils.dismiss();
                 }
             }
         });
@@ -129,6 +134,7 @@ public class OkHttpUtils implements FactoryIn {
 
     @Override
     public void POST(String url, Map<String, String> map, String cookie, final MyCallBack callBack) {
+        AppUtils.dialog();
         MultipartBody.Builder builder=new MultipartBody.Builder().setType(MultipartBody.FORM);
         if(map!=null&&map.size()>0) {
             for (String key : map.keySet()) {
@@ -156,6 +162,7 @@ public class OkHttpUtils implements FactoryIn {
             @Override
             public void onFailure(Call call, IOException e) {
                 callBack.onError(e.getMessage());
+                AppUtils.dismiss();
             }
 
             @Override
@@ -182,10 +189,12 @@ public class OkHttpUtils implements FactoryIn {
                         @Override
                         public void run() {
                             callBack.onSuccess(jsondata);
+                            AppUtils.dismiss();
                         }
                     });
                 }else{
                     Toast.makeText(App.activity,"请求数据为空",Toast.LENGTH_SHORT).show();
+                    AppUtils.dismiss();
                 }
             }
         });
