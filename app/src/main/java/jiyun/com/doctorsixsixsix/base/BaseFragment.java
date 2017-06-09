@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import jiyun.com.doctorsixsixsix.util.NetWorkUtils;
 
 /**
@@ -15,6 +17,7 @@ import jiyun.com.doctorsixsixsix.util.NetWorkUtils;
  */
 
 public abstract class BaseFragment extends Fragment {
+    protected Unbinder unbinder;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -24,13 +27,13 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        unbinder = ButterKnife.bind(this, view);
+        initView(view);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        initView();
         initListener();
         if(NetWorkUtils.getInstance().checkNetworkState()){
             initData();
@@ -39,9 +42,15 @@ public abstract class BaseFragment extends Fragment {
 
     protected abstract int getLayoutId();
 
-    protected abstract void initView();
+    protected abstract void initView(View view);
 
     protected abstract void initListener();
 
     protected abstract void initData();
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
+    }
 }

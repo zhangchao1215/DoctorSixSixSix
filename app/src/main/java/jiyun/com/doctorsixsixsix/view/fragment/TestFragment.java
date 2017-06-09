@@ -1,5 +1,7 @@
 package jiyun.com.doctorsixsixsix.view.fragment;
 
+import android.view.View;
+
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseFragment;
 import jiyun.com.doctorsixsixsix.util.AppUtils;
@@ -15,7 +17,7 @@ public class TestFragment extends BaseFragment {
     }
 
     @Override
-    protected void initView() {
+    protected void initView(View view) {
 //        AppUtils.dialog();
     }
 

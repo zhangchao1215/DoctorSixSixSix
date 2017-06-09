@@ -12,7 +12,7 @@ package jiyun.com.doctorsixsixsix.view;
 
 public interface PersonlView {
     //上传图片
-    void upLoadImage();
+    void upLoadImage(String msg);
 
     //弹出dialog
     void dialog();

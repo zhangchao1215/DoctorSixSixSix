@@ -70,40 +70,15 @@
         android:id="@+id/kongbai1"
         android:layout_below="@id/myshoucang"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="10dp"
-        android:background="#f9f9f9">
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/myziliao"
-        android:layout_below="@id/kongbai1"
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="30dp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/img_info"/>
-        <TextView
-            android:padding="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="个人资料"/>
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/img_info"/>
+        android:layout_height="50dp"
+        android:layout_below="@id/my_jiahao"
+        android:background="#ffffff"
+        android:text="我的收藏"
+        android:gravity="center_vertical"
+        android:textSize="25dp"
+        android:drawableLeft="@mipmap/img_collect"/>
     <TextView
-        android:padding="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="个人资料"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/kongbai2"
-        android:layout_below="@id/myziliao"
+        android:id="@+id/my_ziliao"
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_height="10dp"
@@ -134,6 +109,17 @@
     <LinearLayout
         android:id="@+id/shezhi"
         android:layout_below="@id/xiaoxi"
+        android:layout_height="50dp"
+        android:layout_below="@id/my_shoucang"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#ffffff"
+        android:text="个人资料"
+        android:gravity="center_vertical"
+        android:textSize="25dp"
+        android:drawableLeft="@mipmap/img_info"/>
+    <TextView
+        android:id="@+id/my_message"
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_height="30dp">
@@ -147,8 +133,4 @@
             android:layout_height="wrap_content"
             android:text="设置"/>
     </LinearLayout>
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 </RelativeLayout>
