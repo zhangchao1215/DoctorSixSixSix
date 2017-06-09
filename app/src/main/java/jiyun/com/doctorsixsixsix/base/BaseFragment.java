@@ -24,13 +24,12 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        initView(view);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        initView();
         initListener();
         if(NetWorkUtils.getInstance().checkNetworkState()){
             initData();
@@ -39,7 +38,7 @@ public abstract class BaseFragment extends Fragment {
 
     protected abstract int getLayoutId();
 
-    protected abstract void initView();
+    protected abstract void initView(View view);
 
     protected abstract void initListener();
 

@@ -1,5 +1,10 @@
 package jiyun.com.doctorsixsixsix.presenter;
 
+import android.app.AlertDialog;
+import android.view.View;
+
+import jiyun.com.doctorsixsixsix.App;
+import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.modle.callback.MyCallBack;
 import jiyun.com.doctorsixsixsix.modle.htttp.biz.IPersonlModel;
 import jiyun.com.doctorsixsixsix.modle.htttp.biz.PersonlModel;
@@ -35,6 +40,31 @@ public class PersonlPresenterlmp implements PerSonlPresenter {
             @Override
             public void onError(String errorMsg) {
 
+            }
+        });
+    }
+
+    @Override
+    public void getDialog() {
+        final AlertDialog dialog=new AlertDialog.Builder(App.activity).create();
+        dialog.show();
+        dialog.getWindow().setContentView(R.layout.my_dialog);
+        dialog.getWindow().findViewById(R.id.my_textOne).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        dialog.getWindow().findViewById(R.id.my_textTwo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        dialog.getWindow().findViewById(R.id.my_textThree).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
     }

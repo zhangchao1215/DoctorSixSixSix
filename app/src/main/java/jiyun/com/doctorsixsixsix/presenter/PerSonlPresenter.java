@@ -13,4 +13,6 @@ package jiyun.com.doctorsixsixsix.presenter;
 public interface PerSonlPresenter {
 
     void upLoadImage(String path);
+
+    void getDialog();
 }

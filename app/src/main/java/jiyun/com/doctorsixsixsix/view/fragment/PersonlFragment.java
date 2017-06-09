@@ -1,5 +1,8 @@
 package jiyun.com.doctorsixsixsix.view.fragment;
 
+import android.view.View;
+import android.widget.ImageView;
+
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseFragment;
 import jiyun.com.doctorsixsixsix.presenter.PerSonlPresenter;
@@ -19,6 +22,7 @@ import jiyun.com.doctorsixsixsix.view.PersonlView;
 
 public class PersonlFragment extends BaseFragment implements PersonlView {
    private PerSonlPresenter presenter;
+    private ImageView mImageView;
     @Override
     public void upLoadImage(String msg) {
         AppUtils.toast(msg);
@@ -35,13 +39,19 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
     }
 
     @Override
-    protected void initView() {
+    protected void initView(View view) {
         presenter=new PersonlPresenterlmp(this);
+        mImageView= (ImageView) view.findViewById(R.id.My_image);
     }
 
     @Override
     protected void initListener() {
-
+        mImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.getDialog();
+            }
+        });
     }
 
     @Override
