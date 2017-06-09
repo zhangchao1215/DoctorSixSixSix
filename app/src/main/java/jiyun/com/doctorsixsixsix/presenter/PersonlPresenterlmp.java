@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 
 import java.io.File;
 import java.net.URI;
@@ -15,9 +16,13 @@ import java.util.Calendar;
 
 import jiyun.com.doctorsixsixsix.App;
 import jiyun.com.doctorsixsixsix.R;
+import jiyun.com.doctorsixsixsix.base.BaseBean;
+import jiyun.com.doctorsixsixsix.modle.bean.upLoadImage;
 import jiyun.com.doctorsixsixsix.modle.callback.MyCallBack;
 import jiyun.com.doctorsixsixsix.modle.htttp.biz.IPersonlModel;
 import jiyun.com.doctorsixsixsix.modle.htttp.biz.PersonlModel;
+import jiyun.com.doctorsixsixsix.util.AppUtils;
+import jiyun.com.doctorsixsixsix.util.GsonUtils;
 import jiyun.com.doctorsixsixsix.view.PersonlView;
 
 import static android.os.Build.VERSION_CODES.M;
@@ -47,12 +52,17 @@ public class PersonlPresenterlmp implements PerSonlPresenter {
 
     @Override
     public void upLoadImage(String path) {
-            model.upLoadImage(path, "", new MyCallBack() {
+            model.upLoadImage(path,"submit","", new MyCallBack() {
                 @Override
                 public void onSuccess(String GsonData) {
                     Log.e("aa",GsonData);
+                    upLoadImage bean = (upLoadImage) GsonUtils.getBean(GsonData, upLoadImage.class);
+                    int code = bean.getCode();
+                    if(code==10000){
+                        AppUtils.toast("头像上传成功");
+                        view.upLoadImage(bean.getData());
+                    }
                 }
-
                 @Override
                 public void onError(String errorMsg) {
                     Log.e("aa",errorMsg);
@@ -65,6 +75,7 @@ public class PersonlPresenterlmp implements PerSonlPresenter {
         final AlertDialog dialog=new AlertDialog.Builder(App.activity).create();
         dialog.show();
         dialog.getWindow().setContentView(R.layout.my_dialog);
+        //打开相机
         dialog.getWindow().findViewById(R.id.my_textOne).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +92,7 @@ public class PersonlPresenterlmp implements PerSonlPresenter {
                 dialog.dismiss();
             }
         });
+        //打开相册
         dialog.getWindow().findViewById(R.id.my_textTwo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,8 +107,8 @@ public class PersonlPresenterlmp implements PerSonlPresenter {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+
             }
         });
-
-    }
+           }
 }

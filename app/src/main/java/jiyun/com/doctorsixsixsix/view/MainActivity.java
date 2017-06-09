@@ -37,6 +37,7 @@ public class MainActivity extends BaseActivity {
     private List<BaseFragment> mList=new ArrayList<>();
     private File tempFile;
     private PersonlFragment personlFragment;
+    private String file;
 
     @Override
     protected int getLayoutId() {
@@ -54,10 +55,9 @@ public class MainActivity extends BaseActivity {
         MainAdapter adapter=new MainAdapter(getSupportFragmentManager(),mList);
         mViewPager.setAdapter(adapter);
         mTabLayout.setupWithViewPager(mViewPager);
-        //                    设置自定义视图
-        mTabLayout.getTabAt(0).setCustomView(getText("医生在线",R.mipmap.doctor_head_normal));
-        mTabLayout.getTabAt(1).setCustomView(getText("血压管理",R.mipmap.blood_manger_normal));
-        mTabLayout.getTabAt(2).setCustomView(getText("个人中心",R.mipmap.persional_normal));
+        mTabLayout.getTabAt(0).setCustomView(getText("医生在线",R.drawable.online));
+        mTabLayout.getTabAt(1).setCustomView(getText("血压管理",R.drawable.blood_manage));
+        mTabLayout.getTabAt(2).setCustomView(getText("个人中心",R.drawable.persional));
     }
 
     @Override
@@ -87,12 +87,15 @@ public class MainActivity extends BaseActivity {
         }
         switch (requestCode){
             case 1:
+                //相册剪裁
                 startPhotoZoom(data.getData());
                 break;
             case 2:
-//                personlFragment.presenter.upLoadImage(tempFile+"");
+                //上传头像的请求
+                personlFragment.presenter.upLoadImage(file);
                 break;
             case 3:
+                //相机剪裁
                startPhotoZoom(PersonlPresenterlmp.uri);
                 break;
         }
@@ -123,7 +126,8 @@ public class MainActivity extends BaseActivity {
 
         intent.putExtra("noFaceDetection", true); // no face detection
 
-        tempFile=new File("/sdcard/ll1x/"+ Calendar.getInstance().getTimeInMillis()+".jpg"); // 以时间秒为文件名
+        file="/sdcard/ll1x/"+ Calendar.getInstance().getTimeInMillis()+".jpg";
+        tempFile=new File(file); // 以时间秒为文件名
         File temp = new File("/sdcard/ll1x/");//自已项目 文件夹
         if (!temp.exists()) {
             temp.mkdir();
