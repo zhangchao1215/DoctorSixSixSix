@@ -8,17 +8,21 @@
         android:layout_height="80dp"
         android:orientation="vertical"
         android:background="#AAAAAA">
-        <ImageView
-            android:padding="5dp"
-            android:layout_gravity="center"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@mipmap/a1"/>
         <TextView
+            android:padding="20dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="帅气的奔哥哥"/>
+            android:text="您还没有登录哦~."
+            android:textSize="10dp"/>
+        <Button
+            android:id="@+id/denglu"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:text="马上登录"
+            android:textSize="15dp"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/myadd"
@@ -78,15 +82,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="个人资料"/>
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/img_info"/>
-    <TextView
-        android:padding="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="个人资料"/>
     </LinearLayout>
 
     <LinearLayout
@@ -112,11 +107,7 @@
             android:padding="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
             android:text="消息"/>
-=======
-            android:text="消息."/>
->>>>>>> origin/master
     </LinearLayout>
 
     <LinearLayout
@@ -135,8 +126,4 @@
             android:layout_height="wrap_content"
             android:text="设置"/>
     </LinearLayout>
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 </RelativeLayout>
