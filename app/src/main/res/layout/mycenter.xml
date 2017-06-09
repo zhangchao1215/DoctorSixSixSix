@@ -2,73 +2,37 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
-        android:id="@+id/myxinxi"
+    <RelativeLayout
+        android:id="@+id/my_beijing"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:orientation="vertical"
-        android:background="#AAAAAA">
+        android:layout_height="120dp">
         <ImageView
-            android:id="@+id/My_image"
-            android:padding="5dp"
-            android:layout_gravity="center"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@mipmap/a1"/>
-        <Button
-            android:id="@+id/My_login"
-            android:layout_width="wrap_content"
+            android:id="@+id/my_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/persional_normal"/>
+        <TextView
+            android:id="@+id/my_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffffff"
-            android:text="点击登录"
-            android:textSize="12dp"
-            android:visibility="gone"
+            android:layout_below="@id/my_image"
             android:gravity="center"
-            android:layout_gravity="center_horizontal"/>
-        <TextView
-            android:id="@+id/My_name"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="帅气的奔哥哥"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/myadd"
-        android:layout_below="@id/myxinxi"
+            android:text="ZZ王奔"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/my_jiahao"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="30dp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/img_jiahao"/>
-        <TextView
-            android:padding="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="我的加号"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/myshoucang"
-        android:layout_below="@id/myadd"
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="30dp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/img_collect"/>
-        <TextView
-            android:padding="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="我的收藏"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/kongbai1"
-        android:layout_below="@id/myshoucang"
+        android:layout_height="50dp"
+        android:layout_below="@id/my_beijing"
+        android:background="#ffffff"
+        android:text="我的加号"
+        android:gravity="center_vertical"
+        android:textSize="25dp"
+        android:drawableLeft="@mipmap/img_jiahao"/>
+    <TextView
+        android:id="@+id/my_shoucang"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/my_jiahao"
@@ -80,35 +44,6 @@
     <TextView
         android:id="@+id/my_ziliao"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="10dp"
-        android:background="#f9f9f9">
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/xiaoxi"
-        android:layout_below="@id/kongbai2"
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="30dp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/img_message"/>
-        <TextView
-            android:padding="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-<<<<<<< HEAD
-            android:text="消息"/>
-=======
-            android:text="消息."/>
->>>>>>> origin/master
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/shezhi"
-        android:layout_below="@id/xiaoxi"
         android:layout_height="50dp"
         android:layout_below="@id/my_shoucang"
         android:layout_marginTop="8dp"
@@ -121,16 +56,22 @@
     <TextView
         android:id="@+id/my_message"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="30dp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/img_setting"/>
-        <TextView
-            android:padding="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="设置"/>
-    </LinearLayout>
+        android:layout_height="50dp"
+        android:layout_below="@id/my_ziliao"
+        android:background="#ffffff"
+        android:text="消息"
+        android:gravity="center_vertical"
+        android:textSize="25dp"
+        android:drawableLeft="@mipmap/img_message"/>
+    <TextView
+        android:id="@+id/my_setting"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/my_message"
+        android:background="#ffffff"
+        android:text="设置"
+        android:gravity="center_vertical"
+        android:textSize="25dp"
+        android:drawableLeft="@mipmap/img_setting"/>
+
 </RelativeLayout>

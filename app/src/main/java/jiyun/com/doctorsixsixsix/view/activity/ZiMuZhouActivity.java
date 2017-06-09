@@ -1,5 +1,6 @@
 package jiyun.com.doctorsixsixsix.view.activity;
 
+import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseActivity;
 
 /**
@@ -17,7 +18,7 @@ public class ZiMuZhouActivity extends BaseActivity{
 
     @Override
     protected int getLayoutId() {
-        return 0;
+        return R.layout.activity_zimuzhou;
     }
 
     @Override

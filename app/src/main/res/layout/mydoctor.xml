@@ -17,7 +17,6 @@
             android:textSize="20dp"/>
     </LinearLayout>
 
-
     <TextView
         android:id="@+id/person"
         android:padding="10dp"
@@ -28,7 +27,6 @@
         android:background="#F9F9F9"
         android:text="全国有70046位血压专家为您在线治疗"
         android:textSize="15dp"/>
-        android:text="全国有70046位血压专家为您在线治疗"/>
     <RelativeLayout
         android:id="@+id/province"
         android:layout_below="@id/person"
@@ -38,12 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:padding="5dp"
-<<<<<<< HEAD
-            android:text="省份"/>
-=======
             android:text="省份"
             android:textSize="15dp"/>
->>>>>>> origin/master
         <ImageView
             android:id="@+id/mymap"
             android:layout_width="wrap_content"
@@ -61,12 +55,8 @@
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-<<<<<<< HEAD
-            android:text="医生职称"/>
-=======
             android:text="医生职称"
             android:textSize="15dp"/>
->>>>>>> origin/master
     </RelativeLayout>
 
     <RelativeLayout
@@ -78,25 +68,12 @@
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-<<<<<<< HEAD
-            android:text="医院等级"/>
-=======
             android:text="医院等级"
             android:textSize="15dp"/>
->>>>>>> origin/master
     </RelativeLayout>
 
     <EditText
         android:id="@+id/sousuo"
-<<<<<<< HEAD
-        android:layout_below="@id/hospital"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:hint="关键字/专家姓名/医院名称/疾病"/>
-
-    <LinearLayout
-        android:id="@+id/chaxun"
-=======
         android:gravity="center"
         android:layout_below="@id/hospital"
         android:layout_width="match_parent"
@@ -106,27 +83,11 @@
 
     <LinearLayout
         android:id="@+id/add"
->>>>>>> origin/master
         android:layout_below="@+id/sousuo"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:orientation="horizontal">
         <CheckBox
-<<<<<<< HEAD
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="免费加号"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="#B1B1"
-            android:text="查询专家"/>
-    </LinearLayout>
-
-=======
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -215,5 +176,4 @@
 
 
 
->>>>>>> origin/master
 </RelativeLayout>
