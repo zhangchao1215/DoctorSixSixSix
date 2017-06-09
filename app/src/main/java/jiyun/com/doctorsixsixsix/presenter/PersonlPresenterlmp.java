@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 
 import java.io.File;
 import java.net.URI;
@@ -95,8 +96,8 @@ public class PersonlPresenterlmp implements PerSonlPresenter {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+
             }
         });
-
-    }
+           }
 }
