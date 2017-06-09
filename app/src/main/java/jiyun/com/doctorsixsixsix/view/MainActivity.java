@@ -13,6 +13,7 @@ import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseActivity;
 import jiyun.com.doctorsixsixsix.base.BaseFragment;
 import jiyun.com.doctorsixsixsix.modle.adapter.MainAdapter;
+import jiyun.com.doctorsixsixsix.view.fragment.PersonlFragment;
 import jiyun.com.doctorsixsixsix.view.fragment.TestFragment;
 
 /**
@@ -35,7 +36,7 @@ public class MainActivity extends BaseActivity {
         mTabLayout= (TabLayout) findViewById(R.id.Main_Tab);
         mList.add(new TestFragment());
         mList.add(new TestFragment());
-        mList.add(new TestFragment());
+        mList.add(new PersonlFragment());
         MainAdapter adapter=new MainAdapter(getSupportFragmentManager(),mList);
         mViewPager.setAdapter(adapter);
         mTabLayout.setupWithViewPager(mViewPager);
