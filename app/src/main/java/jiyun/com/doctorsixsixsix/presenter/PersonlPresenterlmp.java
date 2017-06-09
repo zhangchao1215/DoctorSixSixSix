@@ -67,5 +67,6 @@ public class PersonlPresenterlmp implements PerSonlPresenter {
                 dialog.dismiss();
             }
         });
+
     }
 }
