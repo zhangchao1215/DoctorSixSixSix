@@ -70,12 +70,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     @Override
     protected void initListener() {
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.login(password.getText().toString().trim(), telephone.getText().toString().trim());
-            }
-        });
+
     }
 
     @Override
@@ -112,6 +107,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
             case R.id.password:
                 break;
             case R.id.login:
+                presenter.login(password.getText().toString().trim(), telephone.getText().toString().trim());
                 break;
             case R.id.weixin:
                 break;
