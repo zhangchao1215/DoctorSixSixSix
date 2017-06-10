@@ -81,6 +81,8 @@ public class SettingActivity extends BaseActivity {
 
     @OnClick(R.id.setting_about)
     public void onSettingAboutClicked() {
+        Intent intent=new Intent(SettingActivity.this,AboutActivity.class);
+        startActivity(intent);
     }
 
     @Override

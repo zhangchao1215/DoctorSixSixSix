@@ -31,6 +31,7 @@
         <activity android:name=".view.activity.SettingActivity"/>
         <activity android:name=".view.activity.AccountActivity"/>
         <activity android:name=".view.activity.ModifyActivity"/>
+        <activity android:name=".view.activity.AboutActivity"/>
     </application>
 
 </manifest>

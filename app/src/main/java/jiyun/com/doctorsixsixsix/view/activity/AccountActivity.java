@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -41,7 +42,7 @@ public class AccountActivity extends BaseActivity {
     @BindView(R.id.account_pwd)
     TextView accountPwd;
     @BindView(R.id.account_backlogin)
-    TextView accountBacklogin;
+    Button accountBacklogin;
 
     @Override
     protected int getLayoutId() {
