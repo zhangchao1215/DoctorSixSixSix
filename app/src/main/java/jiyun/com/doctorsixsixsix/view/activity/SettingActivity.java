@@ -11,6 +11,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseActivity;
+import jiyun.com.doctorsixsixsix.util.AppUtils;
+import jiyun.com.doctorsixsixsix.util.DataCleanManager;
 
 /**
  * 项目名称: 血压卫士
@@ -73,6 +75,8 @@ public class SettingActivity extends BaseActivity {
 
     @OnClick(R.id.setting_clear)
     public void onSettingClearClicked() {
+        DataCleanManager.cleanInternalCache(SettingActivity.this);
+        AppUtils.toast("清理完成");
     }
 
     @OnClick(R.id.setting_about)
