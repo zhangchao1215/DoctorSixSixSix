@@ -17,7 +17,7 @@ public class TestFragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-//        AppUtils.dialog();
+
     }
 
     @Override
