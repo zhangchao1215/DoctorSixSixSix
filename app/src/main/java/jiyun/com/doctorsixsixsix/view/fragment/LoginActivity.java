@@ -83,6 +83,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
     public void login(User user) {
         SharedPreferences.Editor put = AppUtils.put();
         put.putString("id", user.getUserid());
+        put.putString("phone",user.getPhonenum());
         setResult(1);
         onBackPressed();
     }

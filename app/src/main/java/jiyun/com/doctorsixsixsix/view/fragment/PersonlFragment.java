@@ -89,7 +89,7 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
         boolean login = sharedPreferences.getBoolean("login", false);
         id = sharedPreferences.getString("id", "");
         mImageView = (ImageView) view.findViewById(R.id.my_image);
-        if(!login){
+        if(login){
             myLogin.setVisibility(View.GONE);
             mImageView.setVisibility(View.VISIBLE);
             presenter.getPerson(id,"ee3dd4651821d3a45f4329a86d459cb7");
@@ -145,6 +145,10 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
                     case 2:
                         myLogin.setVisibility(View.VISIBLE);
                         mImageView.setVisibility(View.GONE);
+                        myName.setText("您还没有登录哦~");
+                        SharedPreferences.Editor edit = sharedPreferences.edit();
+                        edit.putBoolean("login",false);
+                        edit.commit();
                         break;
                 }
                 break;

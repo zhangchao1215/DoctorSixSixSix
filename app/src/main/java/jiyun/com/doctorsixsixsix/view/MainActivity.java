@@ -107,7 +107,7 @@ public class MainActivity extends BaseActivity {
 
         intent.putExtra("aspectX", 2);
 
-        intent.putExtra("aspectY", 1);
+        intent.putExtra("aspectY", 2);
 
         intent.putExtra("outputX", 200);
 

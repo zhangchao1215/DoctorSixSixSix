@@ -1,5 +1,6 @@
 package jiyun.com.doctorsixsixsix.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -7,6 +8,7 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseActivity;
 
@@ -21,6 +23,7 @@ import jiyun.com.doctorsixsixsix.base.BaseActivity;
  */
 
 public class SettingActivity extends BaseActivity {
+
     @BindView(R.id.setting_back)
     ImageView settingBack;
     @BindView(R.id.setting_title)
@@ -52,10 +55,42 @@ public class SettingActivity extends BaseActivity {
 
     }
 
+
+    @OnClick(R.id.setting_back)
+    public void onSettingBackClicked() {
+        onBackPressed();
+    }
+
+    @OnClick(R.id.setting_title)
+    public void onSettingTitleClicked() {
+    }
+
+    @OnClick(R.id.setting_account)
+    public void onSettingAccountClicked() {
+        Intent intent=new Intent(SettingActivity.this,AccountActivity.class);
+        startActivityForResult(intent,100);
+    }
+
+    @OnClick(R.id.setting_clear)
+    public void onSettingClearClicked() {
+    }
+
+    @OnClick(R.id.setting_about)
+    public void onSettingAboutClicked() {
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case 100:
+                switch (resultCode){
+                    case 200:
+                        setResult(2);
+                        onBackPressed();
+                        break;
+                }
+                break;
+        }
     }
 }
