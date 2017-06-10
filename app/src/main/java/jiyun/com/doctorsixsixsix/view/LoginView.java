@@ -1,5 +1,7 @@
 package jiyun.com.doctorsixsixsix.view;
 
+import jiyun.com.doctorsixsixsix.modle.bean.User;
+
 /**
  * 项目名称: 血压卫士
  * 类描述:
@@ -11,5 +13,5 @@ package jiyun.com.doctorsixsixsix.view;
  */
 
 public interface LoginView {
-    void login();
+    void login(User user);
 }

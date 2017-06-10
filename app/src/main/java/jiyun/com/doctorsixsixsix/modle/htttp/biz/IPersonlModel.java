@@ -26,4 +26,16 @@ public class IPersonlModel implements PersonlModel {
         Factory.create(Factory.OKHTTP).POST(URLUtils.IMAGE,map,cookie,callBack);
     }
 
+    @Override
+    public void getPerson(String userid,String sign,MyCallBack callBack) {
+        Map<String,String> map=new HashMap<>();
+        map.put("act","kbb");
+        map.put("fun","users");
+        map.put("type","pullAccountInfo");
+        map.put("tag","wjk");
+        map.put("userid",userid);
+        map.put("sign",sign);
+        Factory.create(Factory.OKHTTP).GET(URLUtils.USERS,map,null,callBack);
+    }
+
 }

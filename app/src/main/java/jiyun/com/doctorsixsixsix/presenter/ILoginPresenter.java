@@ -1,16 +1,22 @@
 package jiyun.com.doctorsixsixsix.presenter;
 
+import android.content.SharedPreferences;
 import android.util.Log;
 
+import jiyun.com.doctorsixsixsix.modle.bean.User;
 import jiyun.com.doctorsixsixsix.modle.callback.MyCallBack;
 import jiyun.com.doctorsixsixsix.modle.htttp.biz.ILoginModel;
 import jiyun.com.doctorsixsixsix.modle.htttp.biz.LoginModel;
+import jiyun.com.doctorsixsixsix.util.AppUtils;
+import jiyun.com.doctorsixsixsix.util.GsonUtils;
 import jiyun.com.doctorsixsixsix.view.LoginView;
+
+import static jiyun.com.doctorsixsixsix.util.GsonUtils.getBean;
 
 /**
  * 项目名称: 血压卫士
  * 类描述:
- * 创建人: dell
+ * 创建人: 马杰
  * 创建时间: 2017/6/9 20:45
  * 修改人:
  * 修改内容:
@@ -30,7 +36,14 @@ public class ILoginPresenter implements LoginPresenter {
             @Override
             public void onSuccess(String GsonData) {
                 Log.e("aa",GsonData);
-                view.login();
+                User user= (User) GsonUtils.getBean(GsonData, User.class);
+                int state = user.getState();
+                if(state==200) {
+                    view.login(user);
+                    SharedPreferences.Editor put = AppUtils.put();
+                    put.putBoolean("login",true);
+                    put.commit();
+                }
             }
 
             @Override

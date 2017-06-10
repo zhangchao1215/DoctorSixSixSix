@@ -17,6 +17,7 @@ import java.util.Calendar;
 import jiyun.com.doctorsixsixsix.App;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseBean;
+import jiyun.com.doctorsixsixsix.modle.bean.Person;
 import jiyun.com.doctorsixsixsix.modle.bean.upLoadImage;
 import jiyun.com.doctorsixsixsix.modle.callback.MyCallBack;
 import jiyun.com.doctorsixsixsix.modle.htttp.biz.IPersonlModel;
@@ -111,4 +112,26 @@ public class PersonlPresenterlmp implements PerSonlPresenter {
             }
         });
            }
+
+    @Override
+    public void getPerson(String userid,String sign) {
+        model.getPerson(userid, sign,new MyCallBack() {
+            @Override
+            public void onSuccess(String GsonData) {
+                Log.e("aaa",GsonData);
+                Person person= (Person) GsonUtils.getBean(GsonData,Person.class);
+                int state = person.getState();
+                if(state==200) {
+                    view.upLoadImage(person.getAvatar());
+                }else{
+                    AppUtils.toast("参数出现错误");
+                }
+            }
+
+            @Override
+            public void onError(String errorMsg) {
+
+            }
+        });
+    }
 }

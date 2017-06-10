@@ -16,4 +16,6 @@ public interface PersonlView {
 
     //弹出dialog
     void dialog();
+
+    void getPerson();
 }

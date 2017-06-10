@@ -1,5 +1,6 @@
 package jiyun.com.doctorsixsixsix.view.fragment;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,8 +15,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseActivity;
+import jiyun.com.doctorsixsixsix.modle.bean.User;
 import jiyun.com.doctorsixsixsix.presenter.ILoginPresenter;
 import jiyun.com.doctorsixsixsix.presenter.LoginPresenter;
+import jiyun.com.doctorsixsixsix.util.AppUtils;
 import jiyun.com.doctorsixsixsix.view.LoginView;
 
 /**
@@ -82,8 +85,10 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
 
     @Override
-    public void login() {
-        setResult(0);
+    public void login(User user) {
+        SharedPreferences.Editor put = AppUtils.put();
+        put.putString("id", user.getUserid());
+        setResult(1);
         onBackPressed();
     }
 
@@ -98,6 +103,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.back:
+                onBackPressed();
                 break;
             case R.id.register:
                 break;

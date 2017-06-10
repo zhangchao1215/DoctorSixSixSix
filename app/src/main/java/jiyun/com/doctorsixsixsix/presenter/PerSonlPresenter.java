@@ -15,4 +15,6 @@ public interface PerSonlPresenter {
     void upLoadImage(String path);
 
     void getDialog();
+
+    void getPerson(String userid,String sign);
 }

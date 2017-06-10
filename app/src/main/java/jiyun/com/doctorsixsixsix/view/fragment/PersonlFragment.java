@@ -1,6 +1,7 @@
 package jiyun.com.doctorsixsixsix.view.fragment;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -18,7 +21,9 @@ import jiyun.com.doctorsixsixsix.base.BaseFragment;
 import jiyun.com.doctorsixsixsix.modle.htttp.Factory;
 import jiyun.com.doctorsixsixsix.presenter.PerSonlPresenter;
 import jiyun.com.doctorsixsixsix.presenter.PersonlPresenterlmp;
+import jiyun.com.doctorsixsixsix.util.AppUtils;
 import jiyun.com.doctorsixsixsix.view.PersonlView;
+import jiyun.com.doctorsixsixsix.view.activity.SettingActivity;
 
 /**
  * 项目名称: 血压卫士
@@ -49,8 +54,10 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
     @BindView(R.id.my_setting)
     TextView mySetting;
     Unbinder unbinder;
-    private String path;
+    private String id;
+    private String sign;
     private ImageView mImageView;
+    private SharedPreferences sharedPreferences;
 
     @Override
     public void upLoadImage(String msg) {
@@ -63,6 +70,11 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
     }
 
     @Override
+    public void getPerson() {
+
+    }
+
+    @Override
     protected int getLayoutId() {
         return R.layout.mycenter;
     }
@@ -70,7 +82,17 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
     @Override
     protected void initView(View view) {
         presenter = new PersonlPresenterlmp(this);
+        sharedPreferences = AppUtils.get();
+        boolean login = sharedPreferences.getBoolean("login", false);
+        id = sharedPreferences.getString("id", "");
         mImageView = (ImageView) view.findViewById(R.id.my_image);
+        if(login){
+            myLogin.setVisibility(View.GONE);
+            mImageView.setVisibility(View.VISIBLE);
+            presenter.getPerson(id,"ee3dd4651821d3a45f4329a86d459cb7");
+        }else{
+
+        }
     }
 
     @Override
@@ -89,6 +111,13 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
                 startActivityForResult(intent,4);
             }
         });
+        mySetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),SettingActivity.class);
+                startActivityForResult(intent,4);
+            }
+        });
     }
 
     @Override
@@ -96,19 +125,6 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
 
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -117,9 +133,15 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
         switch (requestCode){
             case 4:
                 switch (resultCode){
-                    case 0:
+                    case 1:
+                        id = sharedPreferences.getString("id", "");
                         myLogin.setVisibility(View.GONE);
                         mImageView.setVisibility(View.VISIBLE);
+                        presenter.getPerson(id,"ee3dd4651821d3a45f4329a86d459cb7");
+                        break;
+                    case 2:
+                        myLogin.setVisibility(View.VISIBLE);
+                        mImageView.setVisibility(View.GONE);
                         break;
                 }
                 break;

@@ -183,7 +183,7 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
                 break;
             case R.id.Doctor_HuanYiHuan:
                 mList.clear();
-                presenter.getMainDoctor(Index++);
+                presenter.getMainDoctor(Index+1);
                 break;
             case R.id.doctor:
                 break;

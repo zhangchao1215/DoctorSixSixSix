@@ -34,11 +34,12 @@
             android:layout_gravity="center"
             android:text="请及时记录你的血压数据"
             android:textSize="20dp"/>
+
         <ImageView
             android:id="@+id/shangchuanxueya"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:src="@drawable/upload_bp_data"/>
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/upload_bp_data" />
     </LinearLayout>
 
     <RadioGroup

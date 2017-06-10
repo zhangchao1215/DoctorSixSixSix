@@ -2,6 +2,7 @@ package jiyun.com.doctorsixsixsix.modle.htttp;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -81,7 +82,7 @@ public class OkHttpUtils implements FactoryIn {
     public void GET(String url, Map<String, String> map, String cookie, final MyCallBack callBack) {
         AppUtils.dialog();
         StringBuffer sb=new StringBuffer("?");
-        if(map.size()>0&&map!=null){
+        if(map.size()>0){
             Set<String> values = map.keySet();
             int sum=0;
             for(String key:values){
@@ -95,6 +96,7 @@ public class OkHttpUtils implements FactoryIn {
             }
         }
         url=url+sb.toString();
+        Log.e("url",url);
         Request request=null;
         if(cookie!=null) {
             request = new Request.Builder().get().url(url).addHeader("cookie", cookie).build();
@@ -164,6 +166,7 @@ public class OkHttpUtils implements FactoryIn {
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
+                if(e!=null)
                 callBack.onError(e.getMessage());
                 AppUtils.dismiss();
             }
@@ -182,8 +185,8 @@ public class OkHttpUtils implements FactoryIn {
                 if(cookie.length()>0){
                     cookie=cookie.substring(0,cookie.length()-1);
                 }
-                int coo=shared.getInt("code",0);
-                if(coo==0){
+                boolean coo=shared.getBoolean("login",false);
+                if(!coo){
                     editor.putString("cookie",cookie);
                     editor.commit();
                 }
