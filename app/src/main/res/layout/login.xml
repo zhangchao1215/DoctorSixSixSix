@@ -24,7 +24,7 @@
             android:layout_gravity="center_vertical"
             android:padding="10dp"
             android:text="登录"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:layout_marginLeft="100dp" />
 
         <TextView
@@ -103,7 +103,7 @@
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/mfwys"
+            android:id="@+id/weixin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -116,7 +116,7 @@
             android:textColor="#CBCBCB" />
 
         <RadioButton
-            android:id="@+id/jkgw"
+            android:id="@+id/qq"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

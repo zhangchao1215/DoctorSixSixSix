@@ -4,11 +4,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseActivity;
 import jiyun.com.doctorsixsixsix.presenter.ILoginPresenter;
@@ -25,24 +28,31 @@ import jiyun.com.doctorsixsixsix.view.LoginView;
  * 修改时间:
  */
 public class LoginActivity extends BaseActivity implements LoginView {
+
+    @BindView(R.id.back)
+    ImageView back;
     @BindView(R.id.textView)
     TextView textView;
+    @BindView(R.id.register)
+    TextView register;
     @BindView(R.id.denglu)
     LinearLayout denglu;
-    @BindView(R.id.phone)
-    EditText phone;
     @BindView(R.id.telephone)
-    LinearLayout telephone;
-    @BindView(R.id.pwd)
-    EditText pwd;
+    EditText telephone;
     @BindView(R.id.password)
-    LinearLayout password;
-    @BindView(R.id.forget_password)
-    TextView forgetPassword;
+    EditText password;
     @BindView(R.id.login)
     Button login;
-    @BindView(R.id.zhuce)
-    TextView zhuce;
+    @BindView(R.id.forget_password)
+    TextView forgetPassword;
+    @BindView(R.id.three)
+    TextView three;
+    @BindView(R.id.weixin)
+    RadioButton weixin;
+    @BindView(R.id.qq)
+    RadioButton qq;
+    @BindView(R.id.disanfang)
+    LinearLayout disanfang;
     private LoginPresenter presenter;
 
     @Override
@@ -52,7 +62,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     @Override
     protected void initView() {
-        presenter=new ILoginPresenter(this);
+        presenter = new ILoginPresenter(this);
     }
 
     @Override
@@ -60,7 +70,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.login(pwd.getText().toString().trim(),phone.getText().toString().trim());
+                presenter.login(password.getText().toString().trim(), telephone.getText().toString().trim());
             }
         });
     }
@@ -75,5 +85,32 @@ public class LoginActivity extends BaseActivity implements LoginView {
     public void login() {
         setResult(0);
         onBackPressed();
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
+
+    @OnClick({R.id.back, R.id.register, R.id.telephone, R.id.password, R.id.login, R.id.weixin, R.id.qq})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.back:
+                break;
+            case R.id.register:
+                break;
+            case R.id.telephone:
+                break;
+            case R.id.password:
+                break;
+            case R.id.login:
+                break;
+            case R.id.weixin:
+                break;
+            case R.id.qq:
+                break;
+        }
     }
 }
