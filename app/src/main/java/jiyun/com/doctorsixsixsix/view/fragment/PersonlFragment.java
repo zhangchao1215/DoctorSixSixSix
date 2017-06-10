@@ -60,8 +60,11 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
     private SharedPreferences sharedPreferences;
 
     @Override
-    public void upLoadImage(String msg) {
+    public void upLoadImage(String msg,String name) {
         Factory.create(Factory.OKHTTP).loadImage(msg, mImageView, true);
+        if(name!=null){
+            myName.setText(name);
+        }
     }
 
     @Override
@@ -86,7 +89,7 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
         boolean login = sharedPreferences.getBoolean("login", false);
         id = sharedPreferences.getString("id", "");
         mImageView = (ImageView) view.findViewById(R.id.my_image);
-        if(login){
+        if(!login){
             myLogin.setVisibility(View.GONE);
             mImageView.setVisibility(View.VISIBLE);
             presenter.getPerson(id,"ee3dd4651821d3a45f4329a86d459cb7");

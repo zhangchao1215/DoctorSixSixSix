@@ -61,7 +61,7 @@ public class PersonlPresenterlmp implements PerSonlPresenter {
                     int code = bean.getCode();
                     if(code==10000){
                         AppUtils.toast("头像上传成功");
-                        view.upLoadImage(bean.getData());
+                        view.upLoadImage(bean.getData(),null);
                     }
                 }
                 @Override
@@ -122,7 +122,7 @@ public class PersonlPresenterlmp implements PerSonlPresenter {
                 Person person= (Person) GsonUtils.getBean(GsonData,Person.class);
                 int state = person.getState();
                 if(state==200) {
-                    view.upLoadImage(person.getAvatar());
+                    view.upLoadImage(person.getAvatar(),person.getAccounts().get(0).getAccountstr());
                 }else{
                     AppUtils.toast("参数出现错误");
                 }
