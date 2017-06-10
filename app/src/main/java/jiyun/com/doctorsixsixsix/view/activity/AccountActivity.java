@@ -2,9 +2,12 @@ package jiyun.com.doctorsixsixsix.view.activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -74,6 +77,7 @@ public class AccountActivity extends BaseActivity {
             case R.id.account_phone:
                 break;
             case R.id.account_pwd:
+                getDialogTwo();
                 break;
             case R.id.account_backlogin:
                 getDialog();
@@ -94,6 +98,35 @@ public class AccountActivity extends BaseActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         setResult(200);
                         onBackPressed();
+                    }
+                }).create();
+        dialog.show();
+    }
+    private void getDialogTwo(){
+        View view= LayoutInflater.from(this).inflate(R.layout.dialog_edit,null);
+        final EditText edit= (EditText) view.findViewById(R.id.dialog_pwd);
+        AlertDialog dialog=new AlertDialog.Builder(this)
+                .setTitle("验证密码")
+                .setMessage("验证原密码，更新新密码前，请输入旧密码来保证您的账户安全")
+                .setView(view)
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).setNeutralButton("确认", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        SharedPreferences sharedPreferences = AppUtils.get();
+                        String pwd = sharedPreferences.getString("pwd", "");
+                        if(edit.getText().toString().trim().equals(pwd)){
+                            Intent intent=new Intent();
+                            AppUtils.toast("密码验证成功");
+                        }else{
+                            AppUtils.toast("密码输入错误");
+                            dialog.dismiss();
+                        }
+
                     }
                 }).create();
         dialog.show();

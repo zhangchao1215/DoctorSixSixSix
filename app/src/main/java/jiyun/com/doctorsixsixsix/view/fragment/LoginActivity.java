@@ -57,6 +57,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
     @BindView(R.id.disanfang)
     LinearLayout disanfang;
     private LoginPresenter presenter;
+    private SharedPreferences.Editor put = AppUtils.put();
 
     @Override
     protected int getLayoutId() {
@@ -81,7 +82,6 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     @Override
     public void login(User user) {
-        SharedPreferences.Editor put = AppUtils.put();
         put.putString("id", user.getUserid());
         put.putString("phone",user.getPhonenum());
         setResult(1);
@@ -102,6 +102,8 @@ public class LoginActivity extends BaseActivity implements LoginView {
             case R.id.password:
                 break;
             case R.id.login:
+                put.putString("pwd",password.getText().toString().trim());
+                put.commit();
                 presenter.login(password.getText().toString().trim(), telephone.getText().toString().trim());
                 break;
             case R.id.weixin:
