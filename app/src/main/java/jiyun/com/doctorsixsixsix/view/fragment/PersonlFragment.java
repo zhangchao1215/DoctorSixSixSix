@@ -55,7 +55,7 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
     TextView mySetting;
     Unbinder unbinder;
     private String id;
-    private String sign;
+    private boolean login;
     private ImageView mImageView;
     private SharedPreferences sharedPreferences;
 
@@ -86,7 +86,7 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
     protected void initView(View view) {
         presenter = new PersonlPresenterlmp(this);
         sharedPreferences = AppUtils.get();
-        boolean login = sharedPreferences.getBoolean("login", false);
+        login = sharedPreferences.getBoolean("login", false);
         id = sharedPreferences.getString("id", "");
         mImageView = (ImageView) view.findViewById(R.id.my_image);
         if(login){
@@ -117,8 +117,13 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
         mySetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(),SettingActivity.class);
-                startActivityForResult(intent,4);
+                login=AppUtils.get().getBoolean("login",false);
+                if(login) {
+                    Intent intent = new Intent(getActivity(), SettingActivity.class);
+                    startActivityForResult(intent, 4);
+                }else{
+                    AppUtils.toast("请先登录再设置");
+                }
             }
         });
     }

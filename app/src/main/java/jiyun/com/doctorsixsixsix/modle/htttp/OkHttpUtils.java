@@ -156,7 +156,7 @@ public class OkHttpUtils implements FactoryIn {
             }
         }
         Request request=null;
-        if(!cookie.equals("")) {
+        if(cookie!=null) {
             request = new Request.Builder().url(url)
                     .addHeader("cookie", cookie)
                     .post(builder.build()).build();

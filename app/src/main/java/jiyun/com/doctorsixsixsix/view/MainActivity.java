@@ -45,16 +45,19 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         mViewPager= (ViewPager) findViewById(R.id.Main_ViewPager);
         mTabLayout= (TabLayout) findViewById(R.id.Main_Tab);
-        mList.add(new DoctorFragment());
-        mList.add(new TestFragment());
-        personlFragment=new PersonlFragment();
-        mList.add(personlFragment);
+        if(mList.size()<3) {
+            mList.add(new DoctorFragment());
+            mList.add(new TestFragment());
+            personlFragment = new PersonlFragment();
+            mList.add(personlFragment);
+
         MainAdapter adapter=new MainAdapter(getSupportFragmentManager(),mList);
         mViewPager.setAdapter(adapter);
         mTabLayout.setupWithViewPager(mViewPager);
         mTabLayout.getTabAt(0).setCustomView(getText("医生在线",R.drawable.online));
         mTabLayout.getTabAt(1).setCustomView(getText("血压管理",R.drawable.blood_manage));
         mTabLayout.getTabAt(2).setCustomView(getText("个人中心",R.drawable.persional));
+        }
     }
 
     @Override

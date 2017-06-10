@@ -8,6 +8,7 @@ public abstract class BaseBean {
     private String msg;
     private int code;
 
+
     public String getMsg() {
         return msg;
     }

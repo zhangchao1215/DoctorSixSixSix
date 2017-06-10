@@ -18,8 +18,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         ButterKnife.bind(this);
-        initView();
-        initListener();
     }
 
     protected abstract int getLayoutId();
@@ -34,6 +32,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         App.activity=this;
+        initView();
+        initListener();
         if(NetWorkUtils.getInstance().checkNetworkState()){
             initData();
         }

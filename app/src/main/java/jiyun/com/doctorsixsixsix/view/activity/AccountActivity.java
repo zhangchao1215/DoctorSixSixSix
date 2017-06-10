@@ -120,7 +120,8 @@ public class AccountActivity extends BaseActivity {
                         SharedPreferences sharedPreferences = AppUtils.get();
                         String pwd = sharedPreferences.getString("pwd", "");
                         if(edit.getText().toString().trim().equals(pwd)){
-                            Intent intent=new Intent();
+                            Intent intent=new Intent(AccountActivity.this,ModifyActivity.class);
+                            startActivity(intent);
                             AppUtils.toast("密码验证成功");
                         }else{
                             AppUtils.toast("密码输入错误");
