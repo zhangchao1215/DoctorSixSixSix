@@ -87,12 +87,6 @@ public class LoginActivity extends BaseActivity implements LoginView {
         onBackPressed();
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 
     @OnClick({R.id.back, R.id.register, R.id.telephone, R.id.password, R.id.login, R.id.weixin, R.id.qq})
     public void onViewClicked(View view) {
