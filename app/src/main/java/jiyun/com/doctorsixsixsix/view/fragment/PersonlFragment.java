@@ -23,6 +23,7 @@ import jiyun.com.doctorsixsixsix.presenter.PerSonlPresenter;
 import jiyun.com.doctorsixsixsix.presenter.PersonlPresenterlmp;
 import jiyun.com.doctorsixsixsix.util.AppUtils;
 import jiyun.com.doctorsixsixsix.view.PersonlView;
+import jiyun.com.doctorsixsixsix.view.activity.DataActivity;
 import jiyun.com.doctorsixsixsix.view.activity.SettingActivity;
 
 /**
@@ -121,6 +122,18 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
                 if(login) {
                     Intent intent = new Intent(getActivity(), SettingActivity.class);
                     startActivityForResult(intent, 4);
+                }else{
+                    AppUtils.toast("请先登录再设置");
+                }
+            }
+        });
+        myZiliao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                login=AppUtils.get().getBoolean("login",false);
+                if(login) {
+                    Intent intent = new Intent(getActivity(), DataActivity.class);
+                    startActivity(intent);
                 }else{
                     AppUtils.toast("请先登录再设置");
                 }
