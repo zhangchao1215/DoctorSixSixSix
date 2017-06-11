@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_toRightOf="@id/doc_detail_name"
             android:text="上海"
             android:textColor="#E2E2E2" />
@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/doc_detail_hostail"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="2dp"
             android:layout_toRightOf="@id/doc_detail_ZhiWei"
             android:text="骨科"
             android:textColor="#A9A9A9" />
@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/doc_detail_hostail"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="2dp"
             android:layout_toRightOf="@id/doc_detail_Keshi"
             android:text="教授"
             android:textColor="#A9A9A9" />
@@ -103,18 +103,21 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/doc_detail_image"
-            android:text="dadadadaddddd" />
+            android:text="dadadadaddddd"
+            android:maxLines="2"
+            />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/doc_detail_Linear"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="15dp"
         android:layout_below="@id/doc_retail_content"
         android:background="#FBF8F4" />
 
     <LinearLayout
+        android:background="#fff"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/doc_detail_Linear"

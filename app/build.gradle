@@ -6,7 +6,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "jiyun.com.doctorsixsixsix"
-        minSdkVersion 14
+        minSdkVersion 17
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -30,7 +30,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:25.1.0'
     testCompile 'junit:junit:4.12'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.squareup.okhttp3:okhttp:3.6.0'
@@ -38,12 +38,9 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.5.1'
     compile 'com.jakewharton:butterknife-compiler:8.5.1'
     compile 'com.squareup.retrofit2:retrofit:2.2.0'
-    compile('com.squareup.retrofit2:converter-simplexml:2.2.0') {
-        exclude group: 'xpp3', module: 'xpp3'
-        exclude group: 'stax', module: 'stax-api'
-        exclude group: 'stax', module: 'stax'
-    }
     compile 'com.android.support:design:25.1.0'
     compile 'org.greenrobot:greendao:3.2.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.androidkun:pulltorefreshrecyclerview:1.0.6'
+
 }

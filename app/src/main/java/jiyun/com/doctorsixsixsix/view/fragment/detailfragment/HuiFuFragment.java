@@ -1,5 +1,6 @@
 package jiyun.com.doctorsixsixsix.view.fragment.detailfragment;
 
+import android.content.Intent;
 import android.view.View;
 
 import jiyun.com.doctorsixsixsix.R;
@@ -24,6 +25,9 @@ public class HuiFuFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
 
+
+        Intent intent = getActivity().getIntent();
+        String id = intent.getStringExtra("doc_id");
     }
 
     @Override
@@ -35,4 +39,6 @@ public class HuiFuFragment extends BaseFragment {
     protected void initData() {
 
     }
+
+
 }

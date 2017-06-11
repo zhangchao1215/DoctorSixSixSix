@@ -6,7 +6,7 @@ package jiyun.com.doctorsixsixsix.modle.urlutils;
 
 public class URLUtils {
     //GET
-    public static final String BASEURL = "http://api.wws.xywy.com/";
+    public static final String BASEURL = "http://api.wws.xywy.com/index.php";
     //POST
     public static final String IMAGE="http://api.wws.xywy.com/upload_avatar.php ";
     //POST
