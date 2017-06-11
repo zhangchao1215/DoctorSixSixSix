@@ -33,6 +33,8 @@
         <activity android:name=".view.activity.ModifyActivity"/>
         <activity android:name=".view.activity.AboutActivity"/>
         <activity android:name=".view.activity.DataActivity"/>
+        <activity android:name=".view.activity.CollectionActivity"/>
+        <activity android:name=".view.activity.AddActivity"/>
     </application>
 
 </manifest>
