@@ -48,7 +48,7 @@ public class PersonlPresenterlmp implements PerSonlPresenter {
     public PersonlPresenterlmp(PersonlView view) {
         this.view = view;
         model=new IPersonlModel();
-        sharedPreferences=App.activity.getSharedPreferences("data", Context.MODE_PRIVATE);
+        sharedPreferences=AppUtils.get();
     }
 
     @Override
@@ -122,6 +122,11 @@ public class PersonlPresenterlmp implements PerSonlPresenter {
                 Person person= (Person) GsonUtils.getBean(GsonData,Person.class);
                 int state = person.getState();
                 if(state==200) {
+                    AppUtils.put().putString("name",person.getAccounts().get(0).getAccountstr());
+                    AppUtils.put().putString("date",person.getAccounts().get(0).getBirthday());
+                    AppUtils.put().putString("gender",person.getAccounts().get(0).getSex());
+                    AppUtils.put().putString("height",person.getAccounts().get(0).getHeight());
+                    AppUtils.put().commit();
                     view.upLoadImage(person.getAvatar(),person.getAccounts().get(0).getAccountstr());
                 }else{
                     AppUtils.toast("参数出现错误");

@@ -85,18 +85,10 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
 
     @Override
     protected void initView(View view) {
-        presenter = new PersonlPresenterlmp(this);
         sharedPreferences = AppUtils.get();
         login = sharedPreferences.getBoolean("login", false);
         id = sharedPreferences.getString("id", "");
         mImageView = (ImageView) view.findViewById(R.id.my_image);
-        if(login){
-            myLogin.setVisibility(View.GONE);
-            mImageView.setVisibility(View.VISIBLE);
-            presenter.getPerson(id,"ee3dd4651821d3a45f4329a86d459cb7");
-        }else{
-
-        }
     }
 
     @Override
@@ -143,7 +135,14 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
 
     @Override
     protected void initData() {
+        presenter = new PersonlPresenterlmp(this);
+        if(login){
+            myLogin.setVisibility(View.GONE);
+            mImageView.setVisibility(View.VISIBLE);
+            presenter.getPerson(id,"ee3dd4651821d3a45f4329a86d459cb7");
+        }else{
 
+        }
     }
 
 

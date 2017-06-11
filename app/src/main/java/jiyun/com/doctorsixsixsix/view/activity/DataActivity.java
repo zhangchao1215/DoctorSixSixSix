@@ -18,7 +18,10 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,9 +29,13 @@ import butterknife.OnClick;
 import jiyun.com.doctorsixsixsix.App;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseActivity;
+import jiyun.com.doctorsixsixsix.presenter.DataPresenter;
+import jiyun.com.doctorsixsixsix.presenter.IDataPresenter;
 import jiyun.com.doctorsixsixsix.util.AppUtils;
+import jiyun.com.doctorsixsixsix.view.DataView;
 import jiyun.com.doctorsixsixsix.view.MainActivity;
 
+import static jiyun.com.doctorsixsixsix.R.drawable.date;
 import static jiyun.com.doctorsixsixsix.R.id.month;
 import static jiyun.com.doctorsixsixsix.R.id.year;
 
@@ -42,7 +49,7 @@ import static jiyun.com.doctorsixsixsix.R.id.year;
  * 修改时间:
  */
 
-public class DataActivity extends BaseActivity {
+public class DataActivity extends BaseActivity implements DataView {
     @BindView(R.id.data_back)
     ImageView dataBack;
     @BindView(R.id.data_Title)
@@ -61,11 +68,17 @@ public class DataActivity extends BaseActivity {
     TextView dataBirsday;
     private int a=1900;
     private int b=1;
-    private int c=1;
+    private int day=1;
     private int yourChoice;
     private NumberPicker picker;
     private String height;
     private String weight;
+    private String name;
+    private String sex;
+    private String id;
+    private String date;
+    private long birthday;
+    private DataPresenter presenter;
 
     @Override
     protected int getLayoutId() {
@@ -74,13 +87,20 @@ public class DataActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        String date = AppUtils.get().getString("date", "");
-        String gender = AppUtils.get().getString("gender", "");
-        String name=AppUtils.get().getString("name","");
-        String height= AppUtils.get().getString("height","");
-        String weight=AppUtils.get().getString("weight","");
+        presenter=new IDataPresenter(this);
+        date = AppUtils.get().getString("date", "");
+        sex = AppUtils.get().getString("gender", "");
+        dataGender.setText("性别                 "+sex);
+        if(sex.equals("男")){
+            sex="2";
+        }else {
+            sex="1";
+        }
+        name=AppUtils.get().getString("name","");
+        height= AppUtils.get().getString("height","");
+        weight=AppUtils.get().getString("weight","");
+        id=AppUtils.get().getString("id","");
         dataName.setText("姓名                "+name);
-        dataGender.setText("性别                 "+gender);
         dataBirsday.setText("生日                    "+date);
         dataHeight.setText("身高                    "+height);
         dataWeight.setText("体重                     "+weight);
@@ -134,11 +154,22 @@ public class DataActivity extends BaseActivity {
                     @Override
                     public void onDateSet(DatePicker view, int year,
                                           int monthOfYear, int dayOfMonth) {
+                        a=year;
+                        b=monthOfYear+1;
+                        day=dayOfMonth;
                         dataBirsday.setText("生日" +"                       "+ year + "-" + (monthOfYear+1)
                                 + "-" + dayOfMonth);
                         AppUtils.put().putString("date",year+"-"+(monthOfYear+1)
                                 + "-" + dayOfMonth);
                         AppUtils.put().commit();
+                        upLoad(id,height,"2",sex,birthday+"","edit",name);
+                        try {
+                            birthday = AppUtils.stringToLong(year + "-" + (monthOfYear + 1)
+                                    + "-" + dayOfMonth, "yyyy-MM-dd");
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+
                     }
                 }
                 // 设置初始日期
@@ -146,7 +177,7 @@ public class DataActivity extends BaseActivity {
                 .get(Calendar.DAY_OF_MONTH)).show();
     }
     private void getGenderDialog(){
-        final String[] items = { "男","女" };
+        final String[] items = { "女","男" };
         yourChoice = -1;
         AlertDialog.Builder singleChoiceDialog =
                 new AlertDialog.Builder(this);
@@ -164,9 +195,11 @@ public class DataActivity extends BaseActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (yourChoice != -1) {
+                            sex=yourChoice+1+"";
                             dataGender.setText("性别"+"                  "+items[yourChoice]);
                             AppUtils.put().putString("gender",items[yourChoice]);
                             AppUtils.put().commit();
+                            upLoad(id,height,"2",sex,birthday+"","edit",name);
                         }
                     }
                 });
@@ -196,6 +229,7 @@ public class DataActivity extends BaseActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         dataHeight.setText("身高                    " +height);
                         AppUtils.put().putString("height",height);
+                        upLoad(id,height,"2",sex,birthday+"","edit",name);
                     }
                 }).show();
     }
@@ -224,6 +258,7 @@ public class DataActivity extends BaseActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         dataWeight.setText("体重                    " +weight);
                         AppUtils.put().putString("weight",weight);
+                        upLoad(id,height,"2",sex,birthday+"","edit",name);
                     }
                 }).show();
     }
@@ -237,10 +272,21 @@ public class DataActivity extends BaseActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dataName.setText("姓名                   "+edit.getText().toString());
+                        name=edit.getText().toString();
                         AppUtils.put().putString("name",edit.getText().toString());
                         AppUtils.put().commit();
+                        upLoad(id,height,"2",sex,birthday+"","edit",name);
                     }
                 }).show();
+    }
+
+    @Override
+    public void upLoadData() {
+        AppUtils.toast("修改成功");
+    }
+
+    private void upLoad(String userid, String height, String app_id, String sex, String birthday, String keyword, String accountstr){
+        presenter.upLoadData(userid,height,app_id,sex,birthday,keyword,accountstr);
     }
 
 }
