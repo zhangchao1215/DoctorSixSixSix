@@ -2,6 +2,7 @@ package jiyun.com.doctorsixsixsix.view.fragment;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -16,6 +17,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import jiyun.com.doctorsixsixsix.App;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseFragment;
 import jiyun.com.doctorsixsixsix.modle.adapter.MainDoctorGrieViewAdapter;
@@ -23,6 +25,7 @@ import jiyun.com.doctorsixsixsix.modle.bean.MainDoctorBean;
 import jiyun.com.doctorsixsixsix.presenter.doctorchao.DcotorMainImpl;
 import jiyun.com.doctorsixsixsix.presenter.doctorchao.IDoctorPresenter;
 import jiyun.com.doctorsixsixsix.view.MainDoctorView;
+import jiyun.com.doctorsixsixsix.view.activity.DoctorDetailActivity;
 import jiyun.com.doctorsixsixsix.view.activity.ZiMuZhouActivity;
 
 /**
@@ -34,7 +37,6 @@ import jiyun.com.doctorsixsixsix.view.activity.ZiMuZhouActivity;
  * 修改内容:
  * 修改时间:
  */
-
 public class DoctorFragment extends BaseFragment implements MainDoctorView {
     @BindView(R.id.yishengzaixian)
     LinearLayout yishengzaixian;
@@ -73,8 +75,7 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
     Unbinder unbinder;
     @BindView(R.id.Doctor_HuanYiHuan)
     TextView DoctorHuanYiHuan;
-    Unbinder unbinder1;
-    Unbinder unbinder2;
+  
     private List<MainDoctorBean.DataBean> mList;
     private MainDoctorGrieViewAdapter adapter;
     private int Index = 1;
@@ -97,7 +98,21 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
 
     @Override
     protected void initListener() {
-
+        DoctorGridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                MainDoctorBean.DataBean bean = mList.get(position);
+                Intent intent = new Intent(getContext(), DoctorDetailActivity.class);
+                intent.putExtra("app_image", bean.getApp_image());
+                intent.putExtra("doc_name", bean.getName());
+                intent.putExtra("doc_title", bean.getTitle());
+                intent.putExtra("doc_teach", bean.getTeach());
+                intent.putExtra("doc_hospital", bean.getHospital());
+                intent.putExtra("doc_content", bean.getGoodat());
+                intent.putExtra("doc_depart", bean.getDepart());
+                App.activity.startActivity(intent);
+            }
+        });
     }
 
     @Override

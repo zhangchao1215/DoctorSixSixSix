@@ -1,7 +1,5 @@
 package jiyun.com.doctorsixsixsix.modle.htttp.biz;
 
-import java.util.Map;
-
 import jiyun.com.doctorsixsixsix.modle.callback.MyCallBack;
 
 /**

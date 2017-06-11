@@ -1,7 +1,6 @@
 package jiyun.com.doctorsixsixsix.view.activity;
 
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseActivity;
@@ -20,10 +18,10 @@ import jiyun.com.doctorsixsixsix.view.ModifyView;
 
 /**
  * 项目名称: 血压卫士
- * 类描述:
+ * 类描述:  更改密码
  * 创建人: dell
  * 创建时间: 2017/6/10 11:34
- * 修改人:
+ * 修改人:  马杰
  * 修改内容:
  * 修改时间:
  */

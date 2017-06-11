@@ -11,8 +11,6 @@ import jiyun.com.doctorsixsixsix.util.AppUtils;
 import jiyun.com.doctorsixsixsix.util.GsonUtils;
 import jiyun.com.doctorsixsixsix.view.LoginView;
 
-import static jiyun.com.doctorsixsixsix.util.GsonUtils.getBean;
-
 /**
  * 项目名称: 血压卫士
  * 类描述:

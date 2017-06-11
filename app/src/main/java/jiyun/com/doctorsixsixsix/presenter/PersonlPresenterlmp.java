@@ -8,15 +8,12 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 
 import java.io.File;
-import java.net.URI;
 import java.util.Calendar;
 
 import jiyun.com.doctorsixsixsix.App;
 import jiyun.com.doctorsixsixsix.R;
-import jiyun.com.doctorsixsixsix.base.BaseBean;
 import jiyun.com.doctorsixsixsix.modle.bean.Person;
 import jiyun.com.doctorsixsixsix.modle.bean.upLoadImage;
 import jiyun.com.doctorsixsixsix.modle.callback.MyCallBack;
@@ -25,8 +22,6 @@ import jiyun.com.doctorsixsixsix.modle.htttp.biz.PersonlModel;
 import jiyun.com.doctorsixsixsix.util.AppUtils;
 import jiyun.com.doctorsixsixsix.util.GsonUtils;
 import jiyun.com.doctorsixsixsix.view.PersonlView;
-
-import static android.os.Build.VERSION_CODES.M;
 
 /**
  * 项目名称: 血压卫士

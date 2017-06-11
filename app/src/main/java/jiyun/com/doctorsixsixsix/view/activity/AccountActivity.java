@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -14,16 +13,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import jiyun.com.doctorsixsixsix.App;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseActivity;
 import jiyun.com.doctorsixsixsix.util.AppUtils;
 
 /**
  * 项目名称: 血压卫士
- * 类描述:
+ * 类描述: 个人账号信息
  * 创建人: dell
  * 创建时间: 2017/6/10 10:49
  * 修改人:
