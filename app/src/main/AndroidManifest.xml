@@ -36,7 +36,6 @@
         <activity android:name=".view.activity.DoctorDetailActivity"/>
         <activity android:name=".view.activity.CollectionActivity"/>
         <activity android:name=".view.activity.AddActivity"/>
-        <activity android:name=".view.activity.DoctorDetailActivity"/>
     </application>
 
 </manifest>
