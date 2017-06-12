@@ -41,7 +41,7 @@ import jiyun.com.doctorsixsixsix.view.activity.mftw.MianFeiWenActivity;
  * 创建时间: 2017/6/9 20:04
  * 修改人:  张超
  * 修改内容:
- * 修改时间:
+ * 修改时间:2017
  */
 public class DoctorFragment extends BaseFragment implements MainDoctorView {
     @BindView(R.id.yishengzaixian)
