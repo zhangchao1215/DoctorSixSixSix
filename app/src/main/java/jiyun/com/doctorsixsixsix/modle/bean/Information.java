@@ -42,7 +42,7 @@ public class Information extends BaseBean {
         private String id;
         private String title;
         private String description;
-        private String pubdate;
+        private long pubdate;
 
 
         public String getId() {
@@ -69,11 +69,11 @@ public class Information extends BaseBean {
             this.description = description;
         }
 
-        public String getPubdate() {
+        public long getPubdate() {
             return pubdate;
         }
 
-        public void setPubdate(String pubdate) {
+        public void setPubdate(long pubdate) {
             this.pubdate = pubdate;
         }
     }

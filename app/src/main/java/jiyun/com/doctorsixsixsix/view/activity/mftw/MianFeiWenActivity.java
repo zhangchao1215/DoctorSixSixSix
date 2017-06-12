@@ -23,9 +23,9 @@ import jiyun.com.doctorsixsixsix.base.BaseActivity;
 public class MianFeiWenActivity extends BaseActivity {
 
 
-    @BindView(R.id.account_back)
+    @BindView(R.id.mfy_back)
     ImageView accountBack;
-    @BindView(R.id.account_Title)
+    @BindView(R.id.mfy_Title)
     TextView accountTitle;
     @BindView(R.id.wenyisheng)
     RelativeLayout wenyisheng;

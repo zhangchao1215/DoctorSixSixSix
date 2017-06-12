@@ -1,18 +1,20 @@
 package jiyun.com.doctorsixsixsix.modle.adapter;
 
+import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
 
-import jiyun.com.doctorsixsixsix.App;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.modle.bean.Information;
+import jiyun.com.doctorsixsixsix.util.AppUtils;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
 /**
  * 项目名称: 血压卫士
@@ -26,9 +28,11 @@ import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
 public class InforAdapter extends BaseAdapter {
     private List<Information.DataBean> mList;
+    private Context mContext;
 
-    public InforAdapter(List<Information.DataBean> mList) {
+    public InforAdapter(List<Information.DataBean> mList,Context mContext) {
         this.mList = mList;
+        this.mContext=mContext;
     }
 
     @Override
@@ -51,9 +55,19 @@ public class InforAdapter extends BaseAdapter {
         ViewHolder holder=null;
         if(convertView==null){
             holder=new ViewHolder();
-            convertView= LayoutInflater.from(App.activity).inflate(R.layout.infor_item,null);
-            holder.title= (TextView) convertView.findViewById(R.id.infor_title);
+            convertView= LayoutInflater.from(mContext).inflate(R.layout.infor_item,null);
+            holder.title= (TextView) convertView.findViewById(R.id.inforde_title);
+            holder.order= (TextView) convertView.findViewById(R.id.inforde_order);
+            holder.date= (TextView) convertView.findViewById(R.id.inforde_date);
+            convertView.setTag(holder);
+        }else{
+            holder= (ViewHolder) convertView.getTag();
         }
+        Information.DataBean dataBean=mList.get(position);
+        holder.title.setText(dataBean.getTitle());
+        holder.order.setText(dataBean.getDescription());
+        String s = AppUtils.longToString(dataBean.getPubdate(), "yyyy年M月dd日 hh:mm:ss");
+        holder.date.setText(s);
         return convertView;
     }
 

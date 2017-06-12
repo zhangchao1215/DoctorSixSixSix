@@ -61,6 +61,13 @@ public class AppUtils {
         }
     }
 
+    public static String longToString(long dateTime,String formatType){
+        SimpleDateFormat format=new SimpleDateFormat(formatType);
+        Date date=new Date(dateTime);
+        String format1 = format.format(date);
+        return format1;
+    }
+
     public static Date stringToDate(String strTime, String formatType)
             throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat(formatType);

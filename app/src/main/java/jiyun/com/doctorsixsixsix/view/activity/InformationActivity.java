@@ -70,15 +70,28 @@ public class InformationActivity extends BaseActivity {
                 break;
             case R.id.information_common:
                 Intent intent=new Intent(InformationActivity.this,InforDetail.class);
+                intent.putExtra("type",1);
                 startActivity(intent);
                 break;
             case R.id.information_recipes:
+                Intent intentOne=new Intent(InformationActivity.this,InforDetail.class);
+                intentOne.putExtra("type",2);
+                startActivity(intentOne);
                 break;
             case R.id.information_prevention:
+                Intent intentTwo=new Intent(InformationActivity.this,InforDetail.class);
+                intentTwo.putExtra("type",3);
+                startActivity(intentTwo);
                 break;
             case R.id.information_treatment:
+                Intent intentThree=new Intent(InformationActivity.this,InforDetail.class);
+                intentThree.putExtra("type",4);
+                startActivity(intentThree);
                 break;
             case R.id.inspect:
+                Intent intentFour=new Intent(InformationActivity.this,InforDetail.class);
+                intentFour.putExtra("type",5);
+                startActivity(intentFour);
                 break;
         }
     }

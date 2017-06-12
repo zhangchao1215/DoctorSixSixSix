@@ -38,6 +38,9 @@
         <activity android:name=".view.activity.AddActivity"/>
         <activity android:name=".view.activity.InformationActivity"/>
         <activity android:name=".view.activity.InforDetail"/>
+        <activity android:name=".view.activity.DetailInfor"/>
+        <activity android:name=".view.activity.mftw.MianFeiWenActivity"/>
+        <activity android:name=".view.activity.mftw.WenTiActivity"/>
     </application>
 
 </manifest>

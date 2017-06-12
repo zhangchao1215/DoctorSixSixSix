@@ -27,6 +27,7 @@ import jiyun.com.doctorsixsixsix.view.activity.AddActivity;
 import jiyun.com.doctorsixsixsix.view.activity.CollectionActivity;
 import jiyun.com.doctorsixsixsix.view.activity.DataActivity;
 import jiyun.com.doctorsixsixsix.view.activity.SettingActivity;
+import jiyun.com.doctorsixsixsix.view.activity.mftw.MianFeiWenActivity;
 
 /**
  * 项目名称: 血压卫士
@@ -162,6 +163,18 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
                     startActivity(intent);
                 }else{
                     AppUtils.toast("请先登录再加号");
+                }
+            }
+        });
+        myMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                login=AppUtils.get().getBoolean("login",false);
+                if(login) {
+                    Intent intent = new Intent(getActivity(), MianFeiWenActivity.class);
+                    startActivity(intent);
+                }else{
+                    AppUtils.toast("请先登录再看消息");
                 }
             }
         });

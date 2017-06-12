@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent">
 <TextView
-    android:id="@+id/infor_title"
+    android:id="@+id/inforde_title"
     android:layout_width="match_parent"
     android:layout_height="40dp"
     android:textSize="20dp"
     android:padding="5dp"/>
     <TextView
-        android:id="@+id/infor_order"
+        android:id="@+id/inforde_order"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18dp"
         android:padding="8dp"/>
+
     <TextView
-        android:id="@+id/infor_date"
+        android:id="@+id/inforde_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
+        android:gravity="right"
         android:padding="5dp"
-        android:gravity="right"/>
+        android:textSize="15dp" />
+
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:textSize="15dp"
-        android:text="阅读全文"
-        android:padding="5dp"
         android:drawablePadding="8dp"
-        android:drawableRight="@drawable/right_arrow"/>
-</LinearLayout>
+        android:drawableRight="@drawable/right_arrow"
+        android:padding="5dp"
+        android:text="阅读全文"
+        android:textSize="15dp" />
+    </LinearLayout>

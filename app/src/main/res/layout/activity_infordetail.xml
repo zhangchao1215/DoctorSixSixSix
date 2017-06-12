@@ -22,13 +22,6 @@
             android:textSize="25dp"
             android:text="血压资讯"
             android:textColor="#fff"/>
-        <ImageView
-            android:id="@+id/inforDetail_shoucang"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/img_collect"/>
     </RelativeLayout>
     <ListView
         android:id="@+id/inforDetail_list"
