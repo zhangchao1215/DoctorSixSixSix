@@ -1,5 +1,6 @@
 package jiyun.com.doctorsixsixsix.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -66,7 +67,11 @@ public class CollectionActivity extends BaseActivity implements CollectionView {
         collectionList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Collection.Databean databean = mList.get(position);
+                Intent intent=new Intent(CollectionActivity.this,DetailInfor.class);
+                intent.putExtra("typeid",databean.getCategoryid());
+                intent.putExtra("dir",databean.getMeta().substring(0,10));
+                startActivity(intent);
             }
         });
     }
