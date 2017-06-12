@@ -1,10 +1,12 @@
 package jiyun.com.doctorsixsixsix.view;
 
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -20,6 +22,7 @@ import jiyun.com.doctorsixsixsix.base.BaseActivity;
 import jiyun.com.doctorsixsixsix.base.BaseFragment;
 import jiyun.com.doctorsixsixsix.modle.adapter.MainAdapter;
 import jiyun.com.doctorsixsixsix.presenter.PersonlPresenterlmp;
+import jiyun.com.doctorsixsixsix.util.AppUtils;
 import jiyun.com.doctorsixsixsix.view.fragment.DoctorFragment;
 import jiyun.com.doctorsixsixsix.view.fragment.PersonlFragment;
 import jiyun.com.doctorsixsixsix.view.fragment.TestFragment;
@@ -137,4 +140,5 @@ public class MainActivity extends BaseActivity {
         Intent wrapperIntent = Intent.createChooser(intent, "头像"); //开始 并设置标题
         startActivityForResult(wrapperIntent, 2);
     }
+
 }

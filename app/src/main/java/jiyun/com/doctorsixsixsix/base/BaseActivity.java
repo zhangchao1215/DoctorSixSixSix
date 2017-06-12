@@ -1,11 +1,13 @@
 package jiyun.com.doctorsixsixsix.base;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
 import jiyun.com.doctorsixsixsix.App;
+import jiyun.com.doctorsixsixsix.util.AppUtils;
 import jiyun.com.doctorsixsixsix.util.NetWorkUtils;
 
 /**
@@ -42,5 +44,15 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode){
+            case 1:
+                AppUtils.toast("权限申请成功");
+                break;
+        }
     }
 }

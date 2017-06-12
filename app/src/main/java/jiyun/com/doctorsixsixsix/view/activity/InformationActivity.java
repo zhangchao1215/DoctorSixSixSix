@@ -1,5 +1,6 @@
 package jiyun.com.doctorsixsixsix.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -68,6 +69,8 @@ public class InformationActivity extends BaseActivity {
                 onBackPressed();
                 break;
             case R.id.information_common:
+                Intent intent=new Intent(InformationActivity.this,InforDetail.class);
+                startActivity(intent);
                 break;
             case R.id.information_recipes:
                 break;
