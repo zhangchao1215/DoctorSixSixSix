@@ -66,7 +66,10 @@ public class TestFragment extends BaseFragment {
 
     @Override
     protected void initListener() {
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        wys.setChecked(false);
+        zx.setChecked(false);
+        tx.setChecked(false);
+        zixun.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 switch (checkedId){
@@ -74,7 +77,7 @@ public class TestFragment extends BaseFragment {
                         break;
                     case R.id.zx:
                         Intent intent=new Intent(getActivity(), InformationActivity.class);
-                        getActivity().startActivity(intent);
+                        startActivity(intent);
                         break;
                     case R.id.tx:
                         break;
