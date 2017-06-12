@@ -44,6 +44,7 @@ public class InforDetail extends BaseActivity implements InformationView {
     private List<Information.DataBean> mList;
     private String[] strings={"zhuanti_nk","zhuzhan_ys"};
     private int type;
+    private String inforID;
 
     @Override
     protected int getLayoutId() {
@@ -56,22 +57,27 @@ public class InforDetail extends BaseActivity implements InformationView {
         type = intent.getIntExtra("type", 0);
         switch (type){
             case 1:
+                inforID="18031";
                 presenter=new IInformationPresenter(this);
                 presenter.getList("18031","zhuanti_nk");
                 break;
             case 2:
+                inforID="7938";
                 presenter=new IInformationPresenter(this);
                 presenter.getList("7938","zhuzhan_ys");
                 break;
             case 3:
+                inforID="18033";
                 presenter=new IInformationPresenter(this);
                 presenter.getList("18033","zhuanti_nk");
                 break;
             case 4:
+                inforID="18035";
                 presenter=new IInformationPresenter(this);
                 presenter.getList("18035","zhuanti_nk");
                 break;
             case 5:
+                inforID="18032";
                 presenter=new IInformationPresenter(this);
                 presenter.getList("18032","zhuanti_nk");
                 break;
@@ -94,6 +100,7 @@ public class InforDetail extends BaseActivity implements InformationView {
                 String id1 = dataBean.getId();
                 Intent intent=new Intent(InforDetail.this,DetailInfor.class);
                 intent.putExtra("typeid",id1);
+                intent.putExtra("infor",inforID);
                 if(type==2){
                     intent.putExtra("dir",strings[1]);
                 }else{

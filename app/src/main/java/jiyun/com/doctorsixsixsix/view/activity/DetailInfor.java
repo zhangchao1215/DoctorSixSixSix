@@ -49,6 +49,8 @@ public class DetailInfor extends BaseActivity implements DetailView {
     private String categoryid;
     private String id;
     private String title;
+    private String inforid;
+    private String dir;
     private Handler handler=new Handler();
 
     @Override
@@ -78,7 +80,7 @@ public class DetailInfor extends BaseActivity implements DetailView {
                 if(boo){
                     presenter.shoucang(null,id,"0",title,categoryid);
                 }else{
-                    presenter.shoucang("zhuanti_nk,18032",id,"1",title,categoryid);
+                    presenter.shoucang(dir+","+inforid,id,"1",title,categoryid);
                 }
             }
         });
@@ -88,7 +90,8 @@ public class DetailInfor extends BaseActivity implements DetailView {
     protected void initData() {
         Intent intent = getIntent();
         String typeid = intent.getStringExtra("typeid");
-        String dir = intent.getStringExtra("dir");
+        dir = intent.getStringExtra("dir");
+        inforid=intent.getStringExtra("infor");
         presenter.getData(typeid, dir);
         id = AppUtils.get().getString("id", "");
 
