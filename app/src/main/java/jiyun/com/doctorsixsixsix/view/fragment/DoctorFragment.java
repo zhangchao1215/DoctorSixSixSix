@@ -3,12 +3,15 @@ package jiyun.com.doctorsixsixsix.view.fragment;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -83,6 +86,12 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
     private MainDoctorGrieViewAdapter adapter;
     private int Index = 1;
     private IDoctorPresenter presenter;
+    private MyGridLayout mGridLayout1;
+    private Button yes;
+    private PopupWindow popupWindow_zhicheng;
+    private Button sure_btn1;
+    private PopupWindow popupWindow_dengji;
+    private List<String> mList1;
 
     @Override
     protected int getLayoutId() {
@@ -135,6 +144,70 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
 
             }
         }).create().show();
+    }
+
+    private void showTechnical(View view) {
+        View inflate = View.inflate(getActivity(), R.layout.activity_dactor_name, null);
+        mGridLayout1 = (MyGridLayout) inflate.findViewById(R.id.dragable_myGridLayout);
+        yes = (Button) inflate.findViewById(R.id.Yes);
+        initDatas();
+        popupWindow_zhicheng = new PopupWindow(inflate, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, true);
+        popupWindow_zhicheng.setBackgroundDrawable(new ColorDrawable());
+        popupWindow_zhicheng.showAtLocation(view, Gravity.BOTTOM, 0, 0);
+        popupWindow_zhicheng.setOutsideTouchable(true);
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow_zhicheng.dismiss();
+            }
+        });
+    }
+
+    private void initDatas() {
+        mGridLayout1.setDragAble(false);
+        mList1 = new ArrayList<String>();
+        mList1.add("不限");
+        mList1.add("主任医师");
+        mList1.add("副主任医师");
+        mList1.add("主任医生");
+        mList1.add("医师");
+        mGridLayout1.setItems(mList1);
+    }
+
+    private void showHosrank(View view) {
+
+        View inflate = View.inflate(getActivity(), R.layout.activity_hospital_dengji, null);
+        mGridLayout1 = (MyGridLayout) inflate.findViewById(R.id.dragable_myGridLayout);
+        sure_btn1 = (Button) inflate.findViewById(R.id.sure);
+        initDatatwo();
+        popupWindow_dengji = new PopupWindow(inflate, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, true);
+        popupWindow_dengji.setBackgroundDrawable(new ColorDrawable());
+        popupWindow_dengji.showAtLocation(view, Gravity.BOTTOM, 0, 0);
+        popupWindow_dengji.setOutsideTouchable(true);
+
+        sure_btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow_dengji.dismiss();
+            }
+        });
+
+    }
+
+    private void initDatatwo() {
+
+        mGridLayout1.setDragAble(false);
+        mList1 = new ArrayList<String>();
+        mList1.add("不限");
+        mList1.add("三级甲等");
+        mList1.add("三级乙等");
+        mList1.add("三级丙等");
+        mList1.add("三级");
+        mList1.add("二级甲等");
+        mList1.add("二级已等");
+        mList1.add("二级丙等");
+        mGridLayout1.setItems(mList1);
+
     }
 
 
@@ -198,14 +271,17 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
     }
 
 
-    @OnClick({R.id.province, R.id.hospital, R.id.sousuo, R.id.chaxun, R.id.add, R.id.mfwys, R.id.jkgw, R.id.gongneng, R.id.Doctor_HuanYiHuan, R.id.doctor})
+    @OnClick({R.id.province, R.id.doctor_name,R.id.hospital, R.id.sousuo, R.id.chaxun, R.id.add, R.id.mfwys, R.id.jkgw, R.id.gongneng, R.id.Doctor_HuanYiHuan, R.id.doctor})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.province:
                 getShengFen();
-
                 break;
             case R.id.hospital:
+                showHosrank(view);
+                break;
+            case R.id.doctor_name:
+                showTechnical(view);
                 break;
             case R.id.sousuo:
                 break;
@@ -215,7 +291,6 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
                 break;
             case R.id.mfwys:
                 Intent intent = new Intent(getContext(), MianFeiWenActivity.class);
-
                 startActivity(intent);
                 break;
             case R.id.jkgw:

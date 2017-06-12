@@ -1,4 +1,4 @@
-package jiyun.com.doctorsixsixsix.view.doctorname;
+package jiyun.com.doctorsixsixsix.view.fragment;
 
 import android.animation.LayoutTransition;
 import android.content.Context;
@@ -18,13 +18,12 @@ import jiyun.com.doctorsixsixsix.R;
  * 项目名称: 血压卫士
  * 类描述:
  * 创建人: admin
- * 创建时间: 2017/6/10 11:41
+ * 创建时间: 2017/6/12 8:43
  * 修改人:
  * 修改内容:
  * 修改时间:
  */
 public class MyGridLayout extends GridLayout {
-
     // 被拖拽的View
     private View mDragedView;
 
@@ -46,7 +45,7 @@ public class MyGridLayout extends GridLayout {
 
     // 初始化当前GridLayout的条目个数和 条目动画
     private void init() {
-        setColumnCount(3);
+        setColumnCount(4);
         setLayoutTransition(new LayoutTransition());
     }
 
@@ -57,46 +56,59 @@ public class MyGridLayout extends GridLayout {
         }
     }
 
-    private int mMargin = 5;
+    private int mMargin = 15;
     private boolean mDragAble;
 
     // 向GridLayout里面添加条目
     private void addItem(String strItem) {
-        TextView tv = new TextView(getContext());
-        GridLayout.LayoutParams lp = new GridLayout.LayoutParams();
-        lp.width = getResources().getDisplayMetrics().widthPixels / 4 - mMargin
+        final TextView tv = new TextView(getContext());
+        LayoutParams lp = new LayoutParams();
+        lp.width = getResources().getDisplayMetrics().widthPixels / 3 - mMargin
                 * 2;
-        lp.height = GridLayout.LayoutParams.WRAP_CONTENT;
+        lp.height = LayoutParams.WRAP_CONTENT;
         lp.setMargins(mMargin, mMargin, mMargin, mMargin);
 
         tv.setLayoutParams(lp);
         tv.setGravity(Gravity.CENTER);
-        tv.setPadding(mMargin, mMargin, mMargin, mMargin);
+        tv.setPadding(15, 15, 15, 15);
         tv.setText(strItem);
         tv.setBackgroundResource(R.drawable.tv_item_select);
+        tv.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tv.setBackgroundColor(getResources().getColor(R.color.colorZiMuChou));
+            }
+        });
         MyGridLayout.this.addView(tv);
 
-        // 可以拖拽
+      /*  // 可以拖拽
         if (mDragAble) {
             tv.setOnLongClickListener(ocl);
             // 不能拖拽
         } else {
             tv.setOnLongClickListener(null);
-        }
+        }*/
 
     }
 
     // TextView(MyGridLayout的条目)的长按事件
-    private OnLongClickListener ocl = new OnLongClickListener() {
+    private OnClickListener ocl = new OnClickListener() {
 
         @Override
-        public boolean onLongClick(View v) {
-            mDragedView = v;
-            v.startDrag(null, new DragShadowBuilder(v), null, 0);
-            v.setEnabled(false);
-            return false;
+        public void onClick(View v) {
+//            mDragedView = v;
+////            v.startDrag(null, new DragShadowBuilder(v), null, 0);
+////            v.setEnabled(false);
+//            tv.setBackgroundColor(getResources().getColor(R.color.grey));
+
         }
     };
+
+    // 向外界提供点击view的方法
+    public void Onclick() {
+        this.setOnClickListener(ocl);
+    }
+
 
     // 向外界提供是否能拖拽的方法
     public void setDragAble(boolean isDrage) {
