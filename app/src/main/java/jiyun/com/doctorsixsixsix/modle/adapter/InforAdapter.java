@@ -52,6 +52,7 @@ public class InforAdapter extends BaseAdapter {
         if(convertView==null){
             holder=new ViewHolder();
             convertView= LayoutInflater.from(App.activity).inflate(R.layout.infor_item,null);
+            holder.title= (TextView) convertView.findViewById(R.id.infor_title);
         }
         return convertView;
     }
