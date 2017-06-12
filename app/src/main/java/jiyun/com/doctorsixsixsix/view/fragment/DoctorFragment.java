@@ -1,5 +1,7 @@
 package jiyun.com.doctorsixsixsix.view.fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,6 +29,7 @@ import jiyun.com.doctorsixsixsix.presenter.doctorchao.IDoctorPresenter;
 import jiyun.com.doctorsixsixsix.view.MainDoctorView;
 import jiyun.com.doctorsixsixsix.view.activity.DoctorDetailActivity;
 import jiyun.com.doctorsixsixsix.view.activity.ZiMuZhouActivity;
+import jiyun.com.doctorsixsixsix.view.activity.mftw.MianFeiWenActivity;
 
 /**
  * 项目名称: 血压卫士
@@ -117,6 +120,24 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
         });
     }
 
+    /**
+     * //健康询问提示框
+     */
+    private void show() {
+        new AlertDialog.Builder(getActivity()).setTitle("温馨提示").setMessage("您是否要拨打寻医问药的健康电话：400-9700-120").setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        }).setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        }).create().show();
+    }
+
+
     @Override
     protected void initData() {
         presenter.getMainDoctor(Index);
@@ -193,8 +214,12 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
             case R.id.add:
                 break;
             case R.id.mfwys:
+                Intent intent = new Intent(getContext(), MianFeiWenActivity.class);
+
+                startActivity(intent);
                 break;
             case R.id.jkgw:
+                show();
                 break;
             case R.id.gongneng:
                 break;

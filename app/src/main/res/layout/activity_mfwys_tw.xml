@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/tiwenyisheng"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#4CBF5C">
+        <ImageView
+            android:id="@+id/account_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/back_img"/>
+        <TextView
+            android:id="@+id/account_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textSize="25dp"
+            android:text="免费提问"
+            android:textColor="#fff"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/jieshao"
+        android:layout_below="@id/tiwenyisheng"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:text="
+        请简单描述您的病情并提交给我们的客服，客服人
+        员会安排专业的健康顾问向您致电，为阁下进行
+        专业的电脑健康指导
+
+         "/>
+
+    <EditText
+        android:id="@+id/miaoshu"
+        android:layout_below="@id/jieshao"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="请尽量详细描述，描述字数不得少于10个字"
+        />
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/tjgys"
+        android:layout_below="@id/miaoshu"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="50dp"
+        android:text="提交给医生"
+        android:background="#b1b1"/>
+
+</RelativeLayout>
