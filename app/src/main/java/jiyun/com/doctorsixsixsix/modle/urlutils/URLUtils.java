@@ -19,5 +19,8 @@ public class URLUtils {
     public static final String DATA="http://api.wws.xywy.com/index.php?act=kbb&fun=resetProperty&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b";
     //POST
     public static final String COLLECTION="http://api.yun.xywy.com/index.php/app/collect/list_data/111";
-
+    //POST
+    public static final String COLLECT="http://api.yun.xywy.com/index.php/app/collect/post/";
+    //POST
+    public static final String ISCOLLECT="http://api.yun.xywy.com/index.php/app/collect/is_collected/";
 }

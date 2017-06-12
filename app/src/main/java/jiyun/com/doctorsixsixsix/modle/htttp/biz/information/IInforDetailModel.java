@@ -30,4 +30,31 @@ public class IInforDetailModel implements InforDetailModel {
         map.put("dir",dir);
         Factory.create(Factory.OKHTTP).GET(URLUtils.BASEURL,map,null,callBack);
     }
+
+    @Override
+    public void shoucang(String meta,String xywy_userid, String category, String title, String categoryid, MyCallBack callBack) {
+        Map<String,String> map=new HashMap<>();
+        if(meta!=null) {
+            map.put("meta", meta);
+        }
+        map.put("app_id", "2");
+        map.put("tag","zj");
+        map.put("sign","2e0d0887581be1c35794ee4c13b00cae");
+        map.put("title",title);
+        map.put("xywy_userid",xywy_userid);
+        map.put("categoryid",categoryid);
+        map.put("category",category);
+        Factory.create(Factory.OKHTTP).POST(URLUtils.COLLECT,map,null,callBack);
+    }
+
+    @Override
+    public void isCollect(String xywy_userid, String categoryid, MyCallBack callBack) {
+        Map<String,String> map=new HashMap<>();
+        map.put("xywy_userid",xywy_userid);
+        map.put("categoryid",categoryid);
+        map.put("app_id","2");
+        map.put("sign","2e0d0887581be1c35794ee4c13b00cae");
+        map.put("tag","zj");
+        Factory.create(Factory.OKHTTP).POST(URLUtils.ISCOLLECT,map,null,callBack);
+    }
 }

@@ -12,4 +12,8 @@ package jiyun.com.doctorsixsixsix.presenter.information;
 
 public interface DetailPresenter {
     void getData(String id,String dir);
+
+    void shoucang(String meta,String xywy_userid, String category, String title, String categoryid);
+
+    void isCollect(String xywy_userid, String categoryid);
 }

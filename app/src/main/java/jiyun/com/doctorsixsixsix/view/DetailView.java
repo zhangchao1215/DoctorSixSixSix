@@ -1,4 +1,4 @@
-package jiyun.com.doctorsixsixsix.view.activity;
+package jiyun.com.doctorsixsixsix.view;
 
 import jiyun.com.doctorsixsixsix.modle.bean.InforDetailBean;
 import jiyun.com.doctorsixsixsix.modle.bean.Information;
@@ -16,4 +16,8 @@ import jiyun.com.doctorsixsixsix.modle.bean.Information;
 public interface DetailView {
 
     void getData(InforDetailBean.DataBean dataBean);
+
+    void isCollect(boolean boo);
+
+    void collect(boolean boo);
 }

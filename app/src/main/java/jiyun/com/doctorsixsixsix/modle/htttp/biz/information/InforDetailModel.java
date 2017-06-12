@@ -15,4 +15,8 @@ import jiyun.com.doctorsixsixsix.modle.callback.MyCallBack;
 public interface InforDetailModel {
 
     void getDetail(String id, String dir, MyCallBack callBack);
+
+    void shoucang(String meta,String xywy_userid,String category,String title,String categoryid,MyCallBack callBack);
+
+    void isCollect(String xywy_userid,String categoryid,MyCallBack callBack);
 }

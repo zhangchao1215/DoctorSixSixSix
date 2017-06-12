@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 
@@ -140,5 +142,25 @@ public class MainActivity extends BaseActivity {
         Intent wrapperIntent = Intent.createChooser(intent, "头像"); //开始 并设置标题
         startActivityForResult(wrapperIntent, 2);
     }
+    private Handler handler=new Handler();
+    private int a=0;
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode==event.KEYCODE_BACK){
+            if(a==1){
+                onBackPressed();
+            }else {
+                a=1;
+                AppUtils.toast("再点击一次退出");
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        a=0;
+                    }
+                },3000);
+            }
 
+        }
+        return false;
+    }
 }
