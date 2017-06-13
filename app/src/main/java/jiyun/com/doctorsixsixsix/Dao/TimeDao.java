@@ -25,7 +25,7 @@ public class TimeDao extends AbstractDao<Time, Long> {
      */
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
-        public final static Property Time = new Property(1, String.class, "time", false, "TIME");
+        public final static Property Data_time = new Property(1, String.class, "data_time", false, "DATA_TIME");
         public final static Property Name = new Property(2, String.class, "name", false, "NAME");
         public final static Property Number = new Property(3, int.class, "number", false, "NUMBER");
     }
@@ -44,7 +44,7 @@ public class TimeDao extends AbstractDao<Time, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"TIME\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
-                "\"TIME\" TEXT," + // 1: time
+                "\"DATA_TIME\" TEXT," + // 1: data_time
                 "\"NAME\" TEXT," + // 2: name
                 "\"NUMBER\" INTEGER NOT NULL );"); // 3: number
     }
@@ -64,9 +64,9 @@ public class TimeDao extends AbstractDao<Time, Long> {
             stmt.bindLong(1, id);
         }
  
-        String time = entity.getTime();
-        if (time != null) {
-            stmt.bindString(2, time);
+        String data_time = entity.getData_time();
+        if (data_time != null) {
+            stmt.bindString(2, data_time);
         }
  
         String name = entity.getName();
@@ -85,9 +85,9 @@ public class TimeDao extends AbstractDao<Time, Long> {
             stmt.bindLong(1, id);
         }
  
-        String time = entity.getTime();
-        if (time != null) {
-            stmt.bindString(2, time);
+        String data_time = entity.getData_time();
+        if (data_time != null) {
+            stmt.bindString(2, data_time);
         }
  
         String name = entity.getName();
@@ -106,7 +106,7 @@ public class TimeDao extends AbstractDao<Time, Long> {
     public Time readEntity(Cursor cursor, int offset) {
         Time entity = new Time( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // time
+            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // data_time
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // name
             cursor.getInt(offset + 3) // number
         );
@@ -116,7 +116,7 @@ public class TimeDao extends AbstractDao<Time, Long> {
     @Override
     public void readEntity(Cursor cursor, Time entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
-        entity.setTime(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
+        entity.setData_time(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
         entity.setName(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
         entity.setNumber(cursor.getInt(offset + 3));
      }

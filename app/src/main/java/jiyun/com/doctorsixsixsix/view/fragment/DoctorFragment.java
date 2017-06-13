@@ -271,11 +271,13 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
     }
 
 
-    @OnClick({R.id.province, R.id.doctor_name,R.id.hospital, R.id.sousuo, R.id.chaxun, R.id.add, R.id.mfwys, R.id.jkgw, R.id.gongneng, R.id.Doctor_HuanYiHuan, R.id.doctor})
+    @OnClick({R.id.province, R.id.mymap,R.id.doctor_name,R.id.hospital, R.id.sousuo, R.id.chaxun, R.id.add, R.id.mfwys, R.id.jkgw, R.id.gongneng, R.id.Doctor_HuanYiHuan, R.id.doctor})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.province:
                 getShengFen();
+                break;
+            case R.id.mymap:
                 break;
             case R.id.hospital:
                 showHosrank(view);
@@ -307,5 +309,7 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
                 break;
         }
     }
+
+
 
 }

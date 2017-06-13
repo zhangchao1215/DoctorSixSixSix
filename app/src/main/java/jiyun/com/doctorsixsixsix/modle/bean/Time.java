@@ -17,13 +17,13 @@ import org.greenrobot.greendao.annotation.Generated;
 public class Time {
     @Id(autoincrement = true)
     private Long id;
-    private String time;
+    private String data_time;
     private String name;
     private int number;
-    @Generated(hash = 1919486792)
-    public Time(Long id, String time, String name, int number) {
+    @Generated(hash = 1072525349)
+    public Time(Long id, String data_time, String name, int number) {
         this.id = id;
-        this.time = time;
+        this.data_time = data_time;
         this.name = name;
         this.number = number;
     }
@@ -36,11 +36,11 @@ public class Time {
     public void setId(Long id) {
         this.id = id;
     }
-    public String getTime() {
-        return this.time;
+    public String getData_time() {
+        return this.data_time;
     }
-    public void setTime(String time) {
-        this.time = time;
+    public void setData_time(String data_time) {
+        this.data_time = data_time;
     }
     public String getName() {
         return this.name;
@@ -53,5 +53,15 @@ public class Time {
     }
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    @Override
+    public String toString() {
+        return "Time{" +
+                "id=" + id +
+                ", data_time='" + data_time + '\'' +
+                ", name='" + name + '\'' +
+                ", number=" + number +
+                '}';
     }
 }

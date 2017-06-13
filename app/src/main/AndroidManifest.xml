@@ -43,7 +43,16 @@
         <activity android:name=".view.activity.DetailInfor"/>
         <activity android:name=".view.activity.mftw.MianFeiWenActivity"/>
         <activity android:name=".view.activity.mftw.WenTiActivity"/>
+        <activity android:name=".view.activity.tixing.AddRemindActivity"></activity>
+        <activity android:name=".view.activity.tixing.RemindActivity"></activity>
         <activity android:name=".view.activity.FeedBackActivity"/>
+        <activity android:name=".view.activity.tixing.Service.MyAlarm"></activity>
+
+        <receiver android:name=".view.activity.tixing.Service.MyReceiver">
+            <intent-filter>
+                <action android:name= "com.Reminder.MyReceiver" />
+            </intent-filter>
+        </receiver>
         <activity android:name=".view.activity.PhoneActivity"/>
     </application>
 
