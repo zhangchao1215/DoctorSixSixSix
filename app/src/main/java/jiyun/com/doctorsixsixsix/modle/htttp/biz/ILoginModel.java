@@ -9,7 +9,7 @@ import jiyun.com.doctorsixsixsix.modle.urlutils.URLUtils;
 
 /**
  * 项目名称: 血压卫士
- * 类描述:
+ * 类描述:  这是登陆的实现接口
  * 创建人: dell
  * 创建时间: 2017/6/9 20:42
  * 修改人:

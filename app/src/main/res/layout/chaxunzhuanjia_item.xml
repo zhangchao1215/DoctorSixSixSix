@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/ChaXun_RelativeLayout"
+    >
+    <ImageView
+        android:id="@+id/Doctor_Image"
+        android:layout_width="90dp"
+        android:layout_height="130dp"
+        android:src="@mipmap/ic_launcher"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_toRightOf="@+id/Doctor_Image">
+
+        <TextView
+            android:id="@+id/Doctor_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="李世民"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/Doctor_YiYuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/Doctor_Name"
+            android:text="dfdffdf"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:id="@+id/center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Doctor_Name"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/Doctor_JiBie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:text="zhuasdsd" />
+
+            <TextView
+
+                android:id="@+id/Doctor_KeShi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="zhuasdsd" />
+
+            <TextView
+                android:id="@+id/Doctor_ZhiCheng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="zhuasdsd" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/MianFei_Btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/is_plus_normal" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/Doctor_Content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Doctor_Image"
+        android:layout_marginLeft="5dp"
+        android:text="sdsdsdsddddddddddddddddddddddddffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_below="@+id/Doctor_Content"
+        android:background="#aea7a7" />
+</RelativeLayout>

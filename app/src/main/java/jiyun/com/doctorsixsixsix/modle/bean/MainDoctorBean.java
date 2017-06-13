@@ -13,18 +13,8 @@ import java.util.List;
  */
 
 public class MainDoctorBean{
-    private int code;
     private int total;
-    private String msg;
     private List<DataBean> data;
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
 
     public int getTotal() {
         return total;
@@ -32,14 +22,6 @@ public class MainDoctorBean{
 
     public void setTotal(int total) {
         this.total = total;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
     }
 
     public List<DataBean> getData() {
@@ -52,38 +34,38 @@ public class MainDoctorBean{
 
     public static class DataBean {
         /**
-         * document_id : 31540
+         * document_id : 319
          * score : NaN
-         * document_weight : 223.497
-         * name : 李明
-         * doctorPinyin : gukeliming
+         * document_weight : 219.215
+         * name : 李为民
+         * doctorPinyin : liweimin
          * title : 主任医师
          * teach : 教授
-         * goodat : 脊柱侧后凸畸形、颈椎病、腰椎间盘突出症、腰椎管狭窄症、腰椎滑脱症、脊柱骨折、脊柱肿瘤、脊柱结核等外科治疗。
-         * app_image : http://static.i2.xywy.com/zhuanjia/20141230/a6f380b3247db39a2f807bfae0b4a67584425_d.jpg
-         * hospital : 上海长海医院
-         * province : 上海市
-         * city : 杨浦
+         * goodat : 高血压病、冠心病、心力衰竭、心律失常的诊断和药物治疗
+         * app_image : http://static.i2.xywy.com/zhuanjia/20141211/c9334b9a40aa134ae02ec0d6dc11ecc134614_d.jpg
+         * hospital : 哈医大一院
+         * province : 黑龙江省
+         * city : 哈尔滨
          * level : 三级甲等
-         * depart : 骨科
-         * uuidDepart : 4902
-         * depart_parent : 4901
-         * hospitalPinyin : chhospita
-         * departPinyin : guke
-         * areapinyin : shanghai
-         * speciality : [{"id":"74","name":"骨科"}]
+         * depart : 心血管内科
+         * uuidDepart : 455
+         * depart_parent : 450
+         * hospitalPinyin : 54dr
+         * departPinyin : xinxueguanneike
+         * areapinyin : heilongjiang
+         * speciality : [{"id":"46","name":"心血管内科"}]
          * vote : 5
-         * referlist_url : http://z.xywy.com/doc/lmdr/zixun.php
+         * referlist_url : http://z.xywy.com/doc/liweiminzjw/zixun.php
          * article_num : 0
-         * plus_num : 33
-         * articlelist_url : http://z.xywy.com/doc/lmdr/wenzhang.htm
-         * agreeplus : 78
+         * plus_num : 29
+         * articlelist_url : http://z.xywy.com/doc/liweiminzjw/wenzhang.htm
+         * agreeplus : 114
          * is_ask : 1
          * is_plus : 1
-         * menzhen : 星期一 上午、星期四 下午
+         * menzhen : 星期三 上午、星期三 下午
          * refer_num : 0
-         * expert_id : 6665
-         * club_id : 12114702
+         * expert_id : 8143
+         * club_id : 12116003
          */
 
         private String document_id;

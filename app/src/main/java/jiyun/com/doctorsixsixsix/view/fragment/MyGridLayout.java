@@ -2,9 +2,7 @@ package jiyun.com.doctorsixsixsix.view.fragment;
 
 import android.animation.LayoutTransition;
 import android.content.Context;
-import android.graphics.Rect;
 import android.util.AttributeSet;
-import android.view.DragEvent;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.GridLayout;
@@ -13,6 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import jiyun.com.doctorsixsixsix.R;
+
 
 /**
  * 项目名称: 血压卫士
@@ -24,161 +23,237 @@ import jiyun.com.doctorsixsixsix.R;
  * 修改时间:
  */
 public class MyGridLayout extends GridLayout {
-    // 被拖拽的View
-    private View mDragedView;
+    private View mGridView;
+    private onClickListener listener;
+    private List<String> mList;
 
-    // 在XML里面声明该控件的style属性的时候调用
-    public MyGridLayout(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        init();
+    private TextView LastView;
+
+    public TextView getLastView() {
+        return LastView;
     }
 
-    // 在XML里面声明该控件的时候调用
-    public MyGridLayout(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+    public void remove(View view) {
+        this.removeView(view);
     }
 
-    // 在代码里面new对象的时候调用
+    public void add(String addItem) {
+        addItem(addItem);
+    }
+
+    public void setListener(onClickListener listener) {
+        this.listener = listener;
+    }
+
+    //在另一个类中，new对象时调用
     public MyGridLayout(Context context) {
         this(context, null);
     }
 
-    // 初始化当前GridLayout的条目个数和 条目动画
+    //在XML布局中调用
+    public MyGridLayout(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    //在XML布局中style中进行调用
+    public MyGridLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init();
+    }
+
     private void init() {
-        setColumnCount(4);
+        //设置当前Gridlayout每个条目个数
+        setColumnCount(3);
+        //设置动画
         setLayoutTransition(new LayoutTransition());
     }
 
-    // 向外界提供的设置添加GridLayout条目的方法
-    public void setItems(List<String> list) {
-        for (String strItem : list) {
-            addItem(strItem);
+    //    // TODO: 2017/5/18 向外提供添加条目的方法，集合
+    public void setItems(List<String> mList) {
+        //遍历集合添加条目
+        for (String s : mList) {
+            addItem(s);
         }
     }
 
-    private int mMargin = 15;
-    private boolean mDragAble;
+    //这是设置点击事件的集合添加数据
+    public void setmList(List<String> mList) {
+        this.mList = mList;
+        for (String s : mList) {
+            addItem(s);
+        }
 
-    // 向GridLayout里面添加条目
-    private void addItem(String strItem) {
-        final TextView tv = new TextView(getContext());
-        LayoutParams lp = new LayoutParams();
-        lp.width = getResources().getDisplayMetrics().widthPixels / 3 - mMargin
-                * 2;
-        lp.height = LayoutParams.WRAP_CONTENT;
-        lp.setMargins(mMargin, mMargin, mMargin, mMargin);
+    }
 
-        tv.setLayoutParams(lp);
-        tv.setGravity(Gravity.CENTER);
-        tv.setPadding(15, 15, 15, 15);
-        tv.setText(strItem);
-        tv.setBackgroundResource(R.drawable.tv_item_select);
-        tv.setOnClickListener(new OnClickListener() {
+    //向gridlayout里面设置添加条目
+    private int margin = 5;
+    private boolean boo;
+
+    // TODO: 2017/5/18 向GridLayout里面添加条目
+    public void addItem(String stritem) {
+        final TextView mText = new TextView(getContext());
+        LayoutParams gl = new LayoutParams();
+        //获取当前屏幕的宽高
+        gl.width = getResources().getDisplayMetrics().widthPixels / 3 - margin * 2;
+        gl.height = LayoutParams.WRAP_CONTENT;
+
+        gl.setGravity(Gravity.CENTER);
+        mText.setGravity(Gravity.CENTER);
+        gl.setMargins(margin, margin, margin, margin);
+
+
+        //把这两个进行相关联
+        mText.setLayoutParams(gl);
+        //设置选中之后的变化
+        mText.setBackgroundResource(R.drawable.tv_item_selector);
+        //设置当前文本为添加的内容
+        mText.setText(stritem);
+        //添加textview这个对象
+        addView(mText);
+
+        LastView = mText;
+
+        mText.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv.setBackgroundColor(getResources().getColor(R.color.colorZiMuChou));
+
+                if (LastView != null) {
+                    LastView.setBackgroundResource(R.drawable.tv_item_selector);
+
+                } else {
+                    LastView.setBackgroundColor(getResources().getColor(R.color.HuiSe));
+                }
+                LastView = (TextView) v;
             }
         });
-        MyGridLayout.this.addView(tv);
-
-      /*  // 可以拖拽
-        if (mDragAble) {
-            tv.setOnLongClickListener(ocl);
-            // 不能拖拽
-        } else {
-            tv.setOnLongClickListener(null);
-        }*/
-
-    }
-
-    // TextView(MyGridLayout的条目)的长按事件
-    private OnClickListener ocl = new OnClickListener() {
-
-        @Override
-        public void onClick(View v) {
-//            mDragedView = v;
-////            v.startDrag(null, new DragShadowBuilder(v), null, 0);
-////            v.setEnabled(false);
-//            tv.setBackgroundColor(getResources().getColor(R.color.grey));
-
-        }
-    };
-
-    // 向外界提供点击view的方法
-    public void Onclick() {
-        this.setOnClickListener(ocl);
-    }
 
 
-    // 向外界提供是否能拖拽的方法
-    public void setDragAble(boolean isDrage) {
-        this.mDragAble = isDrage;
-        if (mDragAble) {
-            // 监听拖拽事件
-            this.setOnDragListener(odl);
-        } else {
-            // 不监听拖拽事件
-            this.setOnDragListener(null);
-        }
-    }
-
-    // 拖拽监听器
-    private OnDragListener odl = new OnDragListener() {
-
-        @Override
-        public boolean onDrag(View arg0, DragEvent event) {
-
-            switch (event.getAction()) {
-                // 开始拖拽
-                case DragEvent.ACTION_DRAG_STARTED:
-                    initRect();
-                    break;
-
-                // 实时监听拖拽事件
-                case DragEvent.ACTION_DRAG_LOCATION:
-                    int index = getIntouchIndex(event);
-                    if (index > -1 && mDragedView != null
-                            && mDragedView != getChildAt(index)) {
-                        removeView(mDragedView);
-                        addView(mDragedView, index);
-                    }
-                    break;
-
-                // 停止拖拽
-                case DragEvent.ACTION_DRAG_ENDED:
-                    if (mDragedView != null) {
-                        mDragedView.setEnabled(true);
-                    }
-
-                    break;
-            }
-            return true;
-        }
-
-    };
-
-    private Rect[] mRectArr;
-
-    // 将所有的条目都封装成矩形然后存入数组
-    private void initRect() {
-        int childViewCount = getChildCount();
-        mRectArr = new Rect[childViewCount];
-        for (int i = 0; i < childViewCount; i++) {
-            View childView = getChildAt(i);
-            Rect rect = new Rect(childView.getLeft(), childView.getTop(),
-                    childView.getRight(), childView.getBottom());
-            mRectArr[i] = rect;
-        }
+        //可以拖拽
+//        if (boo) {
+//            mText.setOnLongClickListener(ol);
+//        } else {
+//            //不能拖拽
+//            mText.setOnLongClickListener(null);
+//            //每个textview的点击事件
+//            mText.setOnClickListener(new OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    //遍历这个集合，
+//                    for (int i = 0; i < mList.size(); i++) {
+//                        //得到这个集合里面的每个值，如果包含每个textview，这就得到了每个索引值
+//                        if (mList.get(i).equals(mText.getText())) {
+//                            listener.setOnItemClickListener(v, i);
+//                        }
+//                    }
+//                }
+//            });
+//        }
 
     }
 
-    // 实时监听拖拽的点是否进入到了某一个子控件范围内
-    private int getIntouchIndex(DragEvent event) {
-        for (int i = 0; i < mRectArr.length; i++) {
-            if (mRectArr[i].contains((int) event.getX(), (int) event.getY())) {
-                return i;
-            }
-        }
-        return -1;
+    // TODO: 2017/5/18  //向外提供可以进行拖拽的方法
+
+//    public void setBoo(boolean boo) {
+//        this.boo = boo;
+//        if (boo) {
+//            this.setOnDragListener(od);
+//        } else {
+//            this.setOnDragListener(null);
+//        }
+//    }
+
+    // TODO: 2017/5/18 textview的监听
+    //TextView的长按监听事件（就是mGridLayout的每个条目）
+//    private OnLongClickListener ol = new OnLongClickListener() {
+//        @Override
+//        public boolean onLongClick(View v) {
+//            mGridView = v;
+//            v.startDrag(null, new DragShadowBuilder(), null, 0);
+//            v.setEnabled(false);
+//
+//            return false;
+//        }
+//    };
+    // TODO: 2017/5/18  /这是拖拽的监听器
+//    private OnDragListener od = new OnDragListener() {
+//        @Override
+//        public boolean onDrag(View v, DragEvent event) {
+//            switch (event.getAction()) {
+//                case DragEvent.ACTION_DRAG_STARTED:
+//                    //开始进行拖拽
+//                    initRect();
+//                    break;
+//                //实时监听的拖拽的事件
+//                case DragEvent.ACTION_DRAG_LOCATION:
+//                    int index = getIntouchIndex(event);
+//                    if (index > -1 && mGridView != null
+//                            && mGridView != getChildAt(index)) {
+//                        removeView(mGridView);//移除一个view
+//                        addView(mGridView, index);//添加一个view对象,添加到对应拖拽的所在位置
+//                    }
+//
+//                    break;
+//                //停止拖拽时的操作
+//                case DragEvent.ACTION_DRAG_ENDED:
+//                    if (mGridView != null) {
+//                        mGridView.setEnabled(true);
+//                    }
+//
+//                    break;
+//
+//            }
+//            return true;
+//        }
+//
+//
+//    };
+//
+//    private Rect[] mRectArr;
+//
+//    // TODO: 2017/5/18  总的来说把所有条目封装成矩形，并存入数组
+//
+//    private void initRect() {
+//        //得到每个孩子的个数
+//        int childCount = getChildCount();
+//        //并把这些孩子（条目）添加到数组中，并遍历这些孩子
+//        mRectArr = new Rect[childCount];
+//        for (int i = 0; i < childCount; i++) {
+//            //得到每个孩子对象，返回一个view
+//            View childAt = getChildAt(i);
+//            //得到每个view对象的坐标点
+//            Rect rect = new Rect(childAt.getLeft(), childAt.getTop(), childAt.getRight(), childAt.getBottom());
+//            //并且返回给数组
+//            mRectArr[i] = rect;
+//
+//        }
+//
+//
+//    }
+//
+//    // TODO: 2017/5/18 进行拖拽的实时监听事件，实时监听每一个点是否进入到某一控件的位置
+//    //
+//    private int getIntouchIndex(DragEvent event) {
+//        for (int i = 0; i < mRectArr.length; i++) {
+//            /**getX()
+//             * .getX():这里面得到的是你进行拖拽的那个条目的坐标，位置
+//             */
+//            if (mRectArr[i].contains((int) event.getX(), (int) event.getY())) {
+//                //这是返回的你拖拽到某一条目所在的位置
+//                return i;
+//            }
+//
+//        }
+//        return -1;
+//    }
+//
+
+    /**
+     * 接口的回调，进行点击事件的处理
+     */
+
+    public interface onClickListener {
+        void setOnItemClickListener(View view, int Position);
+
     }
+
 }

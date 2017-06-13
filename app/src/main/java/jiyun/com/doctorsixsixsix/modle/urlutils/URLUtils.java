@@ -5,10 +5,13 @@ package jiyun.com.doctorsixsixsix.modle.urlutils;
  */
 
 public class URLUtils {
+    public static final String PAGEINDEX = "1";
+    public static final String PAGESIZE = "20";
+
     //GET
     public static final String BASEURL = "http://api.wws.xywy.com/index.php";
     //POST
-    public static final String IMAGE="http://api.wws.xywy.com/upload_avatar.php ";
+    public static final String IMAGE="http://api.wws.xywy.com/upload_avatar.php";
     //POST
     public static final String LOGIN="http://api.wws.xywy.com/index.php?&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b&act=kbb&fun=users&type=login";
     //GET

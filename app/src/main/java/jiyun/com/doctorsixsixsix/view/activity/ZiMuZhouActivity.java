@@ -1,6 +1,8 @@
 package jiyun.com.doctorsixsixsix.view.activity;
 
+import android.content.Intent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -58,17 +60,33 @@ public class ZiMuZhouActivity extends BaseActivity {
         ZiMuZhou.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    ZiMuZhou.setBackgroundResource(R.color.colorZiMuChou);
+                ZiMuZhou.setBackgroundResource(R.color.colorZiMuChou);
 
             }
         });
+
+        getClick();
 
 
     }
 
     @Override
     protected void initListener() {
+    }
 
+    private void getClick() {
+        ZiMuListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String s = mList.get(position);
+
+                Intent intent = new Intent();
+
+                setResult(250, intent.putExtra("Province", s));
+
+                onBackPressed();
+            }
+        });
     }
 
     @Override

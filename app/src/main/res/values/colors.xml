@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorZiMuChou">#cfcccc</color>
+    <color name="colorWhite">#fff</color>
     <drawable name="huise">#aaaa</drawable>
+    <color name="HuiSe">#bfbcbc</color>
     <drawable name="baise">#ffffff</drawable>
 </resources>

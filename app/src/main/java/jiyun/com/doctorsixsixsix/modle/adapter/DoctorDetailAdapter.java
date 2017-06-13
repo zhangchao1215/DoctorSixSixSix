@@ -24,7 +24,7 @@ public class DoctorDetailAdapter  extends BaseAdapter<DoctorDetailBean.DataBean>
 
 
     public DoctorDetailAdapter(Context context, List<DoctorDetailBean.DataBean> datas) {
-        super(context, R.layout.activity_pullrecycler, datas);
+        super(context, R.layout.activity_doctor_huifu_item, datas);
     }
 
     @Override

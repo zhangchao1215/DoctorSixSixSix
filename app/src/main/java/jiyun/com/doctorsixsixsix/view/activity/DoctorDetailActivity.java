@@ -1,6 +1,7 @@
 package jiyun.com.doctorsixsixsix.view.activity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseActivity;
 import jiyun.com.doctorsixsixsix.modle.adapter.MyFragmentAdapter;
@@ -60,6 +62,8 @@ public class DoctorDetailActivity extends BaseActivity {
     ViewPager mPager;
     @BindView(R.id.doc_detail_content)
     TextView docDetailContent;
+    @BindView(R.id.doc_detail_TitleName)
+    TextView TitleName;
     private MyFragmentAdapter adapter;
     private List<String> strList;
     private List<Fragment> mList;
@@ -123,8 +127,9 @@ public class DoctorDetailActivity extends BaseActivity {
         String doc_hospital = intent.getStringExtra("doc_hospital");
         String doc_content = intent.getStringExtra("doc_content");
         String doc_depart = intent.getStringExtra("doc_depart");
-         //得到姓名
+        //得到姓名
         docDetailName.setText(doc_name);
+        TitleName.setText(doc_name);
         //得到医院
         docDetailHostail.setText(doc_hospital);
         //得到职位
@@ -140,4 +145,10 @@ public class DoctorDetailActivity extends BaseActivity {
 
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
 }

@@ -37,30 +37,33 @@
             android:textColor="#B4B4B4"
             android:textSize="15dp" />
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/province"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_below="@+id/person"
-            android:background="#fff">
+            android:background="#fff"
+            android:weightSum="3">
 
             <TextView
+                android:id="@+id/Doctor_Province"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
+                android:layout_weight="2.8"
                 android:padding="5dp"
                 android:text="省份"
-                android:textSize="15dp" />
+                android:textSize="18sp" />
 
             <ImageView
                 android:id="@+id/mymap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.2"
                 android:src="@drawable/location" />
-        </RelativeLayout>
+        </LinearLayout>
 
         <RelativeLayout
             android:id="@+id/doctor_name"
@@ -76,9 +79,10 @@
                 android:layout_marginLeft="10dp"
                 android:padding="5dp"
                 android:text="医生职称"
-                android:textSize="15dp" />
+                android:textSize="18sp" />
 
             <ImageView
+                android:id="@+id/DocZhiCheng_Back"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentRight="true"
@@ -86,6 +90,14 @@
                 android:layout_marginRight="5dp"
                 android:src="@drawable/arrow_right" />
 
+            <TextView
+                android:textSize="18sp"
+                android:id="@+id/Doc_ZhiCheng_Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:layout_toLeftOf="@id/DocZhiCheng_Back" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -102,9 +114,10 @@
                 android:layout_marginLeft="10dp"
                 android:padding="5dp"
                 android:text="医院等级"
-                android:textSize="15dp" />
+                android:textSize="18sp" />
 
             <ImageView
+                android:id="@+id/Doc_Back_Dengji"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentRight="true"
@@ -112,6 +125,14 @@
                 android:layout_marginRight="5dp"
                 android:src="@drawable/arrow_right" />
 
+            <TextView
+                android:id="@+id/Doc_Dengji_Text"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:layout_toLeftOf="@id/Doc_Back_Dengji" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -121,12 +142,14 @@
             android:layout_below="@id/hospital">
 
             <TextView
+                android:id="@+id/Search_Text"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_margin="5dp"
                 android:gravity="center_vertical"
                 android:text="关键字/专家姓名/医院名称/疾病"
                 android:textColor="#CBCBCB"
-                android:textSize="15dp" />
+                android:textSize="18sp" />
 
             <ImageView
                 android:layout_width="15dp"
@@ -159,10 +182,10 @@
                 android:text="免费加号" />
 
             <Button
-                android:layout_gravity="center"
                 android:id="@+id/chaxun"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:background="@drawable/main_doctor_but"
                 android:text="查询专家"
                 android:textColor="#000" />

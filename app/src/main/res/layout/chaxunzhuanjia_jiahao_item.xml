@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ChaXun_RelativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/JiaHao_Doctor_Image"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_toRightOf="@+id/JiaHao_Doctor_Image">
+
+        <TextView
+            android:id="@+id/JiaHao_Doctor_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="李世民"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/JaiHao_Doctor_YiYuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/JiaHao_Doctor_Name"
+            android:text="dfdffdf"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:id="@+id/center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/JiaHao_Doctor_Name"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/JiaHao_Doctor_JiBie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:text="zhuasdsd" />
+
+            <TextView
+
+                android:id="@+id/JiaHao_Doctor_KeShi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="zhuasdsd" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/JiaHao_Doctor_ZhiCheng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/center"
+            android:layout_marginLeft="10dp"
+            android:text="zhuasdsd" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:maxLines="2"
+        android:id="@+id/JiaHao_Content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/JiaHao_Doctor_Image"
+        android:layout_marginLeft="15dp"
+        android:text="daddddddddddddddddddddddddddddddddd" />
+
+    <LinearLayout
+        android:id="@+id/JiaHao_LinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_below="@+id/JiaHao_Content"
+        android:background="#aea7a7"
+        android:orientation="horizontal" />
+
+    <ListView
+        android:id="@+id/JiaHao_Listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/JiaHao_LinearLayout" />
+
+</RelativeLayout>

@@ -21,7 +21,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 import jiyun.com.doctorsixsixsix.App;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseFragment;
@@ -31,8 +30,12 @@ import jiyun.com.doctorsixsixsix.presenter.doctorchao.DcotorMainImpl;
 import jiyun.com.doctorsixsixsix.presenter.doctorchao.IDoctorPresenter;
 import jiyun.com.doctorsixsixsix.view.MainDoctorView;
 import jiyun.com.doctorsixsixsix.view.activity.DoctorDetailActivity;
+import jiyun.com.doctorsixsixsix.view.activity.DoctorSearchActivity;
 import jiyun.com.doctorsixsixsix.view.activity.ZiMuZhouActivity;
+import jiyun.com.doctorsixsixsix.view.activity.chaxun.ChaXunZhunJiaActivity;
 import jiyun.com.doctorsixsixsix.view.activity.mftw.MianFeiWenActivity;
+
+import static jiyun.com.doctorsixsixsix.R.id.Search_Text;
 
 /**
  * 项目名称: 血压卫士
@@ -44,18 +47,23 @@ import jiyun.com.doctorsixsixsix.view.activity.mftw.MianFeiWenActivity;
  * 修改时间:2017
  */
 public class DoctorFragment extends BaseFragment implements MainDoctorView {
+
     @BindView(R.id.yishengzaixian)
     LinearLayout yishengzaixian;
     @BindView(R.id.person)
     TextView person;
+    @BindView(R.id.Doctor_Province)
+    TextView DoctorProvince;
     @BindView(R.id.mymap)
     ImageView mymap;
     @BindView(R.id.province)
-    RelativeLayout province;
+    LinearLayout province;
     @BindView(R.id.doctor_name)
     RelativeLayout doctorName;
     @BindView(R.id.hospital)
     RelativeLayout hospital;
+    @BindView(R.id.Search_Text)
+    TextView SearchText;
     @BindView(R.id.sousuo)
     RelativeLayout sousuo;
     @BindView(R.id.chaxun)
@@ -74,24 +82,32 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
     LinearLayout LinearColor2;
     @BindView(R.id.textView)
     TextView textView;
+    @BindView(R.id.Doctor_HuanYiHuan)
+    TextView DoctorHuanYiHuan;
     @BindView(R.id.doctor)
     RelativeLayout doctor;
     @BindView(R.id.Doctor_Gridview)
     GridView DoctorGridview;
-    Unbinder unbinder;
-    @BindView(R.id.Doctor_HuanYiHuan)
-    TextView DoctorHuanYiHuan;
-  
+    @BindView(R.id.DocZhiCheng_Back)
+    ImageView DocZhiChengBack;
+    @BindView(R.id.Doc_ZhiCheng_Text)
+    TextView DocZhiChengText;
+    @BindView(R.id.Doc_Back_Dengji)
+    ImageView DocBackDengji;
+    @BindView(R.id.Doc_Dengji_Text)
+    TextView DocDengjiText;
     private List<MainDoctorBean.DataBean> mList;
     private MainDoctorGrieViewAdapter adapter;
     private int Index = 1;
     private IDoctorPresenter presenter;
-    private MyGridLayout mGridLayout1;
+    private MyGridLayout mGridLayout1, mGridLayout2;
     private Button yes;
     private PopupWindow popupWindow_zhicheng;
     private Button sure_btn1;
     private PopupWindow popupWindow_dengji;
     private List<String> mList1;
+    private List<String> mList2;
+
 
     @Override
     protected int getLayoutId() {
@@ -101,12 +117,14 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
     @Override
     protected void initView(View view) {
         mList = new ArrayList<>();
+        mList2 = new ArrayList<>();
         presenter = new DcotorMainImpl(this);
 
         adapter = new MainDoctorGrieViewAdapter(getContext(), mList);
         DoctorGridview.setAdapter(adapter);
 
     }
+
 
     @Override
     protected void initListener() {
@@ -122,11 +140,13 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
                 intent.putExtra("doc_hospital", bean.getHospital());
                 intent.putExtra("doc_content", bean.getGoodat());
                 intent.putExtra("doc_depart", bean.getDepart());
-                intent.putExtra("doc_id",bean.getExpert_id());
+                intent.putExtra("doc_id", bean.getExpert_id());
 
                 App.activity.startActivity(intent);
             }
         });
+
+
     }
 
     /**
@@ -138,12 +158,13 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
             public void onClick(DialogInterface dialog, int which) {
 
             }
-        }).setPositiveButton("确定", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
+        }).setPositiveButton("确定", new
+                DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-            }
-        }).create().show();
+                    }
+                }).create().show();
     }
 
     private void showTechnical(View view) {
@@ -158,26 +179,30 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                DocZhiChengText.setText(mGridLayout1.getLastView().getText());
+
                 popupWindow_zhicheng.dismiss();
             }
         });
+
+
     }
 
     private void initDatas() {
-        mGridLayout1.setDragAble(false);
         mList1 = new ArrayList<String>();
         mList1.add("不限");
         mList1.add("主任医师");
         mList1.add("副主任医师");
         mList1.add("主任医生");
         mList1.add("医师");
-        mGridLayout1.setItems(mList1);
+        mGridLayout1.setmList(mList1);
     }
 
     private void showHosrank(View view) {
 
         View inflate = View.inflate(getActivity(), R.layout.activity_hospital_dengji, null);
-        mGridLayout1 = (MyGridLayout) inflate.findViewById(R.id.dragable_myGridLayout);
+        mGridLayout2 = (MyGridLayout) inflate.findViewById(R.id.DocDengJi_myGridLayout);
         sure_btn1 = (Button) inflate.findViewById(R.id.sure);
         initDatatwo();
         popupWindow_dengji = new PopupWindow(inflate, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, true);
@@ -188,25 +213,27 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
         sure_btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                DocDengjiText.setText(mGridLayout2.getLastView().getText());
+
                 popupWindow_dengji.dismiss();
             }
+
         });
 
     }
 
     private void initDatatwo() {
 
-        mGridLayout1.setDragAble(false);
-        mList1 = new ArrayList<String>();
-        mList1.add("不限");
-        mList1.add("三级甲等");
-        mList1.add("三级乙等");
-        mList1.add("三级丙等");
-        mList1.add("三级");
-        mList1.add("二级甲等");
-        mList1.add("二级已等");
-        mList1.add("二级丙等");
-        mGridLayout1.setItems(mList1);
+        mList2.add("不限");
+        mList2.add("三级甲等");
+        mList2.add("三级乙等");
+        mList2.add("三级丙等");
+        mList2.add("三级");
+        mList2.add("二级甲等");
+        mList2.add("二级已等");
+        mList2.add("二级丙等");
+        mGridLayout2.setmList(mList2);
 
     }
 
@@ -233,11 +260,11 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
 
     }
 
+
+    //跳转字母轴页面
     @Override
     public void getShengFen() {
-        Intent intent = new Intent(getContext(), ZiMuZhouActivity.class);
 
-        startActivity(intent);
     }
 
     @Override
@@ -270,12 +297,43 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
 
     }
 
+    /**
+     * 搜索页面的跳转回传。
+     *
+     * @param requestCode 跳转的返回值
+     * @param resultCode  回传的返回值
+     * @param data        得到的结果
+     */
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 300 && resultCode == 200) {
+            String content = data.getStringExtra("search_content");
+            SearchText.setText(content);
+        }
+        if (requestCode == 400 & resultCode == 250) {
+            String Province = data.getStringExtra("Province");
+            DoctorProvince.setText(Province);
+        }
 
-    @OnClick({R.id.province, R.id.doctor_name,R.id.hospital, R.id.sousuo, R.id.chaxun, R.id.add, R.id.mfwys, R.id.jkgw, R.id.gongneng, R.id.Doctor_HuanYiHuan, R.id.doctor})
+    }
+
+    @OnClick({R.id.Doctor_Province, Search_Text, R.id.province, R.id.doctor_name, R.id.hospital, R.id.sousuo, R.id.chaxun, R.id.add, R.id.mfwys, R.id.jkgw, R.id.gongneng, R.id.Doctor_HuanYiHuan, R.id.doctor})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.Doctor_Province:
+
+                Intent Zintent = new Intent(getContext(), ZiMuZhouActivity.class);
+                startActivityForResult(Zintent, 400);
+                break;
+            case Search_Text:
+                Intent sintent = new Intent(getContext(), DoctorSearchActivity.class);
+                startActivityForResult(sintent, 300);
+                break;
+
+
             case R.id.province:
-                getShengFen();
+
                 break;
             case R.id.hospital:
                 showHosrank(view);
@@ -286,12 +344,14 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
             case R.id.sousuo:
                 break;
             case R.id.chaxun:
+                Intent Cintent = new Intent(getContext(), ChaXunZhunJiaActivity.class);
+                startActivity(Cintent);
                 break;
             case R.id.add:
                 break;
             case R.id.mfwys:
-                Intent intent = new Intent(getContext(), MianFeiWenActivity.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(getContext(), MianFeiWenActivity.class);
+                startActivity(intent1);
                 break;
             case R.id.jkgw:
                 show();
@@ -307,5 +367,20 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
                 break;
         }
     }
+
+
+//    //这是每个gridLayout 的点击事件
+//    @Override
+//    public void setOnItemClickListener(View view, int Position) {
+//
+//        String s = mList2.get(Position);
+//        DocDengjiText.setText(s);
+//        mList2.clear();
+//
+//        String ss = mList1.get(Position);
+//        DocZhiChengText.setText(ss);
+//
+//    }
+
 
 }
