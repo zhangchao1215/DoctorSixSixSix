@@ -56,12 +56,15 @@ public class MianFeiWenActivity extends BaseActivity {
 
 
 
-    @OnClick(R.id.tiwenyisheng)
+    @OnClick({R.id.tiwenyisheng,R.id.mfy_back})
     public void onViewClicked(View view) {
         switch (view.getId()){
             case R.id.tiwenyisheng:
                 Intent intent = new Intent(MianFeiWenActivity.this,WenTiActivity.class);
-//                startActivity(intent);
+                startActivity(intent);
+                break;
+            case R.id.mfy_back:
+                onBackPressed();
                 break;
         }
     }

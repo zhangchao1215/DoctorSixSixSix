@@ -59,19 +59,16 @@ public class WenTiActivity extends BaseActivity {
 
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 
-    @OnClick({R.id.miaoshu, R.id.tjgys})
+    @OnClick({R.id.miaoshu, R.id.tjgys,R.id.account_back})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.miaoshu:
                 break;
             case R.id.tjgys:
+                break;
+            case R.id.account_back:
+                onBackPressed();
                 break;
         }
     }

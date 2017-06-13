@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/phone_title"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#4CBF5C">
+        <ImageView
+            android:id="@+id/phone_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/back_img"/>
+        <TextView
+            android:id="@+id/phone_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textSize="25dp"
+            android:text="我的收藏"
+            android:textColor="#fff"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/phone_Phone"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/phone_title"
+        android:text="157 1282 0818"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/phone_text"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/phone_Phone"
+        android:textSize="15dp"
+        android:gravity="center"
+        android:text="如果当前手机号不再使用，请及时更换手机号"/>
+    <Button
+        android:id="@+id/phone_genghuan"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:background="#4CBF5C"
+        android:text="更换手机号"
+        android:textColor="#ffffff"
+        android:layout_below="@id/phone_text"/>
+
+</RelativeLayout>

@@ -23,7 +23,7 @@ public class App extends Application {
     private void setupDatabase(){
         //创建数据库News.db
         DaoMaster.DevOpenHelper helper=new DaoMaster.DevOpenHelper(this,"news.db",null);
-        //获取数据库操作权限
+        //获取数据库操作.权限
         SQLiteDatabase db = helper.getWritableDatabase();
         //获取数据库对象
         DaoMaster daoMaster = new DaoMaster(db);
