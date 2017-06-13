@@ -38,11 +38,15 @@
         <activity android:name=".view.activity.AddActivity"/>
         <activity android:name=".view.activity.chaxun.ChaXunZhunJiaActivity"/>
         <activity android:name=".view.activity.InformationActivity"/>
+        <activity android:name=".view.activity.InformationActivity"
+            android:launchMode="singleTop">
+        </activity>
         <activity android:name=".view.activity.InforDetail"/>
         <activity android:name=".view.activity.DetailInfor"/>
         <activity android:name=".view.activity.mftw.MianFeiWenActivity"/>
         <activity android:name=".view.activity.mftw.WenTiActivity"/>
         <activity android:name=".view.activity.DoctorSearchActivity" />
+        <activity android:name=".view.activity.FeedBackActivity"/>
     </application>
 
 </manifest>

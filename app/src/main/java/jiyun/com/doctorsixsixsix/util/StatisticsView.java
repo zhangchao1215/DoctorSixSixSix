@@ -64,13 +64,19 @@ public class StatisticsView extends View {
 
     private TextPaint textPaint;
 
+    private boolean boo=false;
+
 
 
     public void setValues(float[] values) {
         this.values = values;
         invalidate();
     }
+    
 
+    public void clearValue(){
+        values=new float[]{};
+    }
 
     public void setBottomStr(String[] bottomStr) {
         this.bottomStr = bottomStr;
@@ -192,6 +198,7 @@ public class StatisticsView extends View {
         canvas.drawPath(mPath,mPathPaint);
 
     }
+
 
     public static int dip2px(Context context, float dpValue) {
         final float scale = context.getResources().getDisplayMetrics().density;

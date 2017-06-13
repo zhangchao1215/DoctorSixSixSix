@@ -1,5 +1,6 @@
 package jiyun.com.doctorsixsixsix.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -72,6 +73,8 @@ public class AboutActivity extends BaseActivity {
             case R.id.account_phone:
                 break;
             case R.id.account_pwd:
+                Intent intent=new Intent(AboutActivity.this,FeedBackActivity.class);
+                startActivity(intent);
                 break;
             case R.id.account_backlogin:
                 break;

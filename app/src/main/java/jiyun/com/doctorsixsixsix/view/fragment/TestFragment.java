@@ -3,6 +3,7 @@ package jiyun.com.doctorsixsixsix.view.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +13,15 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseFragment;
+import jiyun.com.doctorsixsixsix.modle.adapter.ViewAdapter;
 import jiyun.com.doctorsixsixsix.util.StatisticsView;
 import jiyun.com.doctorsixsixsix.view.activity.InformationActivity;
 
@@ -43,8 +48,8 @@ public class TestFragment extends BaseFragment {
     RadioButton year;
     @BindView(R.id.radio_group)
     RadioGroup radioGroup;
-    @BindView(R.id.fragment)
-    StatisticsView fragment;
+    @BindView(R.id.fragmentView)
+    ViewPager fragment;
     @BindView(R.id.wys)
     RadioButton wys;
     @BindView(R.id.zx)
@@ -58,6 +63,8 @@ public class TestFragment extends BaseFragment {
     private String[] strTwo={"第一周","第二周","第三周","第四周"};
     private String[] strThree={"1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"};
     private String[] strFour={"2015","2016","2017","2018","2019"};
+    private ViewAdapter adapter;
+    private List<String[]> mList=new ArrayList<>();
 
     @Override
     protected int getLayoutId() {
@@ -66,7 +73,14 @@ public class TestFragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-        fragment.setBottomStr(strOne);
+        mList.add(strOne);
+        mList.add(strTwo);
+        mList.add(strThree);
+        mList.add(strFour);
+        adapter=new ViewAdapter(mList,getContext());
+        adapter.setFloats(new float[]{80f,90f,100f,105f,85f});
+        adapter.setA(0);
+        fragment.setAdapter(adapter);
     }
 
     @Override
@@ -94,18 +108,47 @@ public class TestFragment extends BaseFragment {
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 switch (checkedId){
                     case R.id.day:
-                        fragment.setBottomStr(strOne);
+                        fragment.setCurrentItem(0);
                         break;
                     case R.id.week:
-                        fragment.setBottomStr(strTwo);
+                        fragment.setCurrentItem(1);
                         break;
                     case R.id.month:
-                        fragment.setBottomStr(strThree);
+                        fragment.setCurrentItem(2);
                         break;
                     case R.id.year:
-                        fragment.setBottomStr(strFour);
+                        fragment.setCurrentItem(3);
                         break;
                 }
+            }
+        });
+        fragment.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position){
+                    case 0:
+                        day.setChecked(true);
+                        break;
+                    case 1:
+                        week.setChecked(true);
+                        break;
+                    case 2:
+                        month.setChecked(true);
+                        break;
+                    case 3:
+                        year.setChecked(true);
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
             }
         });
     }
