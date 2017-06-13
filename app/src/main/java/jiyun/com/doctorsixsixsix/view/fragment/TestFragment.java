@@ -42,7 +42,7 @@ public class TestFragment extends BaseFragment {
     RadioButton year;
     @BindView(R.id.radio_group)
     RadioGroup radioGroup;
-    @BindView(R.id.fragment)
+    @BindView(R.id.fragmentView)
     ViewPager fragment;
     @BindView(R.id.wys)
     RadioButton wys;
