@@ -109,7 +109,7 @@ public class MyGridLayout extends GridLayout {
         //设置当前文本为添加的内容
         mText.setText(stritem);
         //添加textview这个对象
-        addView(mText);
+
 
         LastView = mText;
 
@@ -118,15 +118,13 @@ public class MyGridLayout extends GridLayout {
             public void onClick(View v) {
 
                 if (LastView != null) {
-                    LastView.setBackgroundColor(getResources().getColor(R.color.HuiSe));
-
-                } else {
-                    LastView.setBackgroundColor(getResources().getColor(R.color.HuiSe));
+                    LastView.setBackgroundResource(R.drawable.tv_item_selector);
                 }
-                LastView = (TextView) v;
+                    mText.setBackgroundColor(getResources().getColor(R.color.HuiSe));
+                    LastView = (TextView) v;
             }
         });
-
+        addView(mText);
 
         //可以拖拽
 //        if (boo) {
