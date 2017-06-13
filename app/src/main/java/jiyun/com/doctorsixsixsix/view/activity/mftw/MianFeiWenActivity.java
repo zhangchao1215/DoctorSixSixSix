@@ -61,7 +61,7 @@ public class MianFeiWenActivity extends BaseActivity {
         switch (view.getId()){
             case R.id.tiwenyisheng:
                 Intent intent = new Intent(MianFeiWenActivity.this,WenTiActivity.class);
-//                startActivity(intent);
+                startActivity(intent);
                 break;
             case R.id.mfy_back:
                 onBackPressed();
