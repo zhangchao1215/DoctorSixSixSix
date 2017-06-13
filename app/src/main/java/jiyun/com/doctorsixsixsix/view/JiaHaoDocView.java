@@ -16,6 +16,6 @@ import jiyun.com.doctorsixsixsix.modle.bean.JiaHaoDocBean;
 
 public interface JiaHaoDocView {
 
-    void JiaHao(List<JiaHaoDocBean.DataBean.ScheduleBean.RdtimeBean> lodaList,String  mID);
+    void JiaHao(List<JiaHaoDocBean.DataBean.ScheduleBean.RdtimeBean> lodaList);
 
 }

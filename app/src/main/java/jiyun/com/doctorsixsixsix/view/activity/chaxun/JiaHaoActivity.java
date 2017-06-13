@@ -58,7 +58,6 @@ public class JiaHaoActivity extends BaseActivity implements JiaHaoDocView {
     private IJiaHaoPrestener prestener;
     private List<JiaHaoDocBean.DataBean.ScheduleBean.RdtimeBean> mList;
     private JiaHaoItemAdapter adapter;
-    private String DocId;
 
     @Override
     protected int getLayoutId() {
@@ -120,19 +119,16 @@ public class JiaHaoActivity extends BaseActivity implements JiaHaoDocView {
 
         String id = intent.getStringExtra("doc_id");
 
+        String mId = intent.getStringExtra("document_id");
 
-        prestener.JiaHao(id, "319");
+        prestener.JiaHao(id, mId);
 
         Toast.makeText(this, id, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void JiaHao(List<JiaHaoDocBean.DataBean.ScheduleBean.RdtimeBean> lodaList, String mId) {
+    public void JiaHao(List<JiaHaoDocBean.DataBean.ScheduleBean.RdtimeBean> lodaList) {
         mList.addAll(lodaList);
-
-        DocId = mId;
-
-        adapter.setId(DocId);
 
         adapter.notifyDataSetChanged();
 

@@ -1,7 +1,6 @@
 package jiyun.com.doctorsixsixsix.modle.adapter.doctor;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +11,11 @@ import java.util.List;
 
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.modle.bean.JiaHaoDocBean;
+import jiyun.com.doctorsixsixsix.util.AppUtils;
 
 /**
  * 项目名称: 血压卫士
- * 类描述:
+ * 类描述:  这是加号详情的适配器，还有就是转换时间格式
  * 创建人: Administrator
  * 创建时间: 2017/6/13 11:44
  * 修改人:  张超
@@ -27,21 +27,18 @@ public class JiaHaoItemAdapter extends BaseAdapter {
     private Context context;
     private List<JiaHaoDocBean.DataBean.ScheduleBean.RdtimeBean> mList;
     private String id;
+    private String[] str = {"一", "二", "三", "四", "五", "六", "日"};
 
     public void setId(String id) {
         this.id = id;
     }
 
-    private SharedPreferences mShared;
-    private SharedPreferences.Editor mEditor;
 
     public JiaHaoItemAdapter(Context context, List<JiaHaoDocBean.DataBean.ScheduleBean.RdtimeBean> mList) {
         this.context = context;
         this.mList = mList;
 
-        mShared = context.getSharedPreferences("data", Context.MODE_PRIVATE);
 
-        mEditor = mShared.edit();
     }
 
     @Override
@@ -83,10 +80,18 @@ public class JiaHaoItemAdapter extends BaseAdapter {
             hodle = (mViewHodle) convertView.getTag();
         }
         JiaHaoDocBean.DataBean.ScheduleBean.RdtimeBean bean = mList.get(position);
+        Long aLong = Long.parseLong(bean.getDate());
+        String data = AppUtils.longToString(aLong * 1000, "M月dd日");
+        hodle.mTime.setText(data);
 
-        hodle.mTime.setText(bean.getTitle());
         hodle.mMsg.setText(bean.getMsg());
         hodle.mCount.setText("(" + "剩余" + bean.getAmount() + "个" + ")");
+
+        int i = Integer.parseInt(bean.getWeek());
+
+
+        hodle.mXingqi.setText("星期"+str[i]);
+
         return convertView;
     }
 

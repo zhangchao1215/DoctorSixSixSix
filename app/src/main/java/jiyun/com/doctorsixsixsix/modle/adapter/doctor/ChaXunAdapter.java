@@ -18,7 +18,7 @@ import jiyun.com.doctorsixsixsix.view.activity.chaxun.JiaHaoActivity;
 
 /**
  * 项目名称: 血压卫士
- * 类描述:
+ * 类描述:  查询医生的适配器
  * 创建人: Administrator
  * 创建时间: 2017/6/12 14:54
  * 修改人:  张超
@@ -78,6 +78,7 @@ public class ChaXunAdapter extends BaseAdapter<MainDoctorBean.DataBean> {
         intent.putExtra("doc_content", Bean.getGoodat());
         intent.putExtra("doc_depart", Bean.getDepart());
         intent.putExtra("doc_id", Bean.getExpert_id());
+        intent.putExtra("document_id",Bean.getDocument_id());
         context.startActivity(intent);
         return intent;
 

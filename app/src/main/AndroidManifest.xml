@@ -37,7 +37,6 @@
         <activity android:name=".view.activity.CollectionActivity"/>
         <activity android:name=".view.activity.AddActivity"/>
         <activity android:name=".view.activity.chaxun.ChaXunZhunJiaActivity"/>
-        <activity android:name=".view.activity.InformationActivity"/>
         <activity android:name=".view.activity.InformationActivity"
             android:launchMode="singleTop">
         </activity>

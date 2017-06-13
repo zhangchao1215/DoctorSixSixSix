@@ -10,25 +10,24 @@
         android:layout_weight="1"
         android:background="@drawable/chaxun_doctor_text"
         android:clickable="false"
-       >
+        android:orientation="vertical"
+        >
 
         <TextView
-            android:gravity="center_horizontal"
-            android:textColor="#D9D9D9"
+            android:layout_gravity="center_horizontal"
             android:id="@+id/JiaHao_ItemTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="3dp"
-            android:text="打啊打" />
+            android:text="打啊打"
+            android:textColor="#D9D9D9" />
 
         <TextView
             android:id="@+id/JiaHao_ItemXingqi"
+            android:textColor="#D9D9D9"
+            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="3dp"
-       />
+           />
 
 
     </LinearLayout>
@@ -41,32 +40,32 @@
         android:orientation="vertical">
 
         <TextView
-            android:textColor="#D9D9D9"
             android:id="@+id/JiaHao_ItemMsg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="3dp"
-            android:text="打啊打" />
+            android:text="打啊打"
+            android:textColor="#D9D9D9" />
 
         <TextView
-            android:textColor="#D9D9D9"
             android:id="@+id/JiaHao_ItemCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="3dp"
-            android:text="dada" />
+            android:text="dada"
+            android:textColor="#D9D9D9" />
 
 
     </LinearLayout>
 
     <LinearLayout
-        android:clickable="false"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_weight="1"
-        android:background="@drawable/chaxun_doctor_text">
+        android:background="@drawable/chaxun_doctor_text"
+        android:clickable="false">
 
     </LinearLayout>
 </LinearLayout>
