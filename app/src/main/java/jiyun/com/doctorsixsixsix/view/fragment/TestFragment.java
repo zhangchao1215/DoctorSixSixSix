@@ -24,6 +24,7 @@ import jiyun.com.doctorsixsixsix.base.BaseFragment;
 import jiyun.com.doctorsixsixsix.modle.adapter.ViewAdapter;
 import jiyun.com.doctorsixsixsix.util.StatisticsView;
 import jiyun.com.doctorsixsixsix.view.activity.InformationActivity;
+import jiyun.com.doctorsixsixsix.view.activity.mftw.MianFeiWenActivity;
 
 /**
  * Created by dell on 2017/6/9.
@@ -88,6 +89,13 @@ public class TestFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), InformationActivity.class);
+                startActivity(intent);
+            }
+        });
+        wys.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MianFeiWenActivity.class);
                 startActivity(intent);
             }
         });
