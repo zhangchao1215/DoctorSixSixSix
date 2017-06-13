@@ -47,6 +47,12 @@ public class FeedBackActivity extends BaseActivity {
 
     @Override
     protected void initListener() {
+        feedBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         feedFasong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -40,6 +40,7 @@ public class AccountActivity extends BaseActivity {
     TextView accountPwd;
     @BindView(R.id.account_backlogin)
     Button accountBacklogin;
+    private String phone;
 
     @Override
     protected int getLayoutId() {
@@ -49,7 +50,7 @@ public class AccountActivity extends BaseActivity {
     @Override
     protected void initView() {
         SharedPreferences sharedPreferences = AppUtils.get();
-        String phone = sharedPreferences.getString("phone", "");
+        phone = sharedPreferences.getString("phone", "");
         accountPhone.setText("手机号码"+"           "+phone);
     }
 
@@ -73,6 +74,9 @@ public class AccountActivity extends BaseActivity {
             case R.id.account_title:
                 break;
             case R.id.account_phone:
+                Intent intent=new Intent(AccountActivity.this,PhoneActivity.class);
+                intent.putExtra("phone",phone);
+                startActivity(intent);
                 break;
             case R.id.account_pwd:
                 getDialogTwo();

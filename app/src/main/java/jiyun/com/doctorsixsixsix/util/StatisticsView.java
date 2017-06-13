@@ -153,9 +153,10 @@ public class StatisticsView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        if (bottomStr==null||bottomStr.length==0){
+        if (bottomStr==null||bottomStr.length==0) {
             return;
         }
+        canvas.drawColor(Color.GRAY);
 
         //画左边的线
         canvas.drawLine(bottomGap,getHeight()-leftGap,bottomGap,leftGap,mBorderPaint);
@@ -189,10 +190,12 @@ public class StatisticsView extends View {
                 mPath.moveTo(bottomGap,(dividerCount+1)*leftGap-(values[i]*leftGap/perValue));
             }else{
                 mPath.lineTo((i+1)*bottomGap,(dividerCount+1)*leftGap-(values[i]*leftGap/perValue));
+
             }
             /**
              * 画轨迹圆点
              */
+            mPathPaint.setColor(Color.RED);
             canvas.drawCircle((i+1)*bottomGap,(dividerCount+1)*leftGap-(values[i]*leftGap/perValue),6,circlePaint);
         }
         canvas.drawPath(mPath,mPathPaint);

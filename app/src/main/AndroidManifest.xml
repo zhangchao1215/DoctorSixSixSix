@@ -44,6 +44,7 @@
         <activity android:name=".view.activity.mftw.MianFeiWenActivity"/>
         <activity android:name=".view.activity.mftw.WenTiActivity"/>
         <activity android:name=".view.activity.FeedBackActivity"/>
+        <activity android:name=".view.activity.PhoneActivity"/>
     </application>
 
 </manifest>
