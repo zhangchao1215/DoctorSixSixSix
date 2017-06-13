@@ -118,7 +118,7 @@ public class MyGridLayout extends GridLayout {
             public void onClick(View v) {
 
                 if (LastView != null) {
-                    LastView.setBackgroundResource(R.drawable.tv_item_selector);
+                    LastView.setBackgroundColor(getResources().getColor(R.color.HuiSe));
 
                 } else {
                     LastView.setBackgroundColor(getResources().getColor(R.color.HuiSe));
