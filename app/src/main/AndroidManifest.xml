@@ -46,6 +46,7 @@
         <activity android:name=".view.activity.mftw.MianFeiWenActivity"/>
         <activity android:name=".view.activity.mftw.WenTiActivity"/>
         <activity android:name=".view.activity.DoctorSearchActivity" />
+       <activity android:name=".view.activity.chaxun.JiaHaoActivity"/>
         <activity android:name=".view.activity.FeedBackActivity"/>
     </application>
 
