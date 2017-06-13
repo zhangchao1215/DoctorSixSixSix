@@ -23,6 +23,7 @@
             android:text="意见反馈"
             android:textColor="#fff"/>
         <TextView
+            android:id="@+id/feed_fasong"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
