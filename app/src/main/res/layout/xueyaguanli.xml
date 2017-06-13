@@ -26,18 +26,6 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="100dp">
-        <ImageView
-            android:id="@+id/img"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/blood_edit"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="请及时记录你的血压数据"
-            android:textSize="20dp"/>
 
         <ImageView
             android:id="@+id/shangchuanxueya"
@@ -56,24 +44,25 @@
         <RadioButton
             android:id="@+id/day"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:button="@null"
             android:checked="true"
-            android:gravity="center_horizontal"
+            android:gravity="center"
+            android:background="@drawable/radio_selector"
             android:text="日"
             android:textSize="20dp"
             android:textColor="#000000" />
         <RadioButton
             android:id="@+id/week"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:button="@null"
-            android:checked="true"
-            android:gravity="center_horizontal"
+            android:gravity="center"
+            android:background="@drawable/radio_selector"
             android:text="周"
             android:textSize="20dp"
             android:textColor="#000000" />
@@ -81,12 +70,12 @@
         <RadioButton
             android:id="@+id/month"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:button="@null"
-            android:checked="true"
-            android:gravity="center_horizontal"
+            android:gravity="center"
+            android:background="@drawable/radio_selector"
             android:text="月"
             android:textColor="#000000"
             android:textSize="20dp" />
@@ -94,23 +83,29 @@
         <RadioButton
             android:id="@+id/year"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:button="@null"
-            android:checked="true"
-            android:gravity="center_horizontal"
+            android:background="@drawable/radio_selector"
+            android:gravity="center"
             android:text="年"
             android:textSize="20dp"
             android:textColor="#000000" />
     </RadioGroup>
-
+    <TextView
+        android:id="@+id/xueya_fenge"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_alignParentBottom="true"
+        android:background="#aaaa"/>
 
     <RadioGroup
+        android:layout_above="@id/xueya_fenge"
         android:id="@+id/zixun"
         android:layout_width="match_parent"
         android:layout_alignParentBottom="true"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:orientation="horizontal">
         <RadioButton
             android:id="@+id/wys"
@@ -143,6 +138,7 @@
             android:text="提醒"
             android:textColor="#000000" />
     </RadioGroup>
+
     <android.support.v4.view.ViewPager
         android:id="@+id/fragmentView"
         android:layout_marginTop="20dp"

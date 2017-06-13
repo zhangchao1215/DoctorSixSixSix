@@ -3,6 +3,7 @@ package jiyun.com.doctorsixsixsix.view.activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -107,7 +108,8 @@ public class DetailInfor extends BaseActivity implements DetailView {
                 title=dataBean.getTitle();
                 inforTitle.setText(dataBean.getTitle());
                 inforOrder.setText(Html.fromHtml(dataBean.getBody()));
-                inforDate.setText(AppUtils.longToString(dataBean.getPubdate(), "yyyy年M月dd日 hh:mm:ss"));
+                long time=dataBean.getPubdate();
+                inforDate.setText(AppUtils.longToString(time*1000, "yyyy年M月dd日 hh:mm:ss"));
             }
         });
         handler.postDelayed(new Runnable() {

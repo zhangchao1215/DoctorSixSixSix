@@ -32,8 +32,6 @@ import jiyun.com.doctorsixsixsix.view.activity.InformationActivity;
 public class TestFragment extends BaseFragment {
     @BindView(R.id.xueyaguanli)
     LinearLayout xueyaguanli;
-    @BindView(R.id.img)
-    ImageView img;
     @BindView(R.id.shangchuanxueya)
     ImageView shangchuanxueya;
     @BindView(R.id.xueyajilu)
@@ -81,26 +79,16 @@ public class TestFragment extends BaseFragment {
         adapter.setFloats(new float[]{80f,90f,100f,105f,85f});
         adapter.setA(0);
         fragment.setAdapter(adapter);
+        fragment.setCurrentItem(0);
     }
 
     @Override
     protected void initListener() {
-        wys.setChecked(false);
-        zx.setChecked(false);
-        tx.setChecked(false);
-        zixun.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        zx.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                switch (checkedId){
-                    case R.id.wys:
-                        break;
-                    case R.id.zx:
-                        Intent intent=new Intent(getActivity(), InformationActivity.class);
-                        startActivity(intent);
-                        break;
-                    case R.id.tx:
-                        break;
-                }
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), InformationActivity.class);
+                startActivity(intent);
             }
         });
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

@@ -64,7 +64,7 @@ public class InforAdapter extends BaseAdapter {
         Information.DataBean dataBean=mList.get(position);
         holder.title.setText(dataBean.getTitle());
         holder.order.setText(dataBean.getDescription());
-        String s = AppUtils.longToString(dataBean.getPubdate(), "yyyy年M月dd日 hh:mm:ss");
+        String s = AppUtils.longToString(dataBean.getPubdate()*1000, "yyyy年M月dd日 hh:mm:ss");
         holder.date.setText(s);
         return convertView;
     }
