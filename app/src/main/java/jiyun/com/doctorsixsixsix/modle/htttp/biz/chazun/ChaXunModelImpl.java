@@ -19,7 +19,7 @@ import jiyun.com.doctorsixsixsix.modle.urlutils.URLUtils;
 
 public class ChaXunModelImpl implements IChaXunModel {
     @Override
-    public void ChaXun(int Index, MyCallBack callBack) {
+    public void ChaXun(int Index,String province,String title ,String medit, MyCallBack callBack) {
         Map<String,String> map = new HashMap<>();
         map.put("tag","BloodAndroid");
         map.put("sign","2c19b2821ebc5306c3ac37bac5b4288b");
@@ -27,9 +27,9 @@ public class ChaXunModelImpl implements IChaXunModel {
         map.put("fun","SearchDoctor");
         map.put("pageCount", URLUtils.PAGESIZE);
         map.put("pageNum",URLUtils.PAGEINDEX);
-        map.put("province","");
-        map.put("title","");
-        map.put("keyword","");
+        map.put("province",province);
+        map.put("title",title);
+        map.put("keyword",medit);
         map.put("illid","%E9%AB%98%E8%A1%80%E5%8E%8B");
         map.put("IsPlus","0");
         map.put("level","");

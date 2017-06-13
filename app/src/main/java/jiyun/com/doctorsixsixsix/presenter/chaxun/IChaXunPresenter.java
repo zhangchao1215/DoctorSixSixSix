@@ -12,5 +12,5 @@ package jiyun.com.doctorsixsixsix.presenter.chaxun;
 
 public interface IChaXunPresenter {
 
-    void ChaXun(int Index);
+    void ChaXun(int Index,String province,String title ,String medit);
 }

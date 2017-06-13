@@ -107,6 +107,8 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
     private PopupWindow popupWindow_dengji;
     private List<String> mList1;
     private List<String> mList2;
+    private String province1;
+    private String content;
 
 
     @Override
@@ -220,7 +222,7 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
             }
 
         });
-
+        mList2.clear();
     }
 
     private void initDatatwo() {
@@ -308,12 +310,12 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 300 && resultCode == 200) {
-            String content = data.getStringExtra("search_content");
+            content = data.getStringExtra("search_content");
             SearchText.setText(content);
         }
         if (requestCode == 400 & resultCode == 250) {
-            String Province = data.getStringExtra("Province");
-            DoctorProvince.setText(Province);
+            province1 = data.getStringExtra("Province");
+            DoctorProvince.setText(province1);
         }
 
     }
@@ -345,6 +347,10 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
                 break;
             case R.id.chaxun:
                 Intent Cintent = new Intent(getContext(), ChaXunZhunJiaActivity.class);
+                Cintent.putExtra("province", province1);
+                Cintent.putExtra("content", content);
+                Cintent.putExtra("dengji", DocDengjiText.getText().toString());
+
                 startActivity(Cintent);
                 break;
             case R.id.add:

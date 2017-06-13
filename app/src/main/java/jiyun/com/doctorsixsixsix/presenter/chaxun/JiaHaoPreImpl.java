@@ -15,7 +15,7 @@ import jiyun.com.doctorsixsixsix.view.JiaHaoDocView;
 
 /**
  * 项目名称: 血压卫士
- * 类描述:
+ * 类描述:  这是解析查询医生详情，里面的加号的解析
  * 创建人: Administrator
  * 创建时间: 2017/6/13 11:27
  * 修改人:  张超
@@ -54,7 +54,7 @@ public class JiaHaoPreImpl implements IJiaHaoPrestener {
                     if (rdtime.size() < 0)
                         return;
 
-                    docView.JiaHao(rdtime, data.getId());
+                    docView.JiaHao(rdtime);
                 }catch (JsonSyntaxException e){
                     Log.d("失败", "失败");
                 }

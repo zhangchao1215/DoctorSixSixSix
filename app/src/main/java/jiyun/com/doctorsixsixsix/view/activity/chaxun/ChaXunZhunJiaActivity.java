@@ -1,6 +1,8 @@
 package jiyun.com.doctorsixsixsix.view.activity.chaxun;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -53,7 +55,18 @@ public class ChaXunZhunJiaActivity extends BaseActivity implements ChaXunZhuanJi
         pullRecycler.setLayoutManager(manager);
 
         presenter = new ChaXunPreImpl(this);
-        presenter.ChaXun(Index);
+
+        Intent intent = getIntent();
+
+        String province = intent.getStringExtra("province");
+
+        String content = intent.getStringExtra("content");
+
+        String dengji = intent.getStringExtra("dengji");
+
+        presenter.ChaXun(Index, "", "", "");
+
+        Log.d("ChaXunZhunJiaActivity", province + content + dengji);
 
         adapter = new ChaXunAdapter(this, mList);
         pullRecycler.setAdapter(adapter);

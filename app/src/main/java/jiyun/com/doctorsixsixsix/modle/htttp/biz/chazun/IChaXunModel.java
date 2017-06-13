@@ -13,6 +13,6 @@ import jiyun.com.doctorsixsixsix.modle.callback.MyCallBack;
  */
 
 public interface IChaXunModel {
-    void ChaXun(int Index, MyCallBack callBack);
+    void ChaXun(int Index,String province,String title ,String medit, MyCallBack callBack);
 
 }

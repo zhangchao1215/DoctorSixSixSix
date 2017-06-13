@@ -14,8 +14,8 @@ import jiyun.com.doctorsixsixsix.view.ChaXunZhuanJiaView;
 
 /**
  * 项目名称: 血压卫士
- * 类描述:
- * 创建人: Administrator
+ * 类描述:  这是查询医生的P层,得到所有的内容，进行查询
+ * 创建人: 张超
  * 创建时间: 2017/6/12 14:48
  * 修改人:  张超
  * 修改内容:
@@ -32,8 +32,8 @@ public class ChaXunPreImpl implements IChaXunPresenter {
     }
 
     @Override
-    public void ChaXun(int Index) {
-        model.ChaXun(Index, new MyCallBack() {
+    public void ChaXun(int Index,String province,String title ,String medit) {
+        model.ChaXun(Index,province,title,medit, new MyCallBack() {
             @Override
             public void onSuccess(String GsonData) {
 //                MainDoctorBean bean = (MainDoctorBean) GsonUtils.getBean(GsonData, MainDoctorBean.class);
