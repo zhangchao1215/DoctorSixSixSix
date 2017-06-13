@@ -56,6 +56,7 @@ public class ChaXunZhunJiaActivity extends BaseActivity implements ChaXunZhuanJi
 
         presenter = new ChaXunPreImpl(this);
 
+        //跳转基本没用
         Intent intent = getIntent();
 
         String province = intent.getStringExtra("province");
