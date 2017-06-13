@@ -1,13 +1,9 @@
 package jiyun.com.doctorsixsixsix.view.fragment;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -17,13 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseFragment;
 import jiyun.com.doctorsixsixsix.modle.adapter.ViewAdapter;
-import jiyun.com.doctorsixsixsix.util.StatisticsView;
 import jiyun.com.doctorsixsixsix.view.activity.InformationActivity;
+import jiyun.com.doctorsixsixsix.view.activity.mftw.MianFeiWenActivity;
+import jiyun.com.doctorsixsixsix.view.activity.tixing.RemindActivity;
 
 /**
  * Created by dell on 2017/6/9.
@@ -46,7 +42,7 @@ public class TestFragment extends BaseFragment {
     RadioButton year;
     @BindView(R.id.radio_group)
     RadioGroup radioGroup;
-    @BindView(R.id.fragmentView)
+    @BindView(R.id.fragment)
     ViewPager fragment;
     @BindView(R.id.wys)
     RadioButton wys;
@@ -85,9 +81,22 @@ public class TestFragment extends BaseFragment {
     @Override
     protected void initListener() {
         zx.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), InformationActivity.class);
+                startActivity(intent);
+            }
+        });
+        wys.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MianFeiWenActivity.class);
+                startActivity(intent);
+            }
+        });
+        tx.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), RemindActivity.class);
                 startActivity(intent);
             }
         });

@@ -318,6 +318,7 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
             DoctorProvince.setText(province1);
         }
 
+    @OnClick({R.id.province, R.id.mymap,R.id.doctor_name,R.id.hospital, R.id.sousuo, R.id.chaxun, R.id.add, R.id.mfwys, R.id.jkgw, R.id.gongneng, R.id.Doctor_HuanYiHuan, R.id.doctor})
     }
 
     @OnClick({R.id.Doctor_Province, Search_Text, R.id.province, R.id.doctor_name, R.id.hospital, R.id.sousuo, R.id.chaxun, R.id.add, R.id.mfwys, R.id.jkgw, R.id.gongneng, R.id.Doctor_HuanYiHuan, R.id.doctor})
@@ -335,6 +336,9 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
 
 
             case R.id.province:
+                getShengFen();
+                break;
+            case R.id.mymap:
 
                 break;
             case R.id.hospital:
@@ -373,20 +377,5 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
                 break;
         }
     }
-
-
-//    //这是每个gridLayout 的点击事件
-//    @Override
-//    public void setOnItemClickListener(View view, int Position) {
-//
-//        String s = mList2.get(Position);
-//        DocDengjiText.setText(s);
-//        mList2.clear();
-//
-//        String ss = mList1.get(Position);
-//        DocZhiChengText.setText(ss);
-//
-//    }
-
 
 }
