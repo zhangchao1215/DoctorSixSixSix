@@ -72,6 +72,7 @@ public class ChaXunZhunJiaActivity extends BaseActivity implements ChaXunZhuanJi
         pullRecycler.setAdapter(adapter);
 
     }
+//
 
     @Override
     protected void initListener() {
