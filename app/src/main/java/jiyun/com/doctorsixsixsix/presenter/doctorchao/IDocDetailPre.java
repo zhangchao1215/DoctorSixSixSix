@@ -12,6 +12,7 @@ package jiyun.com.doctorsixsixsix.presenter.doctorchao;
 
 public interface IDocDetailPre {
 
+    //bvvhvhvhvh
     void DocDetail(int expertid,int Index);
 
 }
