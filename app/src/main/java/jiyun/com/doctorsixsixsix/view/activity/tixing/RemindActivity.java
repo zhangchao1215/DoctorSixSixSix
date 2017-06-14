@@ -19,7 +19,6 @@ import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseActivity;
 import jiyun.com.doctorsixsixsix.modle.adapter.TiXingAdapter;
 import jiyun.com.doctorsixsixsix.modle.bean.Time;
-import jiyun.com.doctorsixsixsix.view.activity.tixing.db.MyHepler;
 
 /**
  * 项目名称: 血压卫士
@@ -41,7 +40,6 @@ public class RemindActivity extends BaseActivity {
     ImageView remindAdd;
     @BindView(R.id.remind_relative)
     RelativeLayout remindRelative;
-    private MyHepler myHelper;
     private List<Time> lists;
     private ListView lv;
     private TiXingAdapter adapter;
@@ -54,8 +52,6 @@ public class RemindActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        myHelper = new MyHepler(getApplicationContext());
-        myHelper.getReadableDatabase();
 
         lists = new ArrayList<Time>();
         //找到控件

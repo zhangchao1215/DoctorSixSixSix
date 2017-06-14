@@ -58,6 +58,7 @@
         </receiver>
         <activity android:name=".view.activity.PhoneActivity"/>
         <activity android:name=".view.activity.VerificationActivity"/>
+        <activity android:name=".view.activity.RecordActivity"/>
     </application>
 
 </manifest>

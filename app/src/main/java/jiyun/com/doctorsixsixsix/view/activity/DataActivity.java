@@ -210,7 +210,7 @@ public class DataActivity extends BaseActivity implements DataView {
         picker= (NumberPicker) view.findViewById(R.id.dialog_picker);
         picker.setMaxValue(199);
         picker.setMinValue(40);
-        picker.setValue(160);
+        picker.setValue(Integer.parseInt(height));
         picker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener(){
 
             @Override
@@ -239,7 +239,7 @@ public class DataActivity extends BaseActivity implements DataView {
         picker= (NumberPicker) view.findViewById(R.id.dialog_picker);
         picker.setMaxValue(180);
         picker.setMinValue(40);
-        picker.setValue(80);
+        picker.setValue(Integer.parseInt(weight));
         picker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener(){
 
             @Override

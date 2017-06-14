@@ -1,6 +1,8 @@
 package jiyun.com.doctorsixsixsix.view.activity;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +15,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseActivity;
+import jiyun.com.doctorsixsixsix.util.AppUtils;
 
 /**
  * 项目名称: 血压卫士
@@ -71,6 +74,7 @@ public class AboutActivity extends BaseActivity {
             case R.id.account_title:
                 break;
             case R.id.account_phone:
+                gotoRate();
                 break;
             case R.id.account_pwd:
                 Intent intent=new Intent(AboutActivity.this,FeedBackActivity.class);
@@ -81,10 +85,13 @@ public class AboutActivity extends BaseActivity {
         }
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
+    private void gotoRate(){
+        Uri uri = Uri.parse("market://details?id=" + getPackageName());
+        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        try {
+            startActivity(goToMarket);
+        } catch (ActivityNotFoundException e) {
+            AppUtils.toast("尚未安装应用市场，无法评分");
+        }
     }
 }

@@ -25,6 +25,12 @@ import jiyun.com.doctorsixsixsix.util.StatisticsView;
 public class ViewAdapter extends PagerAdapter {
     private List<String[]> str;
     private float[] floats={};
+    private float[] floats1={};
+
+    public void setFloats1(float[] floats1) {
+        this.floats1 = floats1;
+    }
+
     private Context context;
     private int a=0;
 
@@ -63,6 +69,7 @@ public class ViewAdapter extends PagerAdapter {
         statisticsView.setBottomStr(str.get(position));
         if(a==position) {
             statisticsView.setValues(floats);
+            statisticsView.setValuesOne(floats1);
         }
         container.addView(view);
         return view;

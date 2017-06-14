@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.text.TextPaint;
 import android.util.AttributeSet;
+import android.util.Printer;
 import android.view.View;
 
 import jiyun.com.doctorsixsixsix.R;
@@ -32,6 +33,8 @@ public class StatisticsView extends View {
     //画折线图
     private Paint mPathPaint;
 
+    private Paint mPathPaintTwo;
+
     private Path mPath;
 
     //纵轴最大值
@@ -53,6 +56,7 @@ public class StatisticsView extends View {
 
     //具体的值
     private float[] values = {};
+    private float[] valuesOne = {};
 
 
     //底部横轴单位间距
@@ -70,6 +74,11 @@ public class StatisticsView extends View {
 
     public void setValues(float[] values) {
         this.values = values;
+        invalidate();
+    }
+
+    public void setValuesOne(float[] values) {
+        this.valuesOne = values;
         invalidate();
     }
     
@@ -105,6 +114,7 @@ public class StatisticsView extends View {
         mBorderPaint = new Paint();
         circlePaint = new Paint();
         mPathPaint = new Paint();
+        mPathPaintTwo=new Paint();
 
 
         mBorderPaint.setAntiAlias(true);
@@ -115,6 +125,10 @@ public class StatisticsView extends View {
         mPathPaint.setAntiAlias(true);
         mPathPaint.setStyle(Paint.Style.STROKE);
         mPathPaint.setStrokeWidth(3);
+
+        mPathPaintTwo.setAntiAlias(true);
+        mPathPaintTwo.setStyle(Paint.Style.STROKE);
+        mPathPaintTwo.setStrokeWidth(3);
 
         textPaint = new TextPaint();
         textPaint.setColor(textColor);
@@ -195,10 +209,25 @@ public class StatisticsView extends View {
             /**
              * 画轨迹圆点
              */
-            mPathPaint.setColor(Color.RED);
+            mPathPaint.setColor(Color.GREEN);
             canvas.drawCircle((i+1)*bottomGap,(dividerCount+1)*leftGap-(values[i]*leftGap/perValue),6,circlePaint);
         }
         canvas.drawPath(mPath,mPathPaint);
+
+        for (int i = 0;i<valuesOne.length;i++){
+            if (i==0){
+                mPath.moveTo(bottomGap,(dividerCount+1)*leftGap-(valuesOne[i]*leftGap/perValue));
+            }else{
+                mPath.lineTo((i+1)*bottomGap,(dividerCount+1)*leftGap-(valuesOne[i]*leftGap/perValue));
+
+            }
+            /**
+             * 画轨迹圆点
+             */
+            mPathPaintTwo.setColor(Color.RED);
+            canvas.drawCircle((i+1)*bottomGap,(dividerCount+1)*leftGap-(valuesOne[i]*leftGap/perValue),6,circlePaint);
+        }
+        canvas.drawPath(mPath,mPathPaintTwo);
 
     }
 

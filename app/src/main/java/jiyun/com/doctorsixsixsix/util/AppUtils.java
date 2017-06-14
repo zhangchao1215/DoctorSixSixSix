@@ -27,6 +27,7 @@ public class AppUtils {
     private static SharedPreferences preferences=App.activity.getSharedPreferences("data", Context.MODE_PRIVATE);
     private static SharedPreferences.Editor editor=preferences.edit();
 
+
     public static void dialog(){
         dialog=new ProgressDialog(App.activity);
         dialog.setMax(100);

@@ -9,17 +9,28 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import org.greenrobot.greendao.query.QueryBuilder;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.Unbinder;
+import jiyun.com.doctorsixsixsix.App;
+import jiyun.com.doctorsixsixsix.Dao.XueYaDao;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseFragment;
 import jiyun.com.doctorsixsixsix.modle.adapter.ViewAdapter;
+import jiyun.com.doctorsixsixsix.modle.bean.XueYa;
+import jiyun.com.doctorsixsixsix.util.AppUtils;
+import jiyun.com.doctorsixsixsix.view.RecordView;
 import jiyun.com.doctorsixsixsix.view.activity.InformationActivity;
+import jiyun.com.doctorsixsixsix.view.activity.RecordActivity;
 import jiyun.com.doctorsixsixsix.view.activity.mftw.MianFeiWenActivity;
 import jiyun.com.doctorsixsixsix.view.activity.tixing.RemindActivity;
+
+import static android.R.attr.id;
+import static android.R.attr.type;
 
 /**
  * Created by dell on 2017/6/9.
@@ -59,6 +70,9 @@ public class TestFragment extends BaseFragment {
     private String[] strFour={"2015","2016","2017","2018","2019"};
     private ViewAdapter adapter;
     private List<String[]> mList=new ArrayList<>();
+    private float[] float1=new float[5];
+    private float[] float2=new float[5];
+    private String id;
 
     @Override
     protected int getLayoutId() {
@@ -67,19 +81,34 @@ public class TestFragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
+        id=AppUtils.get().getString("id","");
         mList.add(strOne);
         mList.add(strTwo);
         mList.add(strThree);
         mList.add(strFour);
+        get();
         adapter=new ViewAdapter(mList,getContext());
-        adapter.setFloats(new float[]{80f,90f,100f,105f,85f});
         adapter.setA(0);
+        adapter.setFloats(float1);
+        adapter.setFloats1(float2);
         fragment.setAdapter(adapter);
         fragment.setCurrentItem(0);
     }
 
     @Override
     protected void initListener() {
+        final boolean login= AppUtils.get().getBoolean("login",false);
+        shangchuanxueya.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(login) {
+                    Intent intent = new Intent(getActivity(), RecordActivity.class);
+                    startActivity(intent);
+                }else{
+                    AppUtils.toast("请先登录再上传");
+                }
+            }
+        });
         zx.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), InformationActivity.class);
@@ -155,4 +184,34 @@ public class TestFragment extends BaseFragment {
 
     }
 
+    private void get(){
+        List<XueYa> list = App.getDaoInstant().getXueYaDao().queryBuilder().list();
+        int a=0;
+        for(XueYa x:list){
+            long datatime = x.getDatatime();
+            long l=System.currentTimeMillis();
+            String s1 = AppUtils.longToString(l, "yyyy-MM-dd");
+            String s = AppUtils.longToString(datatime * 1000, "yyyy-MM-dd");
+            if(s1.equals(s)){
+                String hh1 = AppUtils.longToString(datatime * 1000, "HH");
+                int i = Integer.parseInt(hh1);
+                if(i<=6){
+                    float1[0]= (float) x.getHigh();
+                    float2[0]= (float) x.getLow();
+                }else if(i>6&&i<12){
+                    float1[1]= (float) x.getHigh();
+                    float2[1]= (float) x.getLow();
+                }else if(i>12&&i<18){
+                    float1[2]= (float) x.getHigh();
+                    float2[2]= (float) x.getLow();
+                }else if(i>18&&i<24){
+                    float1[3]= (float) x.getHigh();
+                    float2[3]= (float) x.getLow();
+                }else if(i==24){
+                    float1[4]= (float) x.getHigh();
+                    float2[4]= (float) x.getLow();
+                }
+                }
+        }
+    }
 }

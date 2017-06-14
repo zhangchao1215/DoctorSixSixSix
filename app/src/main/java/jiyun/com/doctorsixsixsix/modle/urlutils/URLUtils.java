@@ -26,4 +26,6 @@ public class URLUtils {
     public static final String COLLECT="http://api.yun.xywy.com/index.php/app/collect/post/";
     //POST
     public static final String ISCOLLECT="http://api.yun.xywy.com/index.php/app/collect/is_collected/";
+    //GET
+    public static final String XUEYA="http://api.yun.xywy.com/index.php/api/setdata/data_all/";
 }
