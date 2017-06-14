@@ -54,7 +54,7 @@ public class SharedFragment extends BaseFragment implements DocShareView, DocSha
 
         Intent intent = getActivity().getIntent();
         id = intent.getStringExtra("doc_id");
-        sharePresenter.DocShare(id);
+
 
         adapter = new DocShareRecyAdapter(mList);
 
@@ -68,7 +68,7 @@ public class SharedFragment extends BaseFragment implements DocShareView, DocSha
 
     @Override
     protected void initData() {
-
+        sharePresenter.DocShare(id);
     }
 
     @Override

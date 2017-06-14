@@ -9,28 +9,20 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import org.greenrobot.greendao.query.QueryBuilder;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.Unbinder;
 import jiyun.com.doctorsixsixsix.App;
-import jiyun.com.doctorsixsixsix.Dao.XueYaDao;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseFragment;
 import jiyun.com.doctorsixsixsix.modle.adapter.ViewAdapter;
 import jiyun.com.doctorsixsixsix.modle.bean.XueYa;
 import jiyun.com.doctorsixsixsix.util.AppUtils;
-import jiyun.com.doctorsixsixsix.view.RecordView;
 import jiyun.com.doctorsixsixsix.view.activity.InformationActivity;
 import jiyun.com.doctorsixsixsix.view.activity.RecordActivity;
 import jiyun.com.doctorsixsixsix.view.activity.mftw.MianFeiWenActivity;
 import jiyun.com.doctorsixsixsix.view.activity.tixing.RemindActivity;
-
-import static android.R.attr.id;
-import static android.R.attr.type;
 
 /**
  * Created by dell on 2017/6/9.
@@ -63,7 +55,6 @@ public class TestFragment extends BaseFragment {
     RadioButton tx;
     @BindView(R.id.zixun)
     RadioGroup zixun;
-    Unbinder unbinder;
     private String[] strOne={"0点","6点","12点","18点","24点"};
     private String[] strTwo={"第一周","第二周","第三周","第四周"};
     private String[] strThree={"1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"};

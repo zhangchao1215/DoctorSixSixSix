@@ -1,6 +1,7 @@
 package jiyun.com.doctorsixsixsix.view.fragment.detailfragment;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
@@ -37,6 +38,7 @@ public class HuiFuFragment extends BaseFragment implements DoctorHuiFuView {
     private int Index = 1;
     private String expertid;
     private IDocDetailPre docPresenter;
+    Handler handler = new Handler();
 
     @Override
     protected int getLayoutId() {
@@ -51,18 +53,23 @@ public class HuiFuFragment extends BaseFragment implements DoctorHuiFuView {
 
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
 
-         pullRecycler.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL));
+        pullRecycler.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 
         pullRecycler.setLayoutManager(manager);
 
         Intent intent = getActivity().getIntent();
         expertid = intent.getStringExtra("doc_id");
 
-        docPresenter.DocDetail(Integer.parseInt(expertid),Index);
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//            }
+//        }, 500);
 
         adapter = new DoctorDetailAdapter(getContext(), mList);
 
         pullRecycler.setAdapter(adapter);
+
 
     }
 
@@ -73,6 +80,7 @@ public class HuiFuFragment extends BaseFragment implements DoctorHuiFuView {
 
     @Override
     protected void initData() {
+        docPresenter.DocDetail(Integer.parseInt(expertid), Index);
 
     }
 
@@ -81,6 +89,7 @@ public class HuiFuFragment extends BaseFragment implements DoctorHuiFuView {
     public void DocHuiFu(List<DoctorDetailBean.DataBean> LodaList) {
         mList.addAll(LodaList);
         adapter.notifyDataSetChanged();
+
     }
 
 }

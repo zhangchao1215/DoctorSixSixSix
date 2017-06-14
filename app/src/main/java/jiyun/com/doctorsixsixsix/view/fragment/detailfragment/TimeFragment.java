@@ -48,7 +48,6 @@ public class TimeFragment extends BaseFragment implements IOutCallView {
         id = intent.getStringExtra("document_id");
 
         prestener = new OutCallPreImpl(this);
-        prestener.KeCheng(id);
 
         list.add("");
         list.add("");
@@ -125,6 +124,7 @@ public class TimeFragment extends BaseFragment implements IOutCallView {
 
     @Override
     protected void initData() {
+        prestener.KeCheng(id);
 
     }
 
