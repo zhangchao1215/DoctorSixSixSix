@@ -39,7 +39,7 @@
         <jiyun.com.doctorsixsixsix.view.activity.NavieView
             android:id="@+id/ZiMu_Zhou"
             android:layout_width="30dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_margin="16dp" />
 

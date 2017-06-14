@@ -17,6 +17,7 @@ import jiyun.com.doctorsixsixsix.modle.bean.DoctorShareBean;
 import jiyun.com.doctorsixsixsix.presenter.doctorchao.DocSharePreImpl;
 import jiyun.com.doctorsixsixsix.presenter.doctorchao.IDocSharePresenter;
 import jiyun.com.doctorsixsixsix.view.DocShareView;
+import jiyun.com.doctorsixsixsix.view.activity.chaxun.DocSharedDetailActivity;
 
 /**
  * 项目名称: 血压卫士
@@ -80,7 +81,15 @@ public class SharedFragment extends BaseFragment implements DocShareView, DocSha
     //自定义每个item的点击事件
     @Override
     public void onClick(int postion) {
-
+        DoctorShareBean.DataBean dataBean = mList.get(postion);
+        Intent intent = new Intent(getContext(), DocSharedDetailActivity.class);
+        intent.putExtra("Titleid", dataBean.getId());
+        intent.putExtra("title",dataBean.getTitle());
+        intent.putExtra("cateId", dataBean.getCategoryid());
+        startActivity(intent);
+        
+//        Toast.makeText(getContext(), dataBean.getId(), Toast.LENGTH_SHORT).show();
+        
     }
 
 

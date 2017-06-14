@@ -143,7 +143,7 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
                 intent.putExtra("doc_content", bean.getGoodat());
                 intent.putExtra("doc_depart", bean.getDepart());
                 intent.putExtra("doc_id", bean.getExpert_id());
-
+                intent.putExtra("document_id",bean.getDocument_id());
                 App.activity.startActivity(intent);
             }
         });
