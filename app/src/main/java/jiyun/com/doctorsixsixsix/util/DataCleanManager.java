@@ -20,7 +20,7 @@ import java.math.BigDecimal;
 public class DataCleanManager {
     /**
      * * 清除本应用内部缓存(/data/data/com.xxx.xxx/cache) * *
-     *
+     *0
      * @param context
      */
     public static void cleanInternalCache(Context context) {

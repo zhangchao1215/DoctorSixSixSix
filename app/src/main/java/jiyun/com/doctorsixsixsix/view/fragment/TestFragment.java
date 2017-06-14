@@ -129,6 +129,12 @@ public class TestFragment extends BaseFragment {
                 startActivity(intent);
             }
         });
+        fragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppUtils.toast("讲道理这个页面我不写——马杰");
+            }
+        });
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
