@@ -57,6 +57,8 @@ public class PersonlPresenterlmp implements PerSonlPresenter {
                     if(code==10000){
                         AppUtils.toast("头像上传成功");
                         view.upLoadImage(bean.getData(),null);
+                    }else{
+                        AppUtils.toast(bean.getMessage());
                     }
                 }
                 @Override

@@ -57,6 +57,13 @@ public class PhoneActivity extends BaseActivity {
                 onBackPressed();
             }
         });
+        phoneGenghuan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(PhoneActivity.this,VerificationActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

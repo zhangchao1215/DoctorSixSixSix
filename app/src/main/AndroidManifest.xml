@@ -57,6 +57,7 @@
             </intent-filter>
         </receiver>
         <activity android:name=".view.activity.PhoneActivity"/>
+        <activity android:name=".view.activity.VerificationActivity"/>
     </application>
 
 </manifest>

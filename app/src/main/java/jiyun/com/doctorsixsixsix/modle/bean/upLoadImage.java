@@ -1,5 +1,10 @@
 package jiyun.com.doctorsixsixsix.modle.bean;
 
+import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import jiyun.com.doctorsixsixsix.base.BaseBean;
 
 /**
@@ -13,9 +18,17 @@ import jiyun.com.doctorsixsixsix.base.BaseBean;
  */
 
 public class upLoadImage extends BaseBean {
+
+    /**
+     * data : http://xs3.op.xywy.com/api.iu1.xywy.com/ucenter/20170614/4c4b02130873cfc7be5ba138417f991a57147.jpg
+     * status : 2
+     * message :
+     */
+
     private String data;
-    private String status;
+    private int status;
     private String message;
+
 
     public String getData() {
         return data;
@@ -25,11 +38,11 @@ public class upLoadImage extends BaseBean {
         this.data = data;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
