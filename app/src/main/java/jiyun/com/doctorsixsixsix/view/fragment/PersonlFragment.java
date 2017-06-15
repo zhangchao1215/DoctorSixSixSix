@@ -2,19 +2,13 @@ package jiyun.com.doctorsixsixsix.view.fragment;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseFragment;
@@ -100,6 +94,7 @@ public class PersonlFragment extends BaseFragment implements PersonlView {
         }else{
 
         }
+
     }
 
     @Override

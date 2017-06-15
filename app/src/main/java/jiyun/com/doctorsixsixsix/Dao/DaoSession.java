@@ -8,9 +8,11 @@ import org.greenrobot.greendao.database.Database;
 import org.greenrobot.greendao.identityscope.IdentityScopeType;
 import org.greenrobot.greendao.internal.DaoConfig;
 
+import jiyun.com.doctorsixsixsix.Dao.DoctorQuery;
 import jiyun.com.doctorsixsixsix.modle.bean.Time;
 import jiyun.com.doctorsixsixsix.modle.bean.XueYa;
 
+import jiyun.com.doctorsixsixsix.Dao.DoctorQueryDao;
 import jiyun.com.doctorsixsixsix.Dao.TimeDao;
 import jiyun.com.doctorsixsixsix.Dao.XueYaDao;
 
@@ -23,9 +25,11 @@ import jiyun.com.doctorsixsixsix.Dao.XueYaDao;
  */
 public class DaoSession extends AbstractDaoSession {
 
+    private final DaoConfig doctorQueryDaoConfig;
     private final DaoConfig timeDaoConfig;
     private final DaoConfig xueYaDaoConfig;
 
+    private final DoctorQueryDao doctorQueryDao;
     private final TimeDao timeDao;
     private final XueYaDao xueYaDao;
 
@@ -33,22 +37,32 @@ public class DaoSession extends AbstractDaoSession {
             daoConfigMap) {
         super(db);
 
+        doctorQueryDaoConfig = daoConfigMap.get(DoctorQueryDao.class).clone();
+        doctorQueryDaoConfig.initIdentityScope(type);
+
         timeDaoConfig = daoConfigMap.get(TimeDao.class).clone();
         timeDaoConfig.initIdentityScope(type);
 
         xueYaDaoConfig = daoConfigMap.get(XueYaDao.class).clone();
         xueYaDaoConfig.initIdentityScope(type);
 
+        doctorQueryDao = new DoctorQueryDao(doctorQueryDaoConfig, this);
         timeDao = new TimeDao(timeDaoConfig, this);
         xueYaDao = new XueYaDao(xueYaDaoConfig, this);
 
+        registerDao(DoctorQuery.class, doctorQueryDao);
         registerDao(Time.class, timeDao);
         registerDao(XueYa.class, xueYaDao);
     }
     
     public void clear() {
+        doctorQueryDaoConfig.clearIdentityScope();
         timeDaoConfig.clearIdentityScope();
         xueYaDaoConfig.clearIdentityScope();
+    }
+
+    public DoctorQueryDao getDoctorQueryDao() {
+        return doctorQueryDao;
     }
 
     public TimeDao getTimeDao() {

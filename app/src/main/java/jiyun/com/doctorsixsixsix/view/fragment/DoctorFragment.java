@@ -36,6 +36,7 @@ import jiyun.com.doctorsixsixsix.modle.adapter.MainDoctorGrieViewAdapter;
 import jiyun.com.doctorsixsixsix.modle.bean.MainDoctorBean;
 import jiyun.com.doctorsixsixsix.presenter.doctorchao.DcotorMainImpl;
 import jiyun.com.doctorsixsixsix.presenter.doctorchao.IDoctorPresenter;
+import jiyun.com.doctorsixsixsix.util.AppUtils;
 import jiyun.com.doctorsixsixsix.view.MainDoctorView;
 import jiyun.com.doctorsixsixsix.view.activity.DoctorDetailActivity;
 import jiyun.com.doctorsixsixsix.view.activity.DoctorSearchActivity;
@@ -56,18 +57,31 @@ import static jiyun.com.doctorsixsixsix.R.id.Search_Text;
  */
 public class DoctorFragment extends BaseFragment implements MainDoctorView {
 
+
     @BindView(R.id.yishengzaixian)
     LinearLayout yishengzaixian;
     @BindView(R.id.person)
     TextView person;
+    @BindView(R.id.Doc_right)
+    ImageView DocRight;
+    @BindView(R.id._Doctor_province)
+    TextView mDoctorProvince;
     @BindView(R.id.Doctor_Province)
-    TextView DoctorProvince;
+    RelativeLayout DoctorProvince;
     @BindView(R.id.mymap)
     ImageView mymap;
     @BindView(R.id.province)
     LinearLayout province;
+    @BindView(R.id.DocZhiCheng_Back)
+    ImageView DocZhiChengBack;
+    @BindView(R.id.Doc_ZhiCheng_Text)
+    TextView DocZhiChengText;
     @BindView(R.id.doctor_name)
     RelativeLayout doctorName;
+    @BindView(R.id.Doc_Back_Dengji)
+    ImageView DocBackDengji;
+    @BindView(R.id.Doc_Dengji_Text)
+    TextView DocDengjiText;
     @BindView(R.id.hospital)
     RelativeLayout hospital;
     @BindView(R.id.Search_Text)
@@ -96,14 +110,6 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
     RelativeLayout doctor;
     @BindView(R.id.Doctor_Gridview)
     GridView DoctorGridview;
-    @BindView(R.id.DocZhiCheng_Back)
-    ImageView DocZhiChengBack;
-    @BindView(R.id.Doc_ZhiCheng_Text)
-    TextView DocZhiChengText;
-    @BindView(R.id.Doc_Back_Dengji)
-    ImageView DocBackDengji;
-    @BindView(R.id.Doc_Dengji_Text)
-    TextView DocDengjiText;
     @BindView(R.id.doctor_scroll)
     ScrollView doctorScroll;
     Unbinder unbinder;
@@ -120,7 +126,6 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
     private List<String> mList2;
     private String province1;
     private String content;
-    private Handler handler=new Handler();
 
 
     @Override
@@ -182,7 +187,7 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
                 DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent=new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+"4009700120"));
+                        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "4009700120"));
                         startActivity(intent);
                     }
                 }).create().show();
@@ -334,12 +339,12 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
         }
         if (requestCode == 400 & resultCode == 250) {
             province1 = data.getStringExtra("Province");
-            DoctorProvince.setText(province1);
+            mDoctorProvince.setText(province1);
         }
 
     }
 
-    @OnClick({R.id.Doctor_Province, Search_Text, R.id.province, R.id.doctor_name, R.id.hospital, R.id.sousuo, R.id.chaxun, R.id.add, R.id.mfwys, R.id.jkgw, R.id.gongneng, R.id.Doctor_HuanYiHuan, R.id.doctor})
+    @OnClick({R.id.mymap, R.id.Doctor_Province, Search_Text, R.id.province, R.id.doctor_name, R.id.hospital, R.id.sousuo, R.id.chaxun, R.id.add, R.id.mfwys, R.id.jkgw, R.id.gongneng, R.id.Doctor_HuanYiHuan, R.id.doctor})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.Doctor_Province:
@@ -357,7 +362,7 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
                 getShengFen();
                 break;
             case R.id.mymap:
-
+                myMapDialog();
                 break;
             case R.id.hospital:
                 showHosrank(view);
@@ -396,4 +401,43 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
         }
     }
 
+    private Handler handler = new Handler();
+
+    private void myMapDialog() {
+        new AlertDialog.Builder(getActivity()).setTitle("温馨提示").setMessage("您是否允许健康血压使用定位功能.").setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        }).setPositiveButton("确定", new
+                DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        AppUtils.dialog();
+
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                AppUtils.dismiss();
+                                AppUtils.toast("定位成功");
+                            }
+                        }, 1000);
+                    }
+                }).create().show();
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        unbinder = ButterKnife.bind(this, rootView);
+        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
 }

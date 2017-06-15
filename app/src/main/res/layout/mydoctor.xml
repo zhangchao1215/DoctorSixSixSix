@@ -45,16 +45,50 @@
             android:background="#fff"
             android:weightSum="3">
 
-            <TextView
+            <RelativeLayout
                 android:id="@+id/Doctor_Province"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="2.8"
+                android:orientation="horizontal"
                 android:padding="5dp"
-                android:text="省份"
-                android:textSize="18sp" />
+
+
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:text="省份"
+                    android:textSize="18sp" />
+
+
+                <ImageView
+                    android:id="@+id/Doc_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/arrow_right" />
+
+                <TextView
+                    android:id="@+id/_Doctor_province"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/Doc_right"
+                    android:text="北京"
+                    android:textSize="15dp"
+
+                    />
+
+            </RelativeLayout>
 
             <ImageView
                 android:id="@+id/mymap"
@@ -62,6 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="0.2"
+                android:layout_marginRight="10dp"
                 android:src="@drawable/location" />
         </LinearLayout>
 
@@ -83,21 +118,21 @@
 
             <ImageView
                 android:id="@+id/DocZhiCheng_Back"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="5dp"
                 android:src="@drawable/arrow_right" />
 
             <TextView
-                android:textSize="18sp"
                 android:id="@+id/Doc_ZhiCheng_Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="8dp"
-                android:layout_toLeftOf="@id/DocZhiCheng_Back" />
+                android:layout_toLeftOf="@id/DocZhiCheng_Back"
+                android:textSize="18sp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -118,8 +153,8 @@
 
             <ImageView
                 android:id="@+id/Doc_Back_Dengji"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="5dp"
@@ -127,12 +162,12 @@
 
             <TextView
                 android:id="@+id/Doc_Dengji_Text"
-                android:textSize="18sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="8dp"
-                android:layout_toLeftOf="@id/Doc_Back_Dengji" />
+                android:layout_toLeftOf="@id/Doc_Back_Dengji"
+                android:textSize="18sp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -152,8 +187,8 @@
                 android:textSize="18sp" />
 
             <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="5dp"
