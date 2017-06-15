@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.androidkun.PullToRefreshRecyclerView;
+import com.androidkun.callback.PullToRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +54,23 @@ public class ChaXunZhunJiaActivity extends BaseActivity implements ChaXunZhuanJi
         mList = new ArrayList<>();
         LinearLayoutManager manager = new LinearLayoutManager(this);
         pullRecycler.setLayoutManager(manager);
+
+        pullRecycler.setPullToRefreshListener(new PullToRefreshListener() {
+            @Override
+            public void onRefresh() {
+                pullRecycler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                     pullRecycler.setRefreshComplete();
+                    }
+                }, 500);
+            }
+
+            @Override
+            public void onLoadMore() {
+
+            }
+        });
 
         presenter = new ChaXunPreImpl(this);
 
