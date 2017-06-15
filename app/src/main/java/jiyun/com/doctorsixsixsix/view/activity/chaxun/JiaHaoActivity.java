@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseActivity;
 import jiyun.com.doctorsixsixsix.modle.adapter.doctor.JiaHaoItemAdapter;
@@ -55,6 +56,12 @@ public class JiaHaoActivity extends BaseActivity implements JiaHaoDocView {
     ListView JiaHaoListview;
     @BindView(R.id.ChaXun_RelativeLayout)
     RelativeLayout ChaXunRelativeLayout;
+    @BindView(R.id.JiaHao_ImageBack)
+    ImageView JiaHaoImageBack;
+    @BindView(R.id.JiaHao_RelaTitle)
+    RelativeLayout JiaHaoRelaTitle;
+    @BindView(R.id.JiHao_LinearTitle)
+    LinearLayout JiHaoLinearTitle;
     private IJiaHaoPrestener prestener;
     private List<JiaHaoDocBean.DataBean.ScheduleBean.RdtimeBean> mList;
     private JiaHaoItemAdapter adapter;
@@ -132,5 +139,11 @@ public class JiaHaoActivity extends BaseActivity implements JiaHaoDocView {
 
         adapter.notifyDataSetChanged();
 
+    }
+
+
+    @OnClick(R.id.JiaHao_ImageBack)
+    public void onViewClicked() {
+        onBackPressed();
     }
 }

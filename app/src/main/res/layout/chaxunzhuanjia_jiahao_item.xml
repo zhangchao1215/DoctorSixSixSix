@@ -4,79 +4,110 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:layout_margin="8dp"
-        android:id="@+id/JiaHao_Doctor_Image"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_below="@id/chaxun_RelaTitle"
-        android:src="@mipmap/ic_launcher" />
-
     <RelativeLayout
+        android:id="@+id/JiaHao_RelaTitle"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:layout_below="@id/chaxun_RelaTitle"
-        android:layout_toRightOf="@+id/JiaHao_Doctor_Image"
-        android:background="#FFFFFF">
+        android:layout_height="45dp"
+        android:background="#4CBF5C">
 
-        <TextView
-            android:id="@+id/JiaHao_Doctor_Name"
+        <ImageView
+            android:padding="10dp"
+            android:id="@+id/JiaHao_ImageBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="李世民"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/JaiHao_Doctor_YiYuan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/JiaHao_Doctor_Name"
-            android:text="dfdffdf"
-            android:textSize="15sp" />
-
-        <LinearLayout
-            android:id="@+id/center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/JiaHao_Doctor_Name"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:id="@+id/JiaHao_Doctor_JiBie"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:text="zhuasdsd" />
-
-            <TextView
-
-                android:id="@+id/JiaHao_Doctor_KeShi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="zhuasdsd" />
-
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/JiaHao_Doctor_ZhiCheng"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/center"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:text="zhuasdsd" />
+            android:src="@drawable/back_img" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="预约专家"
+            android:textColor="#fff"
+            android:textSize="18dp" />
     </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/JiHao_LinearTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/JiaHao_RelaTitle"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/JiaHao_Doctor_Image"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_below="@id/chaxun_RelaTitle"
+            android:layout_margin="8dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_below="@id/chaxun_RelaTitle"
+            android:layout_toRightOf="@+id/JiaHao_Doctor_Image">
+
+            <TextView
+                android:id="@+id/JiaHao_Doctor_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="李世民"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/JaiHao_Doctor_YiYuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/JiaHao_Doctor_Name"
+                android:text="dfdffdf"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/JiaHao_Doctor_Name"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/JiaHao_Doctor_JiBie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:text="zhuasdsd" />
+
+                <TextView
+
+                    android:id="@+id/JiaHao_Doctor_KeShi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="zhuasdsd" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/JiaHao_Doctor_ZhiCheng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/center"
+                android:layout_marginLeft="10dp"
+                android:text="zhuasdsd" />
+
+        </RelativeLayout>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/JiaHao_Content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/JiaHao_Doctor_Image"
+        android:layout_below="@id/JiHao_LinearTitle"
         android:layout_marginLeft="15dp"
         android:maxLines="2"
         android:text="daddddddddddddddddddddddddddddddddd" />
