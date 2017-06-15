@@ -19,6 +19,7 @@ import jiyun.com.doctorsixsixsix.base.BaseFragment;
 import jiyun.com.doctorsixsixsix.modle.adapter.ViewAdapter;
 import jiyun.com.doctorsixsixsix.modle.bean.XueYa;
 import jiyun.com.doctorsixsixsix.util.AppUtils;
+import jiyun.com.doctorsixsixsix.util.DateUtils;
 import jiyun.com.doctorsixsixsix.view.activity.InformationActivity;
 import jiyun.com.doctorsixsixsix.view.activity.RecordActivity;
 import jiyun.com.doctorsixsixsix.view.activity.mftw.MianFeiWenActivity;
@@ -56,13 +57,15 @@ public class TestFragment extends BaseFragment {
     @BindView(R.id.zixun)
     RadioGroup zixun;
     private String[] strOne={"0点","6点","12点","18点","24点"};
-    private String[] strTwo={"第一周","第二周","第三周","第四周"};
+    private String[] strTwo={"周一","周二","周三","周四","周五","周六","周日"};
     private String[] strThree={"1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"};
     private String[] strFour={"2015","2016","2017","2018","2019"};
     private ViewAdapter adapter;
     private List<String[]> mList=new ArrayList<>();
     private float[] float1=new float[5];
     private float[] float2=new float[5];
+    private float[] floatOne1=new float[7];
+    private float[] floatOne2=new float[7];
     private String id;
 
     @Override
@@ -77,11 +80,7 @@ public class TestFragment extends BaseFragment {
         mList.add(strTwo);
         mList.add(strThree);
         mList.add(strFour);
-        get();
         adapter=new ViewAdapter(mList,getContext());
-        adapter.setA(0);
-        adapter.setFloats(float1);
-        adapter.setFloats1(float2);
         fragment.setAdapter(adapter);
         fragment.setCurrentItem(0);
     }
@@ -123,7 +122,7 @@ public class TestFragment extends BaseFragment {
         fragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AppUtils.toast("讲道理这个页面我不想写，但总感觉不写点什么不太好，所以就写一句话好了——马杰");
+
             }
         });
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -178,7 +177,11 @@ public class TestFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-
+        get();
+        adapter.setA(0);
+        adapter.setFloats(float1);
+        adapter.setFloats1(float2);
+        adapter.notifyDataSetChanged();
     }
 
     private void get(){
@@ -209,6 +212,29 @@ public class TestFragment extends BaseFragment {
                     float2[4]= (float) x.getLow();
                 }
                 }
+            String week = DateUtils.getWeek(x.getDatatime()*1000 + "");
+            if(week.equals("周一")){
+                floatOne1[0]= (float) x.getHigh();
+                floatOne2[0]= (float) x.getLow();
+            }if(week.equals("周二")){
+                floatOne1[1]= (float) x.getHigh();
+                floatOne2[1]= (float) x.getLow();
+            }if(week.equals("周三")){
+                floatOne1[2]= (float) x.getHigh();
+                floatOne2[2]= (float) x.getLow();
+            }if(week.equals("周四")){
+                floatOne1[3]= (float) x.getHigh();
+                floatOne2[3]= (float) x.getLow();
+            }if(week.equals("周五")){
+                floatOne1[4]= (float) x.getHigh();
+                floatOne2[4]= (float) x.getLow();
+            }if(week.equals("周六")){
+                floatOne1[5]= (float) x.getHigh();
+                floatOne2[5]= (float) x.getLow();
+            }if(week.equals("周日")){
+                floatOne1[6]= (float) x.getHigh();
+                floatOne2[6]= (float) x.getLow();
+            }
         }
     }
 }

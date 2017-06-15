@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import jiyun.com.doctorsixsixsix.R;
+import jiyun.com.doctorsixsixsix.util.AppUtils;
 import jiyun.com.doctorsixsixsix.util.StatisticsView;
 
 /**
@@ -71,6 +72,12 @@ public class ViewAdapter extends PagerAdapter {
             statisticsView.setValues(floats);
             statisticsView.setValuesOne(floats1);
         }
+        statisticsView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppUtils.toast("讲道理这个页面我不想写，但总感觉不写点什么不太好，所以就写一句话好了——马杰");
+            }
+        });
         container.addView(view);
         return view;
     }
