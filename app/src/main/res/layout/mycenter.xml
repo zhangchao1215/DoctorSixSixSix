@@ -49,6 +49,7 @@
         android:drawableLeft="@mipmap/img_jiahao"/>
     <TextView
         android:id="@+id/my_shoucang"
+        android:layout_marginTop="1dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/my_jiahao"
@@ -88,6 +89,7 @@
         android:layout_height="50dp"
         android:layout_below="@id/my_message"
         android:drawableRight="@drawable/arrow_right"
+        android:layout_marginTop="1dp"
         android:background="@drawable/text_selector"
         android:text="设置"
         android:gravity="center_vertical"

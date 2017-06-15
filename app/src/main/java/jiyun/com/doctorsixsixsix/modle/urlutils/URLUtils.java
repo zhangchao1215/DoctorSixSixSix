@@ -28,4 +28,6 @@ public class URLUtils {
     public static final String ISCOLLECT="http://api.yun.xywy.com/index.php/app/collect/is_collected/";
     //GET
     public static final String XUEYA="http://api.yun.xywy.com/index.php/api/setdata/data_all/";
+    //POST
+    public static final String FANKUI="http://api.wws.xywy.com/index.php?&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b&act=kbb&fun=user_feedback";
 }

@@ -99,6 +99,9 @@ public class DataActivity extends BaseActivity implements DataView {
         name=AppUtils.get().getString("name","");
         height= AppUtils.get().getString("height","");
         weight=AppUtils.get().getString("weight","");
+        if(weight.equals("")){
+            weight="45";
+        }
         id=AppUtils.get().getString("id","");
         dataName.setText("姓名                "+name);
         dataBirsday.setText("生日                    "+date);

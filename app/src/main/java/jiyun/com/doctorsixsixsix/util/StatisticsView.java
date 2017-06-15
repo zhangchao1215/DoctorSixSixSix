@@ -75,11 +75,13 @@ public class StatisticsView extends View {
     public void setValues(float[] values) {
         this.values = values;
         invalidate();
+        postInvalidate();
     }
 
     public void setValuesOne(float[] values) {
         this.valuesOne = values;
         invalidate();
+        postInvalidate();
     }
     
 
