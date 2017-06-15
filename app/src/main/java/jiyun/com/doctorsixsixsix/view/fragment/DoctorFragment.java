@@ -4,8 +4,12 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
@@ -14,13 +18,16 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 import jiyun.com.doctorsixsixsix.App;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseFragment;
@@ -96,6 +103,9 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
     ImageView DocBackDengji;
     @BindView(R.id.Doc_Dengji_Text)
     TextView DocDengjiText;
+    @BindView(R.id.doctor_scroll)
+    ScrollView doctorScroll;
+    Unbinder unbinder;
     private List<MainDoctorBean.DataBean> mList;
     private MainDoctorGrieViewAdapter adapter;
     private int Index = 1;
@@ -109,6 +119,7 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
     private List<String> mList2;
     private String province1;
     private String content;
+    private Handler handler=new Handler();
 
 
     @Override
@@ -124,6 +135,12 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
 
         adapter = new MainDoctorGrieViewAdapter(getContext(), mList);
         DoctorGridview.setAdapter(adapter);
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                doctorScroll.smoothScrollTo(0, 0);
+            }
+        });
 
     }
 
@@ -143,7 +160,7 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
                 intent.putExtra("doc_content", bean.getGoodat());
                 intent.putExtra("doc_depart", bean.getDepart());
                 intent.putExtra("doc_id", bean.getExpert_id());
-                intent.putExtra("document_id",bean.getDocument_id());
+                intent.putExtra("document_id", bean.getDocument_id());
                 App.activity.startActivity(intent);
             }
         });
