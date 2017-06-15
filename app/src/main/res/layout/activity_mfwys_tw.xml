@@ -46,6 +46,7 @@
         android:layout_height="200dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
+        android:gravity="left"
         android:hint="请尽量详细描述，描述字数不得少于10个字"
         />
     <ImageView
