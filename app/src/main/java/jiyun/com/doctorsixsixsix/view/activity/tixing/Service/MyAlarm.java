@@ -1,17 +1,25 @@
 package jiyun.com.doctorsixsixsix.view.activity.tixing.Service;
 
+import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.provider.MediaStore.Audio;
+import android.support.v7.widget.AlertDialogLayout;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import jiyun.com.doctorsixsixsix.App;
+import jiyun.com.doctorsixsixsix.Dao.TimeDao;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.base.BaseActivity;
+import jiyun.com.doctorsixsixsix.modle.bean.Time;
 
 /**
  * 项目名称: 血压卫士
@@ -24,12 +32,12 @@ import jiyun.com.doctorsixsixsix.base.BaseActivity;
  */
 public class MyAlarm extends BaseActivity {
 
-    private Button mBtn;
-    private TextView tv;
-
     public static final int NOTIFICATION_ID = 1;
-    @BindView(R.id.guanbi)
-    Button guanbi;
+
+    @BindView(R.id.mydialog)
+    AlertDialogLayout mydialog;
+    private List<Time> lists;
+    private String mTime;
 
     @Override
     protected int getLayoutId() {
@@ -38,10 +46,8 @@ public class MyAlarm extends BaseActivity {
 
     @Override
     protected void initView() {
-        mBtn = (Button) findViewById(R.id.guanbi);
-        tv = (TextView) findViewById(R.id.tongzhi);
+        mydialog = (AlertDialogLayout) findViewById(R.id.mydialog);
 
-        tv.setText("Hello, 该吃药了...");
     }
 
     @Override
@@ -52,28 +58,38 @@ public class MyAlarm extends BaseActivity {
     @Override
     protected void initData() {
 
+        TimeDao dbDao = App.getDaoInstant().getTimeDao();
+        lists = dbDao.loadAll();
+        new AlertDialog.Builder(MyAlarm.this).setIcon(R.drawable.ic_launcher)
+                .setTitle("该吃药了").setMessage("时间到了，当前时间为:" + new SimpleDateFormat("HH:mm").format(new Date()))
+                .setPositiveButton("关闭", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        MyAlarm.this.finish();
+                    }
+                }).show();
 
 
     }
 
 
-    @OnClick(R.id.guanbi)
+    @OnClick(R.id.mydialog)
     public void onViewClicked(View v) {
-        switch (v.getId()){
-            case R.id.guanbi:
+        switch (v.getId()) {
+            case R.id.mydialog:
                 // create the instance of NotificationManager
-                final NotificationManager nm=(NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                final NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                 // create the instance of Notification
-                Notification n=new Notification();
-        /* set the sound of the alarm. There are two way of setting the sound */
+                Notification n = new Notification();
+                /* set the sound of the alarm. There are two way of setting the sound */
                 // n.sound=Uri.parse("file:///sdcard/alarm.mp3");
-                n.sound= Uri.withAppendedPath(Audio.Media.INTERNAL_CONTENT_URI, "20");
+                n.sound = Uri.withAppendedPath(Audio.Media.INTERNAL_CONTENT_URI, "20");
                 // Post a notification to be shown in the status bar
                 nm.notify(NOTIFICATION_ID, n);
-
 
                 nm.cancel(NOTIFICATION_ID);
                 finish();
         }
     }
+
 }
