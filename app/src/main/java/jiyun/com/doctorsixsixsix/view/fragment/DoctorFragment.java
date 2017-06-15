@@ -187,7 +187,7 @@ public class DoctorFragment extends BaseFragment implements MainDoctorView {
                 DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "4009700120"));
+                        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "15735971710"));
                         startActivity(intent);
                     }
                 }).create().show();
