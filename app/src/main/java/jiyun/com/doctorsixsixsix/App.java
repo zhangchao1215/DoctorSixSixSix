@@ -1,6 +1,5 @@
 package jiyun.com.doctorsixsixsix;
 
-import android.app.Activity;
 import android.app.Application;
 import android.database.sqlite.SQLiteDatabase;
 

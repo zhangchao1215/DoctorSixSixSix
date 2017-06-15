@@ -5,6 +5,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore.Audio;
 import android.support.v7.widget.AlertDialogLayout;
 import android.view.View;
@@ -14,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import jiyun.com.doctorsixsixsix.App;
 import jiyun.com.doctorsixsixsix.Dao.TimeDao;
@@ -36,6 +38,7 @@ public class MyAlarm extends BaseActivity {
 
     @BindView(R.id.mydialog)
     AlertDialogLayout mydialog;
+
     private List<Time> lists;
     private String mTime;
 
@@ -92,4 +95,10 @@ public class MyAlarm extends BaseActivity {
         }
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
 }
