@@ -1,6 +1,7 @@
 package jiyun.com.doctorsixsixsix.modle.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import java.util.List;
 import jiyun.com.doctorsixsixsix.R;
 import jiyun.com.doctorsixsixsix.util.AppUtils;
 import jiyun.com.doctorsixsixsix.util.StatisticsView;
+import jiyun.com.doctorsixsixsix.view.activity.JiLuActivity;
 
 /**
  * 项目名称: 血压卫士
@@ -75,7 +77,8 @@ public class ViewAdapter extends PagerAdapter {
         statisticsView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AppUtils.toast("讲道理这个页面我不想写，但总感觉不写点什么不太好，所以就写一句话好了——马杰");
+                Intent intent =new Intent(context, JiLuActivity.class);
+                context.startActivity(intent);
             }
         });
         container.addView(view);

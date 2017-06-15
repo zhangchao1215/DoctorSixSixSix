@@ -61,6 +61,7 @@
         <activity android:name=".view.activity.VerificationActivity"/>
         <activity android:name=".view.activity.RecordActivity"/>
         <activity android:name=".view.MainActivity"/>
+        <activity android:name=".view.activity.JiLuActivity"/>
     </application>
 
 </manifest>
