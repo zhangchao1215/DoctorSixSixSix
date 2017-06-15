@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".view.MainActivity">
+        <activity android:name=".view.activity.AnimActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -60,6 +60,7 @@
         <activity android:name=".view.activity.chaxun.DocSharedDetailActivity"/>
         <activity android:name=".view.activity.VerificationActivity"/>
         <activity android:name=".view.activity.RecordActivity"/>
+        <activity android:name=".view.MainActivity"/>
     </application>
 
 </manifest>
